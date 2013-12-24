@@ -1,0 +1,1112 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ZeroLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:ZeroLibrary.XNA.ILoadable">
+            <summary>
+            A loadable component in xna
+            </summary>
+        </member>
+        <member name="M:ZeroLibrary.XNA.ILoadable.Load(Microsoft.Xna.Framework.Content.ContentManager,System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Graphics.SpriteEffects,System.Single)">
+            <summary>
+            Loads the component
+            </summary>
+            <param name="content">contentmanager for the item</param>
+            <param name="filename">the assetname of a file</param>
+            <param name="position">position on the screen</param>
+            <param name="color">the tint of the item</param>
+            <param name="rotation">how much the component is rotated in radians</param>
+            <param name="scale">scaling of the component</param>
+            <param name="effect">component's effect</param>
+            <param name="layer">layer on the screen</param>
+        </member>
+        <member name="T:ZeroLibrary.XNA.ISprite">
+            <summary>
+            component that defines a "Sprite"
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.ISprite.Name">
+            <summary>
+            name of the component
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.ISprite.Position">
+            <summary>
+            location of the component on the screen
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.ISprite.X">
+            <summary>
+            X coords of the component
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.ISprite.Y">
+            <summary>
+            Y coords of the component
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.ISprite.Width">
+            <summary>
+            Width of the component scaled
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.ISprite.Height">
+            <summary>
+            Height of the component scaled
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.ISprite.Color">
+            <summary>
+            Color of the component
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.ISprite.Rotation">
+            <summary>
+            rotation of the component in radians
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.ISprite.Origin">
+            <summary>
+            centering of the component
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.ISprite.Scale">
+            <summary>
+            Scaling of the component
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.ISprite.Effect">
+            <summary>
+            Effect of the component
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.ISprite.Layer">
+            <summary>
+            layer of the component
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.ISprite.Tag">
+            <summary>
+            Tag of the component
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.ISprite.OriginType">
+            <summary>
+            origin type of the component
+            </summary>
+        </member>
+        <member name="T:ZeroLibrary.XNA.MouseArgs">
+            <summary>
+            Mouse Arguments for events handling
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.MouseArgs.X">
+            <summary>
+            X coords for the mouse
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.MouseArgs.Y">
+            <summary>
+            Y coords for the mouse
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.MouseArgs.Button">
+            <summary>
+            returns button that was pressed on the mouse
+            </summary>
+        </member>
+        <member name="T:ZeroLibrary.XNA.AnimatedSprite">
+            <summary>
+            an animatedSprite to handle spriteSheets
+            </summary>
+        </member>
+        <member name="T:ZeroLibrary.XNA.Sprite">
+            <summary>
+            A sprite object to handle sprites easier
+            </summary>
+        </member>
+        <member name="T:ZeroLibrary.XNA.BaseGameObject">
+            <summary>
+            Base game Object class to be inherited from
+            </summary>
+        </member>
+        <member name="T:ZeroLibrary.XNA.IDraw">
+            <summary>
+            A drawable component in xna
+            </summary>
+        </member>
+        <member name="M:ZeroLibrary.XNA.IDraw.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws the component
+            </summary>
+            <param name="spriteBatch">spritebatch on which the component is to be drawn</param>
+            <param name="gameTime">gametime of the game</param>
+        </member>
+        <member name="T:ZeroLibrary.XNA.IUpdate">
+            <summary>
+            an updateable component in xna
+            </summary>
+        </member>
+        <member name="M:ZeroLibrary.XNA.IUpdate.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Updates the component
+            </summary>
+            <param name="gameTime">gametime of the game</param>
+        </member>
+        <member name="M:ZeroLibrary.XNA.BaseGameObject.#ctor(System.String)">
+            <summary>
+            Creates a Game Object with a name
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:ZeroLibrary.XNA.BaseGameObject.Load(Microsoft.Xna.Framework.Content.ContentManager,System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Graphics.SpriteEffects,System.Single)">
+            <summary>
+            Loads the Game Object
+            </summary>
+            <param name="content">ContentManger used to load the Game Object</param>
+            <param name="filename">assetname of the Game Object</param>
+            <param name="position">location on the screen</param>
+            <param name="color">Color of the Game Object</param>
+            <param name="rotation">Game Object rotation in radian</param>
+            <param name="scale">Scaling of the Game Object</param>
+            <param name="effect">SpriteEffect of the Game Object</param>
+            <param name="layer">layer of drawing</param>
+        </member>
+        <member name="M:ZeroLibrary.XNA.BaseGameObject.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Updates the game object
+            </summary>
+            <param name="gameTime">gametime of the game</param>
+        </member>
+        <member name="M:ZeroLibrary.XNA.BaseGameObject.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws the Game object on the screen
+            </summary>
+            <param name="spriteBatch">spritebatch used to draw</param>
+            <param name="gameTime">gametime of the game</param>
+        </member>
+        <member name="M:ZeroLibrary.XNA.BaseGameObject.Intersect(ZeroLibrary.XNA.BaseGameObject)">
+            <summary>
+            Checks if the Game object is intercecting with another game object
+            </summary>
+            <param name="gameObject">Game object in question</param>
+            <returns>returns true if intercecting</returns>
+        </member>
+        <member name="P:ZeroLibrary.XNA.BaseGameObject.Name">
+            <summary>
+            name of the GameObject
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.BaseGameObject.Position">
+            <summary>
+            position of the GameObject on screen
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.BaseGameObject.X">
+            <summary>
+            X Coords of the GameObject
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.BaseGameObject.Y">
+            <summary>
+            Y coords of the GameObject
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.BaseGameObject.Width">
+            <summary>
+            Width of the textsprite
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.BaseGameObject.Height">
+            <summary>
+            height of the GameObject
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.BaseGameObject.BoundingBox">
+            <summary>
+            Bounding Box of the gameObject
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.BaseGameObject.Scale">
+            <summary>
+            Scale of the GameObject
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.BaseGameObject.Color">
+            <summary>
+            Color of the GameObject
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.BaseGameObject.Rotation">
+            <summary>
+            rotation of the GameObject in radians
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.BaseGameObject.Origin">
+            <summary>
+            center of origin of the GameObject
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.BaseGameObject.OriginType">
+            <summary>
+            the origin type of the GameObject
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.BaseGameObject.Effect">
+            <summary>
+            effect of the GameObject
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.BaseGameObject.Layer">
+            <summary>
+            layer of the screen
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.BaseGameObject.Tag">
+            <summary>
+            tag of the GameObject
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.BaseGameObject.Visible">
+            <summary>
+            gets or sets whether the GameObject is visible
+            </summary>
+        </member>
+        <member name="E:ZeroLibrary.XNA.BaseGameObject.MouseEnter">
+            <summary>
+            Occurs when the mouse pointer enters the Game Object for the first time
+            </summary>
+        </member>
+        <member name="E:ZeroLibrary.XNA.BaseGameObject.MouseMove">
+            <summary>
+            Occurs when the mouse pointer moves on the Game Object
+            </summary>
+        </member>
+        <member name="E:ZeroLibrary.XNA.BaseGameObject.MouseClick">
+            <summary>
+            Occurs when the mouse pointer clicks on the Game Object
+            </summary>
+        </member>
+        <member name="E:ZeroLibrary.XNA.BaseGameObject.MouseLeave">
+            <summary>
+            Occurs when the mouse pointer leaves the Game Object
+            </summary>
+        </member>
+        <member name="E:ZeroLibrary.XNA.BaseGameObject.Updated">
+            <summary>
+            Occurs when the update function is called
+            </summary>
+        </member>
+        <member name="M:ZeroLibrary.XNA.Sprite.#ctor(System.String)">
+            <summary>
+            creating a sprite class with a name
+            </summary>
+            <param name="name">name of the sprite</param>
+        </member>
+        <member name="M:ZeroLibrary.XNA.Sprite.Load(Microsoft.Xna.Framework.Content.ContentManager,System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Graphics.SpriteEffects,System.Single)">
+            <summary>
+             Loads the Sprite
+             </summary>
+             <param name="content">ContentManger used to load the Sprite</param>
+             <param name="filename">assetname of the Sprite</param>
+             <param name="position">location on the screen</param>
+             <param name="color">Color of the Sprite</param>
+             <param name="rotation">Sprite rotation in radian</param>
+             <param name="scale">Scaling of the Sprite</param>
+             <param name="effect">SpriteEffect of the Sprite</param>
+             <param name="layer">layer of drawing</param>
+        </member>
+        <member name="M:ZeroLibrary.XNA.Sprite.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws the sprite on the screen
+            </summary>
+            <param name="spriteBatch">spritebatch used to draw</param>
+            <param name="gameTime">gametime of the game</param>
+        </member>
+        <member name="P:ZeroLibrary.XNA.Sprite.FullImage">
+            <summary>
+            Full image of the sprite
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.Sprite.VisibleArea">
+            <summary>
+            Visible area of the sprite
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.Sprite.Width">
+            <summary>
+            Width of the visible sprite scaled
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.Sprite.Height">
+            <summary>
+            Height of the visible sprite scaled
+            </summary>
+        </member>
+        <member name="M:ZeroLibrary.XNA.AnimatedSprite.#ctor(System.String)">
+            <summary>
+            Create an animatedSprite
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:ZeroLibrary.XNA.AnimatedSprite.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Updates an animated sprite
+            </summary>
+            <param name="gameTime">game time of the game</param>
+        </member>
+        <member name="M:ZeroLibrary.XNA.AnimatedSprite.NextFrame">
+            <summary>
+            Moves to the next frame in the list
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.AnimatedSprite.FrameTimer">
+            <summary>
+            Time between each frame
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.AnimatedSprite.FrameCollection">
+            <summary>
+            All frames of the sprite
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.AnimatedSprite.CurrentFrame">
+            <summary>
+            gets the current frame of the animated sprite
+            </summary>
+        </member>
+        <member name="T:ZeroLibrary.XNA.ScreenCollection">
+            <summary>
+            A collection of Screen class
+            </summary>
+        </member>
+        <member name="M:ZeroLibrary.XNA.ScreenCollection.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Updates all the screens in the collection
+            </summary>
+            <param name="gameTime">gametime of the game</param>
+        </member>
+        <member name="M:ZeroLibrary.XNA.ScreenCollection.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws all the screens to a rendertarget first than to the visible screen
+            </summary>
+            <param name="spriteBatch">spritebatch used to draw</param>
+            <param name="gameTime">gametime of the game</param>
+        </member>
+        <member name="P:ZeroLibrary.XNA.ScreenCollection.Item(System.String)">
+            <summary>
+            Gets the specified screen name
+            </summary>
+            <param name="name">name of the screen</param>
+            <returns>the screen object</returns>
+        </member>
+        <member name="T:ZeroLibrary.XNA.IScreen">
+            <summary>
+            A screen component in xna
+            </summary>
+        </member>
+        <member name="M:ZeroLibrary.XNA.IScreen.DrawRender(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            draws all the items on a rendertarget 
+            </summary>
+            <param name="spriteBatch">spritebatch on which the component is to be drawn</param>
+            <param name="gameTime">gametime of the game</param>
+        </member>
+        <member name="T:ZeroLibrary.XNA.GameObjectManager">
+            <summary>
+            A collection of BaseGameObject objects
+            </summary>
+        </member>
+        <member name="M:ZeroLibrary.XNA.GameObjectManager.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Updates all the GameObject objects in the collection
+            </summary>
+            <param name="gameTime">gametime of the game</param>
+        </member>
+        <member name="M:ZeroLibrary.XNA.GameObjectManager.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws all the BaseGameObject objects in the collection
+            </summary>
+            <param name="spriteBatch">spritebatch that draws on the screen</param>
+            <param name="gameTime">gametime of the game</param>
+        </member>
+        <member name="P:ZeroLibrary.XNA.GameObjectManager.Item(System.String)">
+            <summary>
+            Gets the specified GameObjectManager name
+            </summary>
+            <param name="name">name of the GameObjectManager</param>
+            <returns>the GameObjectManager object</returns>
+        </member>
+        <member name="T:ZeroLibrary.NamespaceDoc">
+            <summary>
+            The <see cref="N:ZeroLibrary"/> namespace provides various extension methods and miscellaneous utility class to make your life easier.
+            </summary>
+        </member>
+        <member name="T:ZeroLibrary.Cryptography.NamespaceDoc">
+            <summary>
+            The <see cref="N:ZeroLibrary.Cryptography"/> namespace provides extention methods for creating Hash codes
+            </summary>
+        </member>
+        <member name="T:ZeroLibrary.Networking.NamespaceDoc">
+            <summary>
+            The <see cref="N:ZeroLibrary.Networking"/> namespace provides various tools to make networking easier
+            </summary>
+        </member>
+        <member name="T:ZeroLibrary.SQL.NamespaceDoc">
+            <summary>
+            The <see cref="N:ZeroLibrary.SQL"/> namespace provides simple various commands for sql access
+            </summary>
+        </member>
+        <member name="T:ZeroLibrary.Json.NamespaceDoc">
+            <summary>
+            The <see cref="N:ZeroLibrary.Json"/> namespace procides simple rest methods 
+            </summary>
+        </member>
+        <member name="T:ZeroLibrary.UniqueRandom">
+            <summary>
+            a class that is able to generate unique random numbers
+            </summary>
+        </member>
+        <member name="M:ZeroLibrary.UniqueRandom.#ctor">
+            <summary>
+            constructs a random object that is able to generate unique random numbers
+            </summary>
+        </member>
+        <member name="M:ZeroLibrary.UniqueRandom.Clear">
+            <summary>
+            clears the list that stores the numbers that has already been generated by the object
+            </summary>
+        </member>
+        <member name="M:ZeroLibrary.UniqueRandom.Next(System.Int32,System.Int32)">
+            <summary>
+            generates a unique random number
+            </summary>
+            <param name="minValue">minimum value that is able to generated</param>
+            <param name="maxValue">maximum value that is able to generate</param>
+            <returns>a random value between the minimum and maximum value</returns>
+        </member>
+        <member name="M:ZeroLibrary.UniqueRandom.Next(System.Int32)">
+            <summary>
+            generates a unique random number
+            </summary>
+            <param name="maxValue">maximum value that is able to generate</param>
+            <returns>a random value between 0 and maximum value</returns>
+        </member>
+        <member name="M:ZeroLibrary.UniqueRandom.Next">
+            <summary>
+            generates a unique random number
+            </summary>
+            <returns>a random positive value between 0 and the largest integeral value</returns>
+        </member>
+        <member name="T:ZeroLibrary.ExtendedConvert">
+            <summary>
+            a static utility class used for easier convertion
+            </summary>
+        </member>
+        <member name="M:ZeroLibrary.ExtendedConvert.ToInt(System.Object)">
+            <summary>
+            converts to an integer
+            </summary>
+            <param name="item">object to be converted</param>
+            <returns>the integer value of the object</returns>
+        </member>
+        <member name="M:ZeroLibrary.ExtendedConvert.ToInt(System.Single,System.Boolean)">
+            <summary>
+            converts to an integer
+            </summary>
+            <param name="item">float value to be converted</param>
+            <param name="round">whether the value should be rounded</param>
+            <returns>the integer value of the float</returns>
+        </member>
+        <member name="M:ZeroLibrary.ExtendedConvert.ToInt(System.Double,System.Boolean)">
+            <summary>
+            converts to an integer
+            </summary>
+            <param name="item">float value to be converted</param>
+            <param name="round">whether the value should be rounded</param>
+            <returns>the integer value of the double</returns>
+        </member>
+        <member name="M:ZeroLibrary.ExtendedConvert.ToInt(System.String)">
+            <summary>
+            converts to an integer
+            </summary>
+            <param name="item">string to be converted</param>
+            <returns>the integer value of the string</returns>
+        </member>
+        <member name="M:ZeroLibrary.ExtendedConvert.ToInt(System.Boolean)">
+            <summary>
+            converts to an integer
+            </summary>
+            <param name="item">boolean to be converted</param>
+            <returns>the integer value of the boolean</returns>
+        </member>
+        <member name="M:ZeroLibrary.ExtendedConvert.ToFloat(System.Object)">
+            <summary>
+            converts to a float
+            </summary>
+            <param name="item">object to be converted</param>
+            <returns>the float value of the object</returns>
+        </member>
+        <member name="M:ZeroLibrary.ExtendedConvert.ToFloat(System.String)">
+            <summary>
+            converts to a float
+            </summary>
+            <param name="item">string to be converted</param>
+            <returns>the float value of the string</returns>
+        </member>
+        <member name="M:ZeroLibrary.ExtendedConvert.ToFloat(System.Int32)">
+            <summary>
+            converts to a float
+            </summary>
+            <param name="item">integer to be converted</param>
+            <returns>the float value of the integer</returns>
+        </member>
+        <member name="M:ZeroLibrary.ExtendedConvert.ToFloat(System.Double)">
+            <summary>
+            converts to a float
+            </summary>
+            <param name="item">double to be converted</param>
+            <returns>the float value of the double</returns>
+        </member>
+        <member name="M:ZeroLibrary.ExtendedConvert.ToFloat(System.Boolean)">
+            <summary>
+            converts to a float
+            </summary>
+            <param name="item">boolean to be converted</param>
+            <returns>the float value of the boolean</returns>
+        </member>
+        <member name="M:ZeroLibrary.ExtendedConvert.ToDouble(System.Object)">
+            <summary>
+            converts to a double
+            </summary>
+            <param name="item">object to be converted</param>
+            <returns>the double value of the object</returns>
+        </member>
+        <member name="M:ZeroLibrary.ExtendedConvert.ToDouble(System.String)">
+            <summary>
+            converts to a double
+            </summary>
+            <param name="item">string to be converted</param>
+            <returns>the double value of the string</returns>
+        </member>
+        <member name="M:ZeroLibrary.ExtendedConvert.ToDouble(System.Int32)">
+            <summary>
+            converts to a double
+            </summary>
+            <param name="item">int to be converted</param>
+            <returns>the double value of the int</returns>
+        </member>
+        <member name="M:ZeroLibrary.ExtendedConvert.ToDouble(System.Single)">
+            <summary>
+            converts to a double
+            </summary>
+            <param name="item">float to be converted</param>
+            <returns>the double value of the float</returns>
+        </member>
+        <member name="M:ZeroLibrary.ExtendedConvert.ToDouble(System.Boolean)">
+            <summary>
+            converts to a double
+            </summary>
+            <param name="item">boolean to be converted</param>
+            <returns>the double value of the boolean</returns>
+        </member>
+        <member name="M:ZeroLibrary.ExtendedConvert.ToBoolean(System.Object)">
+            <summary>
+            converts to a boolean
+            </summary>
+            <param name="item">object to be converted</param>
+            <returns>the boolean value of the object</returns>
+        </member>
+        <member name="M:ZeroLibrary.ExtendedConvert.ToBoolean(System.String)">
+            <summary>
+            converts to a boolean
+            </summary>
+            <param name="item">string to be converted</param>
+            <returns>the boolean value of the string</returns>
+        </member>
+        <member name="M:ZeroLibrary.ExtendedConvert.ToBoolean(System.Int32)">
+            <summary>
+            converts to a boolean
+            </summary>
+            <param name="item">string to be converted</param>
+            <returns>the boolean value of the string</returns>
+        </member>
+        <member name="M:ZeroLibrary.ExtendedConvert.ToBoolean(System.Single)">
+            <summary>
+            converts to a boolean
+            </summary>
+            <param name="item">float to be converted</param>
+            <returns>the boolean value of the float</returns>
+        </member>
+        <member name="M:ZeroLibrary.ExtendedConvert.ToBoolean(System.Double)">
+            <summary>
+            converts to a boolean
+            </summary>
+            <param name="item">double to be converted</param>
+            <returns>the boolean value of the double</returns>
+        </member>
+        <member name="M:ZeroLibrary.ExtendedConvert.Cast``1(System.Object)">
+            <summary>
+            converts to a specific object
+            </summary>
+            <typeparam name="T">type to be converted</typeparam>
+            <param name="item">object to be converted</param>
+            <returns>the specifed type of the converted object</returns>
+        </member>
+        <member name="M:ZeroLibrary.ExtendedConvert.IsType``1(System.Object)">
+            <summary>
+            checks if the specified type is in the object
+            </summary>
+            <typeparam name="T">Type to check</typeparam>
+            <param name="item">object in question</param>
+            <returns></returns>
+        </member>
+        <member name="T:ZeroLibrary.XNA.XNAMouse">
+            <summary>
+            Static class for Mouse object in xna
+            </summary>
+        </member>
+        <member name="M:ZeroLibrary.XNA.XNAMouse.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            updates the mouse position
+            </summary>
+            <param name="gameTime"></param>
+        </member>
+        <member name="M:ZeroLibrary.XNA.XNAMouse.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            draws the mouse if image is not null
+            </summary>
+            <param name="spriteBatch">spritebatch used to draw</param>
+            <param name="gameTime">gametime of the game</param>
+        </member>
+        <member name="M:ZeroLibrary.XNA.XNAMouse.Clicked(ZeroLibrary.XNA.MouseButton)">
+            <summary>
+            figures out if a mousebutton is pressed
+            </summary>
+            <param name="button">button in question</param>
+            <returns>returns true if the button is clicked</returns>
+        </member>
+        <member name="M:ZeroLibrary.XNA.XNAMouse.Moved">
+            <summary>
+            checks if the mouse has moved
+            </summary>
+            <returns>true if the mouse position has changed</returns>
+        </member>
+        <member name="P:ZeroLibrary.XNA.XNAMouse.BoundingBox">
+            <summary>
+            boundingbox of the mouse
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.XNAMouse.Image">
+            <summary>
+            Image of the mouse
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.XNAMouse.X">
+            <summary>
+            X coords of the mouse
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.XNAMouse.Y">
+            <summary>
+            Y coords of the mouse
+            </summary>
+        </member>
+        <member name="T:ZeroLibrary.XNA.TextSprite">
+            <summary>
+            a text sprite class for displaying text on the screen
+            </summary>
+        </member>
+        <member name="M:ZeroLibrary.XNA.TextSprite.#ctor(System.String)">
+            <summary>
+            Creates a textsprite with a name
+            </summary>
+            <param name="name">name of the textsprite</param>
+        </member>
+        <member name="M:ZeroLibrary.XNA.TextSprite.Load(Microsoft.Xna.Framework.Content.ContentManager,System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Graphics.SpriteEffects,System.Single)">
+            <summary>
+            Loads a textsprite
+            </summary>
+            <param name="content">contentmanager used to load</param>
+            <param name="filename">assetname of the file</param>
+            <param name="position">position of the textsprite on the screen</param>
+            <param name="color">color of the textsprite</param>
+            <param name="rotation">textsprite rotation in radian</param>
+            <param name="scale">scale of the textsprite</param>
+            <param name="effect">effect of the textsprite</param>
+            <param name="layer">layer of the drawing</param>
+        </member>
+        <member name="M:ZeroLibrary.XNA.TextSprite.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            draws the textsprite on the screen
+            </summary>
+            <param name="spriteBatch">spritebatch used to draw the textsprite</param>
+            <param name="gameTime">gametime of the game</param>
+        </member>
+        <member name="P:ZeroLibrary.XNA.TextSprite.Font">
+            <summary>
+            font of the textsprite
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.TextSprite.Text">
+            <summary>
+            text that is displayed
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.TextSprite.Width">
+            <summary>
+            Width of the textsprite
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.TextSprite.Height">
+            <summary>
+            height of the textsprite
+            </summary>
+        </member>
+        <member name="T:ZeroLibrary.Cryptography.SecurityCrypt">
+            <summary>
+            a static class with hash convertion extention functions
+            </summary>
+        </member>
+        <member name="M:ZeroLibrary.Cryptography.SecurityCrypt.MD5Hash(System.String)">
+            <summary>
+            Return the hexadecimal MD5 hash of the specified string.
+            </summary>
+            <param name="s">The string to hash.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ZeroLibrary.Cryptography.SecurityCrypt.SHA256Hash(System.String)">
+            <summary>
+            Return the hexadecimal SHA256 hash of the specified string.
+            </summary>
+            <param name="s">The string to hash.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ZeroLibrary.Cryptography.SecurityCrypt.EncodeBase64(System.String)">
+            <summary>
+            Encodes string to a base64 format
+            </summary>
+            <param name="s">string to encode</param>
+            <returns>base64 string</returns>
+        </member>
+        <member name="M:ZeroLibrary.Cryptography.SecurityCrypt.DecodeBase64(System.String)">
+            <summary>
+            Decodes base64 string
+            </summary>
+            <param name="s">base64 string to decode</param>
+            <returns>the value that was encoded</returns>
+        </member>
+        <member name="T:ZeroLibrary.XNA.MouseButton">
+            <summary>
+            Basic buttons on the mouse
+            </summary>
+        </member>
+        <member name="F:ZeroLibrary.XNA.MouseButton.LeftButton">
+            <summary>
+            Left button of the mouse
+            </summary>
+        </member>
+        <member name="F:ZeroLibrary.XNA.MouseButton.RightButton">
+            <summary>
+            Right button of the mouse
+            </summary>
+        </member>
+        <member name="F:ZeroLibrary.XNA.MouseButton.None">
+            <summary>
+            default
+            </summary>
+        </member>
+        <member name="T:ZeroLibrary.XNA.OriginType">
+            <summary>
+            Different orientation of origins
+            </summary>
+        </member>
+        <member name="F:ZeroLibrary.XNA.OriginType.Custom">
+            <summary>
+            custom origin types
+            </summary>
+        </member>
+        <member name="F:ZeroLibrary.XNA.OriginType.Center">
+            <summary>
+            center of the object
+            </summary>
+        </member>
+        <member name="F:ZeroLibrary.XNA.OriginType.TopLeft">
+            <summary>
+            top left of the object
+            </summary>
+        </member>
+        <member name="F:ZeroLibrary.XNA.OriginType.TopCenter">
+            <summary>
+            top center of the object
+            </summary>
+        </member>
+        <member name="F:ZeroLibrary.XNA.OriginType.TopRight">
+            <summary>
+            top right of the object
+            </summary>
+        </member>
+        <member name="F:ZeroLibrary.XNA.OriginType.BottemLeft">
+            <summary>
+            bottem left of the object
+            </summary>
+        </member>
+        <member name="F:ZeroLibrary.XNA.OriginType.BottemCenter">
+            <summary>
+            bottem center of the object
+            </summary>
+        </member>
+        <member name="F:ZeroLibrary.XNA.OriginType.BottemRight">
+            <summary>
+            bottem right of the object
+            </summary>
+        </member>
+        <member name="F:ZeroLibrary.XNA.OriginType.LeftCenter">
+            <summary>
+            left center of the object
+            </summary>
+        </member>
+        <member name="F:ZeroLibrary.XNA.OriginType.RightCenter">
+            <summary>
+            right center of the object
+            </summary>
+        </member>
+        <member name="T:ZeroLibrary.Networking.IpPing">
+            <summary>
+            a class used to ping ip addresses
+            </summary>
+        </member>
+        <member name="M:ZeroLibrary.Networking.IpPing.#ctor">
+            <summary>
+            constructs a IpPing class
+            </summary>
+        </member>
+        <member name="M:ZeroLibrary.Networking.IpPing.#ctor(System.Int32)">
+            <summary>
+            constructs a IpPing class
+            </summary>
+            <param name="timeout">wait time of the respones</param>
+        </member>
+        <member name="M:ZeroLibrary.Networking.IpPing.initialize(System.Int32)">
+            <summary>
+            the actual construction of the class
+            </summary>
+            <param name="timeout">wait time of the respones</param>
+        </member>
+        <member name="M:ZeroLibrary.Networking.IpPing.ping(System.Net.IPAddress,System.Int32)">
+            <summary>
+            the actual function call that pings a machine of the ip address specified
+            </summary>
+            <param name="address">ip address</param>
+            <param name="timeout">wait time for the respones</param>
+            <returns>returns true if successful</returns>
+        </member>
+        <member name="M:ZeroLibrary.Networking.IpPing.pingIP(System.String)">
+            <summary>
+            pings a machine with the ip address given
+            </summary>
+            <param name="ip">ip address</param>
+            <returns>returns true if successful</returns>
+        </member>
+        <member name="M:ZeroLibrary.Networking.IpPing.pingIP(System.Net.IPAddress)">
+            <summary>
+            pings a machine with the ip address given
+            </summary>
+            <param name="ip">ip address</param>
+            <returns>returns true if successful</returns>
+        </member>
+        <member name="M:ZeroLibrary.Networking.IpPing.pingIP(System.String,System.Int32)">
+            <summary>
+            pings a machine with the ip address given
+            </summary>
+            <param name="ip">ip address</param>
+            <param name="timeout">wait time for the respones</param>
+            <returns>returns true if successful</returns>
+        </member>
+        <member name="M:ZeroLibrary.Networking.IpPing.pingIP(System.Net.IPAddress,System.Int32)">
+            <summary>
+            pings a machine with the ip address given
+            </summary>
+            <param name="ip">ip address</param>
+            <param name="timeout">wait time for the respones</param>
+            <returns>returns true if successful</returns>
+        </member>
+        <member name="P:ZeroLibrary.Networking.IpPing.TimeOut">
+            <summary>
+            wait time for the ping to echo back in milliseconds
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.Networking.IpPing.Status">
+            <summary>
+            status of the echo
+            </summary>
+        </member>
+        <member name="T:ZeroLibrary.XNA.XNAKeyboard">
+            <summary>
+            Static class for keyboard management in xna
+            </summary>
+        </member>
+        <member name="M:ZeroLibrary.XNA.XNAKeyboard.Load">
+            <summary>
+            loads the keyboard for use
+            </summary>
+        </member>
+        <member name="M:ZeroLibrary.XNA.XNAKeyboard.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            updates the keyboardstates
+            </summary>
+            <param name="gameTime">Game time of the game</param>
+        </member>
+        <member name="M:ZeroLibrary.XNA.XNAKeyboard.IsKeyPress(Microsoft.Xna.Framework.Input.Keys)">
+            <summary>
+            checks if the key was pressed
+            </summary>
+            <param name="key">key in question</param>
+            <returns>boolean</returns>
+        </member>
+        <member name="M:ZeroLibrary.XNA.XNAKeyboard.isKeyDown(Microsoft.Xna.Framework.Input.Keys)">
+            <summary>
+            checks if the key was down
+            </summary>
+            <param name="key">key in question</param>
+            <returns>boolean</returns>
+        </member>
+        <member name="T:ZeroLibrary.XNA.Screen">
+            <summary>
+            A screen object that represents a RenderTarget2D object
+            </summary>
+        </member>
+        <member name="M:ZeroLibrary.XNA.Screen.#ctor(System.String,Microsoft.Xna.Framework.Graphics.GraphicsDevice)">
+            <summary>
+            Creates a Screen object
+            </summary>
+            <param name="name">Name of the screen</param>
+            <param name="graphicsDevice">Device used for graphics</param>
+        </member>
+        <member name="M:ZeroLibrary.XNA.Screen.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Updates all items in the screen
+            </summary>
+            <param name="gameTime"></param>
+        </member>
+        <member name="M:ZeroLibrary.XNA.Screen.DrawRender(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            draws all the items on a rendertarget 
+            </summary>
+            <param name="spriteBatch">spritebatch on which the component is to be drawn</param>
+            <param name="gameTime">gametime of the game</param>
+        </member>
+        <member name="M:ZeroLibrary.XNA.Screen.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draw the rendertarget to the actual screen if screen is visible
+            </summary>
+            <param name="spriteBatch">spritebatch on to draw with</param>
+            <param name="gameTime">gametime of the game</param>
+        </member>
+        <member name="P:ZeroLibrary.XNA.Screen.Name">
+            <summary>
+            Name of the screen
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.Screen.IsVisible">
+            <summary>
+            Sets the screen to be visible or not
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.XNA.Screen.RenderTarget">
+            <summary>
+            gets the rendertarget for the screen
+            </summary>
+        </member>
+        <member name="T:ZeroLibrary.XNA.FrameCollection">
+            <summary>
+            A collection of frames
+            </summary>
+        </member>
+        <member name="M:ZeroLibrary.XNA.FrameCollection.op_Inequality(ZeroLibrary.XNA.FrameCollection,ZeroLibrary.XNA.FrameCollection)">
+            <summary>
+            Checks if the frame collections are not equal to each other
+            </summary>
+            <param name="f1">frame collection 1</param>
+            <param name="f2">frame collection 2</param>
+            <returns>boolean</returns>
+        </member>
+        <member name="M:ZeroLibrary.XNA.FrameCollection.op_Equality(ZeroLibrary.XNA.FrameCollection,ZeroLibrary.XNA.FrameCollection)">
+            <summary>
+            Checks if the frame collections are equal to each other
+            </summary>
+            <param name="f1">frame collection 1</param>
+            <param name="f2">frame collection 2</param>
+            <returns>boolean</returns>
+        </member>
+        <member name="M:ZeroLibrary.XNA.FrameCollection.Equals(System.Object)">
+            <summary>
+            Checks if the collection of the frames are equal to each other
+            </summary>
+            <param name="obj">frame collection</param>
+            <returns></returns>
+        </member>
+        <member name="M:ZeroLibrary.XNA.FrameCollection.GetHashCode">
+            <summary>
+            Gets a hash code of the object (idk)
+            </summary>
+            <returns>int</returns>
+        </member>
+        <member name="T:ZeroLibrary.SQL.SqlEngine">
+            <summary>
+            a class used for simple sql access along with excution of stored proc
+            </summary>
+        </member>
+        <member name="M:ZeroLibrary.SQL.SqlEngine.#ctor(System.String)">
+            <summary>
+            constructs a SqlEngine object
+            </summary>
+            <param name="connectionString">connection string used to connect to the sql database</param>
+            <example>Server = ServerName; Database = DatabaseToConnect; User Id = UserToConnectAs; Password = PasswordForUser;</example>
+        </member>
+        <member name="M:ZeroLibrary.SQL.SqlEngine.ExcuteStoredProcedure(System.String)">
+            <summary>
+            executes a stored procedure
+            </summary>
+            <param name="procedureName">procedure name to run</param>
+        </member>
+        <member name="M:ZeroLibrary.SQL.SqlEngine.ExcuteStoredProcedure(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            executes a stored procedure
+            </summary>
+            <param name="procedureName">procedure name to run</param>
+            <param name="parameters">parameter that is required</param>
+        </member>
+        <member name="M:ZeroLibrary.SQL.SqlEngine.ExcuteTextCommand(System.String)">
+            <summary>
+            executes a sql command
+            </summary>
+            <param name="command">command to be excuted in sql</param>
+        </member>
+        <member name="P:ZeroLibrary.SQL.SqlEngine.DataSet">
+            <summary>
+            Table stored from a stored procedure
+            </summary>
+        </member>
+        <member name="P:ZeroLibrary.SQL.SqlEngine.SqlParameters">
+            <summary>
+            list of sql parameters for Stored procedure
+            </summary>
+        </member>
+        <member name="T:ZeroLibrary.Json.Json">
+            <summary>
+            Static class for Json calls
+            </summary>
+        </member>
+        <member name="M:ZeroLibrary.Json.Json.JsonHttpGet``1(System.String)">
+            <summary>
+            A rest call using rest to retrive Json objects to a certain type
+            </summary>
+            <typeparam name="T">type to be recieved</typeparam>
+            <param name="link">http</param>
+            <returns>type of json</returns>
+        </member>
+    </members>
+</doc>
