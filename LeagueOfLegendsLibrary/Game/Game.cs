@@ -89,10 +89,23 @@ namespace LeagueOfLegendsLibrary
         [DataMember(Name = "statistics")]
         public List<RawStat> statistics;
 
+        public RawStat GetStat(RawStatID stat)
+        {
+            RawStat tempStat = new RawStat();
+            for (int i = 0; i < statistics.Count; i++)
+            {
+                if ((int)stat == statistics[i].id)
+                {
+                    tempStat = statistics[i];
+                }
+            }
+            return tempStat;
+        }
+
         /// <summary>
         /// Game sub-type.
         /// </summary>
-       [DataMember(Name = "subType")]
+        [DataMember(Name = "subType")]
         public string subType;
 
         /// <summary>

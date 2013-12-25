@@ -35,5 +35,12 @@ namespace LeagueTestApp
             form.Show();
 
         }
+
+        private void summonerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SummonerForm form = new SummonerForm();
+            form.MdiParent = this;
+            form.Show();
+        }
     }
 }

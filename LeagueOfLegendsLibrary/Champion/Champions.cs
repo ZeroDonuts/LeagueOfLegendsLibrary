@@ -9,10 +9,10 @@ namespace LeagueOfLegendsLibrary
     [DataContract]
     public class Champions
     {
-        private IEnumerable<Champion> _championsList;
+        private List<Champion> _championsList;
 
         [DataMember(Name="champions")]
-        public IEnumerable<Champion> ChampionsList
+        public List<Champion> ChampionsList
         {
             get
             {
@@ -22,6 +22,20 @@ namespace LeagueOfLegendsLibrary
             {
                 _championsList = value;
             }
+        }
+
+        public Champion GetChampionByID(long id)
+        {
+            Champion tempChamp = null;
+            for (int i = 0; i < _championsList.Count; i++)
+            {
+                if (id == _championsList[i].Id)
+                {
+                    tempChamp = _championsList[i];
+                }
+            }
+            return tempChamp;
+            
         }
 
         public Champions()

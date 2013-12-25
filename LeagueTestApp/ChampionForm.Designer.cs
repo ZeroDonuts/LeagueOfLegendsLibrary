@@ -41,6 +41,7 @@
             this.championDataGridView.ReadOnly = true;
             this.championDataGridView.Size = new System.Drawing.Size(564, 244);
             this.championDataGridView.TabIndex = 0;
+            
             // 
             // ChampionForm
             // 

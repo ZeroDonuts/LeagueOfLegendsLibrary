@@ -26,9 +26,9 @@ namespace LeagueTestApp
             table.Columns.Add("Defense");
             table.Columns.Add("Difficulty");
 
-            List<Champion> champions = new InfoGrabber().GetChampions("na", false);
+            Champions champions = new InfoGrabber().GetChampions("na", false);
 
-            foreach (Champion champion in champions)
+            foreach (Champion champion in champions.ChampionsList)
             {
                 DataRow row = table.NewRow();
 
@@ -42,5 +42,6 @@ namespace LeagueTestApp
 
             championDataGridView.DataSource = table;
         }
+
     }
 }
