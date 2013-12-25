@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Runtime.Serialization;
 
-namespace BLib.LeagueOfLegends
+namespace LeagueOfLegendsLibrary
 {
     [DataContract]
     public class MasteryPage

@@ -4,27 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Runtime.Serialization;
 
-namespace BLib.LeagueOfLegends
+namespace LeagueOfLegendsLibrary
 {
     [DataContract]
-	public class RawStat
-	{
+    public class Rune
+    {
         /// <summary>
-        /// Raw stat ID.
+        /// Rune description.
+        /// </summary>
+        [DataMember(Name = "description")]
+        public string description;
+        
+        /// <summary>
+        /// Rune ID.
         /// </summary>
         [DataMember(Name = "id")]
         public int id;
 
         /// <summary>
-        /// Raw stat name.
+        /// Rune name.
         /// </summary>
         [DataMember(Name = "name")]
         public string name;
 
         /// <summary>
-        /// Raw stat value.
+        /// Rune tier.
         /// </summary>
-        [DataMember(Name = "value")]
-        public int value;
-	}
+        [DataMember(Name = "tier")]
+        public int tier;
+    }
 }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Runtime.Serialization.Json;
 using System.Net;
 
-namespace BLib.LeagueOfLegends
+namespace LeagueOfLegendsLibrary
 {
     public class InfoGrabber
     {

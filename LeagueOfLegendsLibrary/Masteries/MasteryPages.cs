@@ -2,25 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 using System.Net;
+using System.Runtime.Serialization;
 
-namespace BLib.LeagueOfLegends
+namespace LeagueOfLegendsLibrary
 {
     [DataContract]
-    public class PlayerStatsSummaryList
+    public class MasteryPages
     {
         /// <summary>
-        /// List of player stats summaries associated with the summoner.
+        /// List of msatery pages associated with the summoner.
         /// </summary>
-        [DataMember(Name="playerStatSummaries")]
-        public List<PlayerStatsSummary> playerStatSummaries;
+        [DataMember(Name = "pages")]
+        public List<MasteryPage> pages;
 
         /// <summary>
         /// Summoner ID.
         /// </summary>
-        [DataMember(Name="summonerId")]
+        [DataMember(Name = "summonerId")]
         public long summonerId;
     }
 }

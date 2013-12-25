@@ -7,7 +7,7 @@ using System.Net;
 using System.Runtime.Serialization;
 using System.IO;
 
-namespace BLib.LeagueOfLegends
+namespace LeagueOfLegendsLibrary
 {
     [DataContract]
     public class League
