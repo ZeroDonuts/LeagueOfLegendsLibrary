@@ -21,6 +21,10 @@ namespace LeagueTestApp
         {
             DataTable table = new DataTable();
             table.Columns.Add("Name");
+            table.Columns.Add("Attack");
+            table.Columns.Add("Magic");
+            table.Columns.Add("Defense");
+            table.Columns.Add("Difficulty");
 
             List<Champion> champions = new InfoGrabber().GetChampions("na", false);
 
@@ -29,7 +33,10 @@ namespace LeagueTestApp
                 DataRow row = table.NewRow();
 
                 row["Name"] = champion.Name;
-
+                row["Attack"] = champion.AttackRank;
+                row["Magic"] = champion.MagicRank;
+                row["Defense"] = champion.DefenseRank;
+                row["Difficulty"] = champion.DifficultyRank;
                 table.Rows.Add(row);
             }
 

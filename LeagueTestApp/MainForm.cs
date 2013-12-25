@@ -26,7 +26,6 @@ namespace LeagueTestApp
             {
                 this.Close();
             }
-            
         }
 
         private void championsToolStripMenuItem_Click(object sender, EventArgs e)
