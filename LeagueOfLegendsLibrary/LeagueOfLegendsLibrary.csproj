@@ -46,6 +46,29 @@
   <ItemGroup>
     <Compile Include="Champion.cs" />
     <Compile Include="Champions.cs" />
+    <Compile Include="LeagueOfLegends\Champion\Champion.cs" />
+    <Compile Include="LeagueOfLegends\Champion\ChampionList.cs" />
+    <Compile Include="LeagueOfLegends\Game\Game.cs" />
+    <Compile Include="LeagueOfLegends\Game\Player.cs" />
+    <Compile Include="LeagueOfLegends\Game\RawStat.cs" />
+    <Compile Include="LeagueOfLegends\Game\RecentGames.cs" />
+    <Compile Include="LeagueOfLegends\InfoGrabber.cs" />
+    <Compile Include="LeagueOfLegends\League\League.cs" />
+    <Compile Include="LeagueOfLegends\League\LeagueGroup.cs" />
+    <Compile Include="LeagueOfLegends\League\LeagueItem.cs" />
+    <Compile Include="LeagueOfLegends\League\MiniSeries.cs" />
+    <Compile Include="LeagueOfLegends\LolInfo.cs" />
+    <Compile Include="LeagueOfLegends\Masteries\MasteryPage.cs" />
+    <Compile Include="LeagueOfLegends\Masteries\MasteryPages.cs" />
+    <Compile Include="LeagueOfLegends\Masteries\Talent.cs" />
+    <Compile Include="LeagueOfLegends\Runes\Rune.cs" />
+    <Compile Include="LeagueOfLegends\Runes\RunePage.cs" />
+    <Compile Include="LeagueOfLegends\Runes\RunePages.cs" />
+    <Compile Include="LeagueOfLegends\Runes\RuneSlot.cs" />
+    <Compile Include="LeagueOfLegends\Stats\AggregatedStats.cs" />
+    <Compile Include="LeagueOfLegends\Stats\PlayerStatsSummary.cs" />
+    <Compile Include="LeagueOfLegends\Stats\PlayerStatsSummaryList.cs" />
+    <Compile Include="LeagueOfLegends\Summoner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
