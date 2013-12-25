@@ -84,13 +84,13 @@ namespace LeagueOfLegendsLibrary
 
         public List<Champion> GetChampions(string region, bool f2p)
         {
-            jSerializer = new DataContractJsonSerializer(typeof(ChampionList));
+            jSerializer = new DataContractJsonSerializer(typeof(Champions));
 
             string freeChamp = f2p ? "freeToPlay=true&" : "";
             List<Champion> champs = new List<Champion>();
             try
             {
-                champs = ((ChampionList)jSerializer.ReadObject(webClient.OpenRead(string.Format("https://prod.api.pvp.net/api/lol/{0}/v1.1/champion?{1}{2}", region, freeChamp, LolInfo.APIKEY)))).champions;
+                champs = ((Champions)jSerializer.ReadObject(webClient.OpenRead(string.Format("https://prod.api.pvp.net/api/lol/{0}/v1.1/champion?{1}{2}", region, freeChamp, LolInfo.APIKEY)))).ChampionsList.ToList<Champion>();
             }
             catch (WebException e)
             {
