@@ -29,12 +29,22 @@ namespace LeagueTestApp
             gamesPlayed = new List<Game>();
             champs = new ChampionCollection();
             table.Columns.Add("Game");
-            table.Columns.Add("Champion Played");
+            table.Columns.Add("Date");
+            table.Columns.Add("Type");
+            table.Columns.Add("Champion");
             table.Columns.Add("WinLoss");
+            table.Columns.Add("K/D");
+           
         }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
+
+            if (nameTextBox.Text.Trim() == "" || regionComboBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please enter a name or select a region.");
+                return;
+            }
             summoner = info.LookupSummonerByName(nameTextBox.Text, regionComboBox.SelectedItem.ToString());
             gamesPlayed = info.GetRecentGames(regionComboBox.SelectedItem.ToString(), summoner.ID);
             champs = info.GetChampions(regionComboBox.SelectedItem.ToString());
@@ -45,7 +55,13 @@ namespace LeagueTestApp
 
                 row["Game"] = string.Format("Game {0}", i + 1);
                 row["Champion Played"] = champs.GetChampionByID(gamesPlayed[i].championId).Name;
-                row["WinLoss"] = gamesPlayed[i].GetStat(RawStatID.MatchWon).name;
+                string winLoss = gamesPlayed[i].GetStat(RawStatID.MatchWon).value == 1 ? "Win" : "Loss" ;
+              
+                row["WinLoss"] = winLoss;
+                row["Type"] = gamesPlayed[i].gameType;
+                row["Date"] = gamesPlayed[i].CreateDateTime.Date;
+                string kda = gamesPlayed[i].GetStat(RawStatID.ChampionsKilled).value.ToString() +"/" + gamesPlayed[i].GetStat(RawStatID.NumOfDeaths).value.ToString();
+                row["K/D"] = kda;
                 table.Rows.Add(row);
             }
             summonerInfoDataGrid.DataSource = table;

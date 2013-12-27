@@ -29,6 +29,14 @@ namespace LeagueOfLegendsLibrary
         [DataMember(Name = "createDateStr")]
         public string createDateStr;
 
+        public DateTime CreateDateTime
+        {
+            get
+            {
+                return LolInfo.EpochToDateTime(createDate);
+            }
+        }
+
         /// <summary>
         /// Other players associated with the game.
         /// </summary>
