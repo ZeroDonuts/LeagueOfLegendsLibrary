@@ -54,7 +54,7 @@ namespace LeagueTestApp
                 DataRow row = table.NewRow();
 
                 row["Game"] = string.Format("Game {0}", i + 1);
-                row["Champion Played"] = champs.GetChampionByID(gamesPlayed[i].championId).Name;
+                row["Champion"] = champs.GetChampionByID(gamesPlayed[i].championId).Name;
                 string winLoss = gamesPlayed[i].GetStat(RawStatID.MatchWon).value == 1 ? "Win" : "Loss" ;
               
                 row["WinLoss"] = winLoss;
