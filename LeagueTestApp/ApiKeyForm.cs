@@ -19,7 +19,16 @@ namespace LeagueTestApp
         private void enterButton_Click(object sender, EventArgs e)
         {
             LolInfo.APIKEY = apiKeyTextBox.Text;
-            this.Close();
+            try
+            {
+                LolInfo.ChampionCollection = new InfoGrabber().GetChampions("na");
+                this.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Invalid apikey");
+            }
+            
         }
     }
 }

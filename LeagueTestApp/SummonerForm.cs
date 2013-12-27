@@ -16,7 +16,7 @@ namespace LeagueTestApp
         Summoner summoner;
         DataTable table;
         List<Game> gamesPlayed;
-        Champions champs;
+        ChampionCollection champs;
         public SummonerForm()
         {
             InitializeComponent();
@@ -27,7 +27,7 @@ namespace LeagueTestApp
             info = new InfoGrabber();
             table = new DataTable();
             gamesPlayed = new List<Game>();
-            champs = new Champions();
+            champs = new ChampionCollection();
             table.Columns.Add("Game");
             table.Columns.Add("Champion Played");
             table.Columns.Add("WinLoss");
@@ -35,9 +35,9 @@ namespace LeagueTestApp
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            summoner = info.LookupSummonerByName(nameTextBox.Text, regionTextBox.Text);
-            gamesPlayed = info.GetRecentGames(regionTextBox.Text, summoner.ID);
-            champs = info.GetChampions(regionTextBox.Text);
+            summoner = info.LookupSummonerByName(nameTextBox.Text, regionComboBox.SelectedItem.ToString());
+            gamesPlayed = info.GetRecentGames(regionComboBox.SelectedItem.ToString(), summoner.ID);
+            champs = info.GetChampions(regionComboBox.SelectedItem.ToString());
 
             for (int i = 0; i < gamesPlayed.Count; i++)
             {
@@ -45,7 +45,7 @@ namespace LeagueTestApp
 
                 row["Game"] = string.Format("Game {0}", i + 1);
                 row["Champion Played"] = champs.GetChampionByID(gamesPlayed[i].championId).Name;
-                row["WinLoss"] = gamesPlayed[i].GetStat(RawStatID.MatchLost).name;
+                row["WinLoss"] = gamesPlayed[i].GetStat(RawStatID.MatchWon).name;
                 table.Rows.Add(row);
             }
             summonerInfoDataGrid.DataSource = table;

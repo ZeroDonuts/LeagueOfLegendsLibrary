@@ -111,15 +111,15 @@ namespace LeagueOfLegendsLibrary
         /// <param name="region">The region to check</param>
         /// <param name="onlyFreeToPlayChamps">Determines whether to only get a list of free to play champions</param>
         /// <returns></returns>
-        public Champions GetChampions(string region, bool onlyFreeToPlayChamps = false)
+        public ChampionCollection GetChampions(string region, bool onlyFreeToPlayChamps = false)
         {
-            jSerializer = new DataContractJsonSerializer(typeof(Champions));
+            jSerializer = new DataContractJsonSerializer(typeof(ChampionCollection));
 
             string freeChamp = onlyFreeToPlayChamps ? "freeToPlay=true&" : "";
-            Champions champs = new Champions();
+            ChampionCollection champs = new ChampionCollection();
             try
             {
-                champs = ((Champions)jSerializer.ReadObject(webClient.OpenRead(string.Format("https://prod.api.pvp.net/api/lol/{0}/v1.1/champion?{1}api_key={2}", region, freeChamp, LolInfo.APIKEY))));
+                champs = ((ChampionCollection)jSerializer.ReadObject(webClient.OpenRead(string.Format("https://prod.api.pvp.net/api/lol/{0}/v1.1/champion?{1}api_key={2}", region, freeChamp, LolInfo.APIKEY))));
             }
             catch (WebException e)
             {

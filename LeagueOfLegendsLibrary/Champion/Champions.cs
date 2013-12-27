@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 namespace LeagueOfLegendsLibrary
 {
     [DataContract]
-    public class Champions
+    public class ChampionCollection
     {
         private List<Champion> _championsList;
 
@@ -38,7 +38,7 @@ namespace LeagueOfLegendsLibrary
             
         }
 
-        public Champions()
+        public ChampionCollection()
         {
             _championsList = new List<Champion>();
         }

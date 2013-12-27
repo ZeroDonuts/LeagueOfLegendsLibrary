@@ -10,5 +10,6 @@ namespace LeagueOfLegendsLibrary
     public static class LolInfo
     {
         public static string APIKEY;
+        public static ChampionCollection ChampionCollection = null;
     }
 }

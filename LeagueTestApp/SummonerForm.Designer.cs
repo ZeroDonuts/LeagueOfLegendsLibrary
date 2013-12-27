@@ -33,7 +33,7 @@
             this.nameLabel = new System.Windows.Forms.Label();
             this.searchButton = new System.Windows.Forms.Button();
             this.regionLabel = new System.Windows.Forms.Label();
-            this.regionTextBox = new System.Windows.Forms.TextBox();
+            this.regionComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.summonerInfoDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,19 +80,25 @@
             this.regionLabel.TabIndex = 4;
             this.regionLabel.Text = "Region:";
             // 
-            // regionTextBox
+            // regionComboBox
             // 
-            this.regionTextBox.Location = new System.Drawing.Point(323, 3);
-            this.regionTextBox.Name = "regionTextBox";
-            this.regionTextBox.Size = new System.Drawing.Size(100, 20);
-            this.regionTextBox.TabIndex = 3;
+            this.regionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.regionComboBox.FormattingEnabled = true;
+            this.regionComboBox.Items.AddRange(new object[] {
+            "na",
+            "euw",
+            "eune"});
+            this.regionComboBox.Location = new System.Drawing.Point(323, 3);
+            this.regionComboBox.Name = "regionComboBox";
+            this.regionComboBox.Size = new System.Drawing.Size(121, 21);
+            this.regionComboBox.TabIndex = 6;
             // 
             // SummonerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(530, 301);
-            this.Controls.Add(this.regionTextBox);
+            this.Controls.Add(this.regionComboBox);
             this.Controls.Add(this.regionLabel);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.nameLabel);
@@ -114,6 +120,6 @@
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Label regionLabel;
-        private System.Windows.Forms.TextBox regionTextBox;
+        private System.Windows.Forms.ComboBox regionComboBox;
     }
 }

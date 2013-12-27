@@ -26,7 +26,7 @@ namespace LeagueTestApp
             table.Columns.Add("Defense");
             table.Columns.Add("Difficulty");
 
-            Champions champions = new InfoGrabber().GetChampions("na", false);
+            ChampionCollection champions = LolInfo.ChampionCollection;
 
             foreach (Champion champion in champions.ChampionsList)
             {
