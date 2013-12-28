@@ -5,6 +5,7 @@ using System.Text;
 using System.Runtime.Serialization.Json;
 using System.Net;
 using System.Runtime.Serialization;
+using ZeroLibrary;
 
 namespace LeagueOfLegendsLibrary
 {
@@ -29,6 +30,9 @@ namespace LeagueOfLegendsLibrary
         [DataMember(Name = "createDateStr")]
         public string createDateStr;
 
+        /// <summary>
+        /// Datetime object of the date game was played
+        /// </summary>
         public DateTime CreateDateTime
         {
             get
@@ -95,20 +99,7 @@ namespace LeagueOfLegendsLibrary
         /// Statistics associated with the game for this summoner.
         /// </summary>
         [DataMember(Name = "statistics")]
-        public List<RawStat> statistics;
-
-        public RawStat GetStat(RawStatID stat)
-        {
-            RawStat tempStat = new RawStat();
-            for (int i = 0; i < statistics.Count; i++)
-            {
-                if ((int)stat == statistics[i].id)
-                {
-                    tempStat = statistics[i];
-                }
-            }
-            return tempStat;
-        }
+        private List<RawStat> statistics;
 
         /// <summary>
         /// Game sub-type.
@@ -121,5 +112,43 @@ namespace LeagueOfLegendsLibrary
         /// </summary>
         [DataMember(Name = "teamId")]
         public int teamId;
+
+        /// <summary>
+        /// Gets the RawStat of the specified ID
+        /// </summary>
+        /// <param name="stat">RawStatID to be searched</param>
+        /// <returns>RawStat object of that ID</returns>
+        public RawStat GetStat(RawStatID stat)
+        {
+            RawStat tempStat;
+            for (int i = 0; i < statistics.Count; i++)
+            {
+                if (stat.ToInt() == statistics[i].id)
+                {
+                    tempStat = statistics[i];
+                }
+            }
+            throw new KeyNotFoundException("RawStatID not found");
+        }
+
+        /// <summary>
+        /// Gets the RawStat of the match result
+        /// </summary>
+        /// <returns>RawStat of the match result</returns>
+        public RawStat GetMatchResult()
+        {
+            RawStat matchResult;
+
+            try
+            {
+                matchResult = GetStat(RawStatID.MatchWon);
+            }
+            catch
+            {
+                matchResult = GetStat(RawStatID.MatchLost);
+            }
+
+            return matchResult;
+        }
     }
 }

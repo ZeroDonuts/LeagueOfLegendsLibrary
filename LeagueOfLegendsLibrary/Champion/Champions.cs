@@ -6,36 +6,66 @@ using System.Runtime.Serialization;
 
 namespace LeagueOfLegendsLibrary
 {
-    [DataContract]
+    /// <summary>
+    /// a collection of champions 
+    /// </summary>
+    [DataContract(Name="ChampionListDto")]
     public class ChampionCollection
     {
+        [DataMember(Name = "champions")]
         private List<Champion> _championsList;
-
-        [DataMember(Name="champions")]
+        
+        /// <summary>
+        /// List of Champions in League of Legends
+        /// </summary>
         public List<Champion> ChampionsList
         {
             get
             {
                 return _championsList;
             }
-            set
+        }
+
+        /// <summary>
+        /// gets a champion using the name
+        /// </summary>
+        /// <param name="name">name of the champion</param>
+        /// <returns>champion with the specified name</returns>
+        public Champion this[string name]
+        {
+            get 
             {
-                _championsList = value;
+                foreach (Champion champion in _championsList)
+                {
+                    if (name.ToLower() == champion.Name.ToLower())
+                    {
+                        return champion;
+                    }
+                }
+
+                throw new IndexOutOfRangeException(String.Format("{0} could not be found in the list", name));
             }
         }
 
-        public Champion GetChampionByID(long id)
+        /// <summary>
+        /// gets the champion using the id
+        /// </summary>
+        /// <param name="id">id of the champion</param>
+        /// <returns>champion with the specified id</returns>
+        public Champion this[int id]
         {
-            Champion tempChamp = null;
-            for (int i = 0; i < _championsList.Count; i++)
+            get
             {
-                if (id == _championsList[i].Id)
+                foreach (Champion champion in _championsList)
                 {
-                    tempChamp = _championsList[i];
+                    if (champion.Id == id)
+                    {
+                        return champion;
+                    }
                 }
+
+                throw new IndexOutOfRangeException(String.Format("Id:{0} could not be found in the list", id));
             }
-            return tempChamp;
-            
         }
 
         public ChampionCollection()

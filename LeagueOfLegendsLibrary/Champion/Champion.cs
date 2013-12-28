@@ -7,173 +7,131 @@ using System.Runtime.Serialization;
 
 namespace LeagueOfLegendsLibrary
 {
-    [DataContract]
+    [DataContract(Name="ChampionDto")]
     public class Champion
     {
-        private bool _active;
-
         [DataMember(Name = "active")]
+        private bool _active;
+        
         public bool Active
         {
             get
             {
                 return _active;
             }
-            set
-            {
-                _active = value;
-            }
         }
 
-
-        private int _attackRank;
-
         [DataMember(Name = "attackRank")]
+        private int _attackRank;
+        
         public int AttackRank
         {
             get
             {
                 return _attackRank;
             }
-            set
-            {
-                _attackRank = value;
-            }
         }
 
-        private bool _botEnabled;
 
         [DataMember(Name = "botEnabled")]
+        private bool _botEnabled;
+        
         public bool BotEnabled
         {
             get
             {
                 return _botEnabled;
             }
-            set
-            {
-                _botEnabled = value;
-            }
         }
 
-        private bool _botMmEnabled;
 
-        [DataMember(Name="botMmEnabled")]
+        [DataMember(Name = "botMmEnabled")]
+        private bool _botMmEnabled;
+       
         public bool BotMmEnabled
         {
             get 
             { 
                 return _botMmEnabled; 
             }
-            set 
-            { 
-                _botMmEnabled = value; 
-            }
         }
 
+        [DataMember(Name = "defenseRank")]
         private int _defenseRank;
-
-        [DataMember(Name="defenseRank")]
+        
         public int DefenseRank
         {
             get 
             { 
                 return _defenseRank; 
             }
-            set 
-            {
-                _defenseRank = value; 
-            }
         }
 
+        [DataMember(Name = "difficultyRank")]
         private int _difficultyRank;
 
-        [DataMember(Name="difficultyRank")]
+        
         public int DifficultyRank
         {
             get 
             { 
                 return _difficultyRank;
             }
-            set
-            { 
-                _difficultyRank = value;
-            }
         }
 
-
+        [DataMember(Name = "freeToPlay")]
         private bool _freeToPlay;
-
-        [DataMember(Name="freeToPlay")]
+        
         public bool FreeToPlay
         {
             get 
             { 
                 return _freeToPlay; 
             }
-            set 
-            {
-                _freeToPlay = value;
-            }
         }
 
+        [DataMember(Name = "id")]
         private int _id;
-
-        [DataMember(Name="id")]
+        
         public int Id
         {
             get
             { 
                 return _id; 
             }
-            set 
-            { 
-                _id = value;
-            }
         }
 
+        [DataMember(Name = "magicRank")]
         private int _magicRank;
 
-        [DataMember(Name="magicRank")]
+        
         public int MagicRank
         {
             get 
             {
                 return _magicRank;
             }
-            set 
-            { 
-                _magicRank = value;
-            }
         }
 
+        [DataMember(Name = "name")]
         private string _name;
-
-        [DataMember(Name="name")]
+        
         public string Name
         {
             get 
             { 
                 return _name;
             }
-            set 
-            { 
-                _name = value; 
-            }
         }
 
+        [DataMember(Name = "rankedPlayEnabled")]
         private bool _rankedPlayEnabled;
-
-        [DataMember(Name="rankedPlayEnabled")]
+        
         public bool RankedPlayEnabled
         {
             get 
             { 
                 return _rankedPlayEnabled;
-            }
-            set
-            {
-                _rankedPlayEnabled = value; 
             }
         }
         
