@@ -34,6 +34,7 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.regionLabel = new System.Windows.Forms.Label();
             this.regionComboBox = new System.Windows.Forms.ComboBox();
+            this.runeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.summonerInfoDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,7 @@
             // 
             this.nameTextBox.Location = new System.Drawing.Point(44, 3);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(211, 20);
+            this.nameTextBox.Size = new System.Drawing.Size(173, 20);
             this.nameTextBox.TabIndex = 1;
             // 
             // nameLabel
@@ -93,11 +94,22 @@
             this.regionComboBox.Size = new System.Drawing.Size(121, 21);
             this.regionComboBox.TabIndex = 6;
             // 
+            // runeButton
+            // 
+            this.runeButton.Location = new System.Drawing.Point(223, 1);
+            this.runeButton.Name = "runeButton";
+            this.runeButton.Size = new System.Drawing.Size(52, 23);
+            this.runeButton.TabIndex = 7;
+            this.runeButton.Text = "Runes";
+            this.runeButton.UseVisualStyleBackColor = true;
+            this.runeButton.Click += new System.EventHandler(this.runeButton_Click);
+            // 
             // SummonerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(530, 301);
+            this.Controls.Add(this.runeButton);
             this.Controls.Add(this.regionComboBox);
             this.Controls.Add(this.regionLabel);
             this.Controls.Add(this.searchButton);
@@ -121,5 +133,6 @@
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Label regionLabel;
         private System.Windows.Forms.ComboBox regionComboBox;
+        private System.Windows.Forms.Button runeButton;
     }
 }

@@ -120,12 +120,11 @@ namespace LeagueOfLegendsLibrary
         /// <returns>RawStat object of that ID</returns>
         public RawStat GetStat(RawStatID stat)
         {
-            RawStat tempStat;
             for (int i = 0; i < statistics.Count; i++)
             {
                 if (stat.ToInt() == statistics[i].id)
                 {
-                    tempStat = statistics[i];
+                    return statistics[i];
                 }
             }
             throw new KeyNotFoundException("RawStatID not found");

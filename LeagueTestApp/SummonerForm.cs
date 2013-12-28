@@ -54,17 +54,52 @@ namespace LeagueTestApp
                 DataRow row = table.NewRow();
 
                 row["Game"] = string.Format("Game {0}", i + 1);
+
                 row["Champion"] = champs[gamesPlayed[i].championId].Name;
-                string winLoss = gamesPlayed[i].GetStat(RawStatID.MatchWon).value == 1 ? "Win" : "Loss" ;
+                
+                string winLoss = "";
+                try
+                {
+                    winLoss = gamesPlayed[i].GetStat(RawStatID.MatchWon).name;
+                }
+                catch (KeyNotFoundException)
+                {
+                    winLoss = gamesPlayed[i].GetStat(RawStatID.MatchLost).name;
+                }
+               
               
                 row["WinLoss"] = winLoss;
+
                 row["Type"] = gamesPlayed[i].gameType;
+
                 row["Date"] = gamesPlayed[i].CreateDateTime.Date;
-                string kda = gamesPlayed[i].GetStat(RawStatID.ChampionsKilled).value.ToString() +"/" + gamesPlayed[i].GetStat(RawStatID.NumOfDeaths).value.ToString();
+                string kda =""; 
+                try{
+                    kda += gamesPlayed[i].GetStat(RawStatID.ChampionsKilled).value.ToString();
+                }catch(KeyNotFoundException)
+                {
+                    kda += "0";
+                }
+                kda += "/";
+                try
+                {
+                    kda += gamesPlayed[i].GetStat(RawStatID.NumOfDeaths).value.ToString();
+                }
+                catch (KeyNotFoundException)
+                {
+                    kda += "0";
+                }
+                
                 row["K/D"] = kda;
                 table.Rows.Add(row);
             }
             summonerInfoDataGrid.DataSource = table;
+        }
+
+        private void runeButton_Click(object sender, EventArgs e)
+        {
+            Runes runeForm = new Runes();
+            runeForm.ShowDialog();
         }
     }
 }
