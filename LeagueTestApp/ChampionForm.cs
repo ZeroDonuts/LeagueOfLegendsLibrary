@@ -28,7 +28,7 @@ namespace LeagueTestApp
 
             ChampionCollection champions = LolInfo.ChampionCollection;
 
-            foreach (Champion champion in champions.ChampionsList)
+            foreach (Champion champion in champions)
             {
                 DataRow row = table.NewRow();
 

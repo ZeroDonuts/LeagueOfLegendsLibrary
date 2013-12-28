@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Runtime.Serialization;
+using System.Collections;
 
 namespace LeagueOfLegendsLibrary
 {
@@ -10,7 +11,7 @@ namespace LeagueOfLegendsLibrary
     /// a collection of champions 
     /// </summary>
     [DataContract(Name="ChampionListDto")]
-    public class ChampionCollection
+    public class ChampionCollection : IEnumerable , IEnumerator
     {
         [DataMember(Name = "champions")]
         private List<Champion> _championsList;
@@ -71,6 +72,41 @@ namespace LeagueOfLegendsLibrary
         public ChampionCollection()
         {
             _championsList = new List<Champion>();
+        }
+
+
+        private int _position = -1;
+
+        public IEnumerator GetEnumerator()
+        {
+            return this;
+        }
+
+        public object Current
+        {
+            get 
+            {
+                try
+                {
+                    return _championsList[_position];
+                }
+                catch (Exception e)
+                {
+                    throw new InvalidOperationException("", e);
+                }
+            }
+        }
+
+        public bool MoveNext()
+        {
+            _position++;
+
+            return _position < _championsList.Count;
+        }
+
+        public void Reset()
+        {
+            _position = -1;
         }
     }
 }
