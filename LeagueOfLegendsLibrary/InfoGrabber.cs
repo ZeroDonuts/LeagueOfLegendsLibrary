@@ -214,5 +214,20 @@ namespace LeagueOfLegendsLibrary
             }
             return summary;
         }
+
+        public List<Team> GetTeams(long summonerID)
+        {
+            jSerializer = new DataContractJsonSerializer(typeof(List<Team>));
+            List<Team> teams = new List<Team>();
+            try
+            {
+                teams = (List<Team>)jSerializer.ReadObject(webClient.OpenRead(string.Format("http://prod.api.pvp.net/api/lol/na/v2.2/team/by-summoner/{0}?api_key={1}", summonerID, LolInfo.APIKEY)));
+            }
+            catch (WebException e)
+            {
+                throw new Exception(e.Message);
+            }
+            return teams;
+        }
     }
 }

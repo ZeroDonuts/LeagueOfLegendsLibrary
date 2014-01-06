@@ -78,6 +78,12 @@
     <Compile Include="SummonerForm.Designer.cs">
       <DependentUpon>SummonerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TeamsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamsForm.Designer.cs">
+      <DependentUpon>TeamsForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ApiKeyForm.resx">
       <DependentUpon>ApiKeyForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +104,9 @@
     </Compile>
     <EmbeddedResource Include="SummonerForm.resx">
       <DependentUpon>SummonerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeamsForm.resx">
+      <DependentUpon>TeamsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

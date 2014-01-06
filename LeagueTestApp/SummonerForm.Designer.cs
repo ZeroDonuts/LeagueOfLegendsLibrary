@@ -45,6 +45,7 @@
             this.summonerInfoDataGrid.Name = "summonerInfoDataGrid";
             this.summonerInfoDataGrid.Size = new System.Drawing.Size(529, 269);
             this.summonerInfoDataGrid.TabIndex = 0;
+            this.summonerInfoDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.summonerInfoDataGrid_CellContentClick);
             // 
             // nameTextBox
             // 

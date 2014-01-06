@@ -30,8 +30,9 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.formsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.championsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.summonerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.championsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.teamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,10 +50,18 @@
             // 
             this.formsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.summonerToolStripMenuItem,
-            this.championsToolStripMenuItem});
+            this.championsToolStripMenuItem,
+            this.teamToolStripMenuItem});
             this.formsToolStripMenuItem.Name = "formsToolStripMenuItem";
             this.formsToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.formsToolStripMenuItem.Text = "Forms";
+            // 
+            // summonerToolStripMenuItem
+            // 
+            this.summonerToolStripMenuItem.Name = "summonerToolStripMenuItem";
+            this.summonerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.summonerToolStripMenuItem.Text = "Summoner";
+            this.summonerToolStripMenuItem.Click += new System.EventHandler(this.summonerToolStripMenuItem_Click);
             // 
             // championsToolStripMenuItem
             // 
@@ -61,12 +70,12 @@
             this.championsToolStripMenuItem.Text = "Champions";
             this.championsToolStripMenuItem.Click += new System.EventHandler(this.championsToolStripMenuItem_Click);
             // 
-            // summonerToolStripMenuItem
+            // teamToolStripMenuItem
             // 
-            this.summonerToolStripMenuItem.Name = "summonerToolStripMenuItem";
-            this.summonerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.summonerToolStripMenuItem.Text = "Summoner";
-            this.summonerToolStripMenuItem.Click += new System.EventHandler(this.summonerToolStripMenuItem_Click);
+            this.teamToolStripMenuItem.Name = "teamToolStripMenuItem";
+            this.teamToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.teamToolStripMenuItem.Text = "Team";
+            this.teamToolStripMenuItem.Click += new System.EventHandler(this.teamToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -92,6 +101,7 @@
         private System.Windows.Forms.ToolStripMenuItem formsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem championsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem summonerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem teamToolStripMenuItem;
 
 
     }

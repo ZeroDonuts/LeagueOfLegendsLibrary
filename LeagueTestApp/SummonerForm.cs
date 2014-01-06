@@ -70,7 +70,7 @@ namespace LeagueTestApp
               
                 row["WinLoss"] = winLoss;
 
-                row["Type"] = gamesPlayed[i].gameType;
+                row["Type"] = gamesPlayed[i].subType;
 
                 row["Date"] = gamesPlayed[i].CreateDateTime.Date;
                 string kda =""; 
@@ -100,6 +100,11 @@ namespace LeagueTestApp
         {
             Runes runeForm = new Runes();
             runeForm.ShowDialog();
+        }
+
+        private void summonerInfoDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
