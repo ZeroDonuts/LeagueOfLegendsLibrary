@@ -9,22 +9,43 @@ namespace LeagueOfLegendsLibrary
     [DataContract]
     public class Talent
     {
+        
+        [DataMember(Name = "id")]
+        private int _id;
+
         /// <summary>
         /// Talent id.
         /// </summary>
-        [DataMember(Name = "id")]
-        public int id;
+        public int Id
+        {
+            get { return _id; }
+        }
+        
+
+        
+        [DataMember(Name = "name")]
+        private string _name;
 
         /// <summary>
         /// Talent name.
         /// </summary>
-        [DataMember(Name = "name")]
-        public string name;
+        public string Name
+        {
+            get { return _name; }
+        }
+        
+
+        
+        [DataMember(Name = "rank")]
+        private int _rank;
 
         /// <summary>
         /// Talent rank.
         /// </summary>
-        [DataMember(Name = "rank")]
-        public int rank;
+        public int Rank
+        {
+            get { return Rank; }
+        }
+        
     }
 }
