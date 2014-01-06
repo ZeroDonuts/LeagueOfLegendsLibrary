@@ -19,10 +19,14 @@ namespace LeagueTestApp
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            this.Shown += new EventHandler(MainForm_Shown);
             ApiKeyForm form = new ApiKeyForm();
             form.ShowDialog();
+        }
 
-            if (LolInfo.APIKEY.Length == 0)
+        void MainForm_Shown(object sender, EventArgs e)
+        {
+            if (LolInfo.ChampionCollection == null)
             {
                 this.Close();
             }
