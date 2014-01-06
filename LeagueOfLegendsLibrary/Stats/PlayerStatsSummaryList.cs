@@ -15,12 +15,28 @@ namespace LeagueOfLegendsLibrary
         /// List of player stats summaries associated with the summoner.
         /// </summary>
         [DataMember(Name="playerStatSummaries")]
-        public List<PlayerStatsSummary> playerStatSummaries;
+        private List<PlayerStatsSummary> _playerStatSummaries;
+
+        public List<PlayerStatsSummary> PlayerStatSummaries
+        {
+            get
+            {
+                return _playerStatSummaries;
+            }
+        }
 
         /// <summary>
         /// Summoner ID.
         /// </summary>
         [DataMember(Name="summonerId")]
-        public long summonerId;
+        private long _summonerId;
+
+        public long AverageNodeNeutralize
+        {
+            get
+            {
+                return _summonerId;
+            }
+        }
     }
 }

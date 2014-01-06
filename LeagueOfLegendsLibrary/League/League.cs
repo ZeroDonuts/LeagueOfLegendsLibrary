@@ -13,15 +13,47 @@ namespace LeagueOfLegendsLibrary
     public class League
     {
         [DataMember(Name = "entries")]
-        public List<LeagueItem> entries;
+        private List<LeagueItem> _entries;
+
+        public List<LeagueItem> Entries
+        {
+            get
+            {
+                return _entries;
+            }
+        }
 
         [DataMember(Name = "name")]
-        public string name;
+        private string _name;
+
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+        }
 
         [DataMember(Name = "queue")]
-        public string queue;
+        private string _queue;
+
+        public string Queue
+        {
+            get
+            {
+                return _queue;
+            }
+        }
 
         [DataMember(Name = "tier")]
-        public string tier;
+        private string _tier;
+
+        public string Tier
+        {
+            get
+            {
+                return _tier;
+            }
+        }
     }
 }

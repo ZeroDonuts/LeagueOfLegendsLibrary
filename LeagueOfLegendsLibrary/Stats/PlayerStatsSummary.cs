@@ -13,19 +13,43 @@ namespace LeagueOfLegendsLibrary
         /// Aggregated stats.
         /// </summary>
         [DataMember(Name = "aggregatedStats")]
-        public AggregatedStats aggregatedStats;
+        private AggregatedStats _aggregatedStats;
+
+        public AggregatedStats AggregatedStats
+        {
+            get
+            {
+                return _aggregatedStats;
+            }
+        }
 
         /// <summary>
         /// Number of losses for this queue type. Returned for ranked queue types only
         /// </summary>
         [DataMember(Name = "losses")]
-        public int losses;
+        private int _losses;
+
+        public int Losses
+        {
+            get
+            {
+                return _losses;
+            }
+        }
 
         /// <summary>
         /// Date stats were last modified specified as epoch milliseconds.
         /// </summary>
         [DataMember(Name = "modifyDate")]
-        public long modifyDate;
+        private long _modifyDate;
+
+        public long ModifyDate
+        {
+            get
+            {
+                return _modifyDate;
+            }
+        }
 
 
         /// <summary>
@@ -36,12 +60,28 @@ namespace LeagueOfLegendsLibrary
         /// Unranked, Unranked3x3, OneForAll5x5, FirstBlood1x1, FirstBlood2x2)
         /// </summary>
        [DataMember(Name = "playerStatSummaryType")]
-        public string playerStatSummaryType;
+        private string _playerStatSummaryType;
+
+       public string PlayerStatsSummaryType
+       {
+           get
+           {
+               return _playerStatSummaryType;
+           }
+       }
 
         /// <summary>
         /// Number of wins for this queue type.
         /// </summary>
         [DataMember(Name="wins")]
-        public int wins;
+        private int _wins;
+
+        public int Wins
+        {
+            get
+            {
+                return _wins;
+            }
+        }
     }
 }

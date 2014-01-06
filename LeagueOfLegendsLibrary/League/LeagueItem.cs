@@ -10,45 +10,156 @@ namespace LeagueOfLegendsLibrary
     public class LeagueItem
     {
         [DataMember(Name="isFreshBlood")]
-        public bool isFreshBlood;
+        private bool _isFreshBlood;
+        public bool IsFreshBlood
+        {
+            get
+            {
+                return _isFreshBlood;
+            }
+        }
 
         [DataMember(Name = "isHotStreak")]
-        public bool isHotStreak;
+        private bool _isHotStreak;
+
+        public bool IsHotStreak
+        {
+            get
+            {
+                return _isHotStreak;
+            }
+        }
 
         [DataMember(Name = "isInactive")]
-        public bool isInactive;
+        private bool _isInactive;
+
+        public bool IsInactive
+        {
+            get
+            {
+                return _isInactive;
+            }
+        }
 
         [DataMember(Name = "isVeteran")]
-        public bool isVeteran;
+        private bool _isVeteran;
+
+        public bool IsVeteran
+        {
+            get
+            {
+                return _isVeteran;
+            }
+        }
 
         [DataMember(Name = "lastPlayed")]
-        public long lastPlayed;
+        private long _lastPlayed;
+
+        public long LastPlayed
+        {
+            get
+            {
+                return _lastPlayed;
+            }
+        }
 
         [DataMember(Name = "leagueName")]
-        public string leagueName;
+        private string _leagueName;
+
+        public string LeagueName
+        {
+            get
+            {
+                return _leagueName;
+            }
+        }
 
         [DataMember(Name = "leaguePoints")]
-        public int leaguePoints;
+        private int _leaguePoints;
+
+        public int LeaguePoints
+        {
+            get
+            {
+                return _leaguePoints;
+            }
+        }
 
         [DataMember(Name = "miniSeries")]
-        public MiniSeries miniSeries;
+        private MiniSeries _miniSeries;
+
+        public MiniSeries MiniSeries
+        {
+            get
+            {
+                return _miniSeries;
+            }
+        }
 
         [DataMember(Name = "playerOrTeamId")]
-        public string playerOrTeamId;
+        private string _playerOrTeamId;
+
+        public string PlayerOrTeamId
+        {
+            get
+            {
+                return _playerOrTeamId;
+            }
+        }
 
         [DataMember(Name = "playerOrTeamName")]
-        public string playerOrTeamName;
+        private string _playerOrTeamName;
+
+        public string PlayerOrTeamName
+        {
+            get
+            {
+                return _playerOrTeamName;
+            }
+        }
 
         [DataMember(Name = "queueType")]
-        public string queueType;
+        private string _queueType;
+
+        public string QueueType
+        {
+            get
+            {
+                return _queueType;
+            }
+        }
 
         [DataMember(Name = "rank")]
-        public string rank;
+        private string _rank;
+
+        public string Rank
+        {
+            get
+            {
+                return _rank;
+            }
+        }
 
         [DataMember(Name = "tier")]
-        public string tier;
+        private string _tier;
+
+        public string Tier
+        {
+            get
+            {
+                return _tier;
+            }
+        }
 
         [DataMember(Name = "wins")]
-        public int wins;
+        private int _wins;
+
+        public int Wins
+        {
+            get
+            {
+                return _wins;
+            }
+        }
     }
 }

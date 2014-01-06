@@ -10,18 +10,58 @@ namespace LeagueOfLegendsLibrary
     public class MiniSeries
     {
         [DataMember(Name = "losses")]
-        public int losses;
+        private int _losses;
+
+        public int Losses
+        {
+            get
+            {
+                return _losses;
+            }
+        }
 
         [DataMember(Name = "progress")]
-        public char[] progress;
+        private char[] _progress;
+
+        public char[] Progress
+        {
+            get
+            {
+                return _progress;
+            }
+        }
 
         [DataMember(Name = "target")]
-        public int target;
+        private int _target;
+
+        public int Target
+        {
+            get
+            {
+                return _target;
+            }
+        }
 
         [DataMember(Name = "timeLeftToPlayMillis")]
-        public long timeLeftToPlayMillis;
+        private long _timeLeftToPlayMillis;
+
+        public long TimeLeftToPlayMillis
+        {
+            get
+            {
+                return _timeLeftToPlayMillis;
+            }
+        }
 
         [DataMember(Name = "wins")]
-        public int wins;
+        private int _wins;
+
+        public int Wins
+        {
+            get
+            {
+                return _wins;
+            }
+        }
     }
 }

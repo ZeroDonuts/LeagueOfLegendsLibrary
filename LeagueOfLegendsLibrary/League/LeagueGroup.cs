@@ -7,6 +7,14 @@ namespace LeagueOfLegendsLibrary
 {
     public class LeagueGroup
     {
-        public Dictionary<long, League> league;
+        private Dictionary<long, League> _league;
+
+        public Dictionary<long, League> League
+        {
+            get
+            {
+                return _league;
+            }
+        }
     }
 }

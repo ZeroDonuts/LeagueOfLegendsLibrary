@@ -9,166 +9,608 @@ namespace LeagueOfLegendsLibrary
     [DataContract]
     public class AggregatedStats
     {
-        [DataMember(Name = "averageAssists")]
-        public int averageAssists;
+        public int AverageAssists
+        {
+            get
+            {
+                if (_totalSessionsPlayed > 0)
+                {
+                    return _totalAssists / __totalSessionsPlayed;
+                }
+                return 0;
+            }
+        }
 
-        [DataMember(Name = "averageChampionsKilled")]
-        public int averageChampionsKilled;
+        public int AverageChampionsKilled
+        {
+            get
+            {
+                if (_totalSessionsPlayed > 0)
+                {
+                    return _totalChampionKills / _totalSessionsPlayed;
+                }
+                return 0;
+            }
+        }
 
         [DataMember(Name = "averageCombatPlayerScore")]
-        public int averageCombatPlayerScore;
+        private int _averageCombatPlayerScore;
+        //fix this
+        public int AverageCombatPlayerScore
+        {
+            get
+            {
+                return _averageCombatPlayerScore;
+            }
+        }
 
         [DataMember(Name = "averageNodeCapture")]
-        public int averageNodeCapture;
+        private int _averageNodeCapture;
+
+        public int AverageNodeCapture
+        {
+            get
+            {
+                if (_totalSessionsPlayed > 0)
+                {
+                    return _totalNodeCapture / _totalSessionsPlayed;
+                }
+                return 0;
+            }
+        }
 
         [DataMember(Name = "averageNodeCaptureAssist")]
-        public int averageNodeCaptureAssist;
+        private int _averageNodeCaptureAssist;
+        //fix this
+        public int AverageNodeCaptureAssist
+        {
+            get
+            {
+                return _averageNodeCaptureAssist;
+            }
+        }
 
         [DataMember(Name = "averageNodeNeutralize")]
-        public int averageNodeNeutralize;
+        private int averageNodeNeutralize;
+
+        public int AverageNodeNeutralize
+        {
+            get
+            {
+                if (_totalSessionsPlayed > 0)
+                {
+                    return _totalNodeNeutralize / _totalSessionsPlayed;
+                }
+                return 0;
+            }
+        }
 
         [DataMember(Name = "averageNodeNeutralizeAssist")]
-        public int averageNodeNeutralizeAssist;
+        private int _averageNodeNeutralizeAssist;
+        //fix this
+        public int AverageNodeNeutralizeAssist
+        {
+            get
+            {
+                return _averageNodeNeutralizeAssist;
+            }
+        }
 
         [DataMember(Name = "averageNumDeaths")]
-        public int averageNumDeaths;
+        private int _averageNumDeaths;
+        //fix this
+        public int AverageNumberOfDeaths
+        {
+            get
+            {
+                return _averageNumDeaths;
+            }
+        }
 
         [DataMember(Name = "averageObjectivePlayerScore")]
-        public int averageObjectivePlayerScore;
+        private int _averageObjectivePlayerScore;
+        //fix this
+        public int AverageObjectivePlayerScore
+        {
+            get
+            {
+                return _averageObjectivePlayerScore;
+            }
+        }
 
         [DataMember(Name = "averageTeamObjective")]
-        public int averageTeamObjective;
+        private int _averageTeamObjective;
+        //fix this
+        public int AverageTeamObjective
+        {
+            get
+            {
+                return _averageTeamObjective;
+            }
+        }
 
         [DataMember(Name = "averageTotalPlayerScore")]
-        public int averageTotalPlayerScore;
+        private int _averageTotalPlayerScore;
+
+        public int AverageTotalPlayerScore
+        {
+            get
+            {
+                return _averageTotalPlayerScore;
+            }
+        }
 
         [DataMember(Name = "botGamesPlayed")]
-        public int botGamesPlayed;
+        private int botGamesPlayed;
+
+        public int BotGamesPlayed
+        {
+            get
+            {
+                return _totalSessionsPlayed;
+            }
+        }
 
         [DataMember(Name = "killingSpree")]
-        public int killingSpree;
+        private int _killingSpree;
+
+        public int KillingSpree
+        {
+            get
+            {
+                return _killingSpree;
+            }
+        }
 
         [DataMember(Name = "maxAssists")]
-        public int maxAssists;
+        private int _maxAssists;
+
+        public int MaxAssists
+        {
+            get
+            {
+                return _maxAssists;
+            }
+        }
 
         [DataMember(Name = "maxChampionsKilled")]
-        public int maxChampionsKilled;
+        private int _maxChampionsKilled;
+
+        public int MaxChampionsKilled
+        {
+            get
+            {
+                return _maxChampionsKilled;
+            }
+        }
 
         [DataMember(Name = "maxCombatPlayerScore")]
-        public int maxCombatPlayerScore;
+        private int _maxCombatPlayerScore;
+
+        public int MaxCombatPlayerScore
+        {
+            get
+            {
+                return _maxCombatPlayerScore;
+            }
+        }
 
         [DataMember(Name = "maxLargestCriticalStrike")]
-        public int maxLargestCriticalStrike;
+        private int _maxLargestCriticalStrike;
+
+        public int MaxLargestCriticalStrike
+        {
+            get
+            {
+                return _maxLargestCriticalStrike;
+            }
+        }
 
         [DataMember(Name = "maxLargestKillingSpree")]
-        public int maxLargestKillingSpree;
+        private int _maxLargestKillingSpree;
+
+        public int MaxLargestKillingSpree
+        {
+            get
+            {
+                return _maxLargestKillingSpree;
+            }
+        }
 
         [DataMember(Name = "maxNodeCapture")]
-        public int maxNodeCapture;
+        private int _maxNodeCapture;
+
+        public int MaxNodeCapture
+        {
+            get
+            {
+                return _maxNodeCapture;
+            }
+        }
 
         [DataMember(Name = "maxNodeCaptureAssist")]
-        public int maxNodeCaptureAssist;
+        private int _maxNodeCaptureAssist;
+
+        public int MaxNodeCaptureAssist
+        {
+            get
+            {
+                return _maxNodeCaptureAssist;
+            }
+        }
 
         [DataMember(Name = "maxNodeNeutralize")]
-        public int maxNodeNeutralize;
+        private int _maxNodeNeutralize;
+
+        public int MaxNodeNeutralize
+        {
+            get
+            {
+                return _maxNodeNeutralize;
+            }
+        }
 
         [DataMember(Name = "maxNodeNeutralizeAssist")]
-        public int maxNodeNeutralizeAssist;
+        private int _maxNodeNeutralizeAssist;
+
+        public int MaxNodeNeutralizeAssist
+        {
+            get
+            {
+                return _maxNodeNeutralizeAssist;
+            }
+        }
 
         [DataMember(Name = "maxObjectivePlayerScore")]
-        public int maxObjectivePlayerScore;
+        private int _maxObjectivePlayerScore;
+
+        public int MaxObjectivePlayerScore
+        {
+            get
+            {
+                return _maxObjectivePlayerScore;
+            }
+        }
 
         [DataMember(Name = "maxTeamObjective")]
-        public int maxTeamObjective;
+        private int _maxTeamObjective;
+
+        public int MaxTeamObjective
+        {
+            get
+            {
+                return _maxTeamObjective;
+            }
+        }
 
         [DataMember(Name = "maxTimePlayed")]
-        public int maxTimePlayed;
+        private int _maxTimePlayed;
+
+        public int MaxTimePlayed
+        {
+            get
+            {
+                return _maxTimePlayed;
+            }
+        }
 
         [DataMember(Name = "maxTimeSpentLiving")]
-        public int maxTimeSpentLiving;
+        private int _maxTimeSpentLiving;
+
+        public int MaxTimeSpentLiving
+        {
+            get
+            {
+                return _maxTimeSpentLiving;
+            }
+        }
 
         [DataMember(Name = "maxTotalPlayerScore")]
-        public int maxTotalPlayerScore;
+        private int _maxTotalPlayerScore;
+
+        public int MaxTotalPlayerScore
+        {
+            get
+            {
+                return _maxTotalPlayerScore;
+            }
+        }
 
         [DataMember(Name = "mostChampionKillsPerSession")]
-        public int mostChampionKillsPerSession;
+        private int _mostChampionKillsPerSession;
+
+        public int MostChampionKillsPerSession
+        {
+            get
+            {
+                return _mostChampionKillsPerSession;
+            }
+        }
 
         [DataMember(Name = "mostSpellsCast")]
-        public int mostSpellsCast;
+        private int _mostSpellsCast;
+
+        public int MostSpellsCast
+        {
+            get
+            {
+                return _mostSpellsCast;
+            }
+        }
 
         [DataMember(Name = "normalGamesPlayed")]
-        public int normalGamesPlayed;
+        private int _normalGamesPlayed;
+
+        public int NormalGamesPlayed
+        {
+            get
+            {
+                return _normalGamesPlayed;
+            }
+        }
 
         [DataMember(Name = "rankedPremadeGamesPlayed")]
-        public int rankedPremadeGamesPlayed;
+        private int _rankedPremadeGamesPlayed;
+
+        public int RankedPremadeGamesPlayed
+        {
+            get
+            {
+                return _rankedPremadeGamesPlayed;
+            }
+        }
 
         [DataMember(Name = "rankedSoloGamesPlayed")]
-        public int rankedSoloGamesPlayed;
+        private int _rankedSoloGamesPlayed;
+
+        public int RankedSoloGamesPlayed
+        {
+            get
+            {
+                return _rankedSoloGamesPlayed;
+            }
+        }
 
         [DataMember(Name = "totalAssists")]
-        public int totalAssists;
+        private int _totalAssists;
 
-        [DataMember(Name = "totalChampionKills")]
-        public int totalChampionKills;
+        public int TotalAssists
+        {
+            get
+            {
+                return _totalAssists;
+            }
+        }
+
+        [DataMember(Name = "_totalChampionKills")]
+        private int __totalChampionKills;
+
+        public int _totalChampionKills
+        {
+            get
+            {
+                return __totalChampionKills;
+            }
+        }
 
         [DataMember(Name = "totalDamageDealt")]
-        public int totalDamageDealt;
+        private int _totalDamageDealt;
+
+        public int TotalDamageDealt
+        {
+            get
+            {
+                return _totalDamageDealt;
+            }
+        }
 
         [DataMember(Name = "totalDamageTaken")]
-        public int totalDamageTaken;
+        private int _totalDamageTaken;
+
+        public int TotalDamageTaken
+        {
+            get
+            {
+                return _totalDamageTaken;
+            }
+        }
 
         [DataMember(Name = "totalDoubleKills")]
-        public int totalDoubleKills;
+        private int _totalDoubleKills;
+
+        public int TotalDoubleKills
+        {
+            get
+            {
+                return _totalDoubleKills;
+            }
+        }
 
         [DataMember(Name = "totalFirstBlood")]
-        public int totalFirstBlood;
+        private int _totalFirstBlood;
+
+        public int TotalFirstBlood
+        {
+            get
+            {
+                return _totalFirstBlood;
+            }
+        }
 
         [DataMember(Name = "totalGoldEarned")]
-        public int totalGoldEarned;
+        private int _totalGoldEarned;
+
+        public int TotalGoldEarned
+        {
+            get
+            {
+                return _totalGoldEarned;
+            }
+        }
 
         [DataMember(Name = "totalHeal")]
-        public int totalHeal;
+        private int _totalHeal;
+
+        public int TotalHeal
+        {
+            get
+            {
+                return _totalHeal;
+            }
+        }
 
         [DataMember(Name = "totalMagicDamageDealt")]
-        public int totalMagicDamageDealt;
+        private int _totalMagicDamageDealt;
+
+        public int TotalMagicDamageDealt
+        {
+            get
+            {
+                return _totalMagicDamageDealt;
+            }
+        }
 
         [DataMember(Name = "totalMinionKills")]
-        public int totalMinionKills;
+        private int _totalMinionKills;
+
+        public int TotalMinionKills
+        {
+            get
+            {
+                return _totalMinionKills;
+            }
+        }
 
         [DataMember(Name = "totalNeutralMinionsKilled")]
-        public int totalNeutralMinionsKilled;
+        private int _totalNeutralMinionsKilled;
+
+        public int TotalNeutralMinionsKilled
+        {
+            get
+            {
+                return _totalNeutralMinionsKilled;
+            }
+        }
 
         [DataMember(Name = "totalNodeCapture")]
-        public int totalNodeCapture;
+        private int _totalNodeCapture;
+
+        public int TotalNodeCapture
+        {
+            get
+            {
+                return _totalNodeCapture;
+            }
+        }
 
         [DataMember(Name = "totalNodeNeutralize")]
-        public int totalNodeNeutralize;
+        private int _totalNodeNeutralize;
+
+        public int TotalNodeNeutralize
+        {
+            get
+            {
+                return _totalNodeNeutralize;
+            }
+        }
 
         [DataMember(Name = "totalPentaKills")]
-        public int totalPentaKills;
+        private int _totalPentaKills;
+
+        public int TotalPentaKills
+        {
+            get
+            {
+                return _totalPentaKills;
+            }
+        }
 
         [DataMember(Name = "totalPhysicalDamageDealt")]
-        public int totalPhysicalDamageDealt;
+        private int _totalPhysicalDamageDealt;
+
+        public int TotalPhysicalDamageDealt
+        {
+            get
+            {
+                return _totalPhysicalDamageDealt;
+            }
+        }
 
         [DataMember(Name = "totalQuadraKills")]
-        public int totalQuadraKills;
+        private int _totalQuadraKills;
+
+        public int TotalQuadraKills
+        {
+            get
+            {
+                return _totalQuadraKills;
+            }
+        }
 
         [DataMember(Name = "totalSessionsLost")]
-        public int totalSessionsLost;
+        private int _totalSessionsLost;
 
-        [DataMember(Name = "totalSessionsPlayed")]
-        public int totalSessionsPlayed;
+        public int TotalSessionsLost
+        {
+            get
+            {
+                return _totalSessionsLost;
+            }
+        }
+
+        [DataMember(Name = "_totalSessionsPlayed")]
+        private int __totalSessionsPlayed;
+
+        public int _totalSessionsPlayed
+        {
+            get
+            {
+                return __totalSessionsPlayed;
+            }
+        }
 
         [DataMember(Name = "totalSessionsWon")]
-        public int totalSessionsWon;
+        private int _totalSessionsWon;
+
+        public int TotalSessionsWon
+        {
+            get
+            {
+                return _totalSessionsWon;
+            }
+        }
 
         [DataMember(Name = "totalTripleKills")]
-        public int totalTripleKills;
+        private int _totalTripleKills;
+
+        public int TotalTripleKills
+        {
+            get
+            {
+                return _totalTripleKills;
+            }
+        }
 
         [DataMember(Name = "totalTurretsKilled")]
-        public int totalTurretsKilled;
+        private int _totalTurretsKilled;
+
+        public int TotalTurretsKilled
+        {
+            get
+            {
+                return _totalTurretsKilled;
+            }
+        }
 
         [DataMember(Name = "totalUnrealKills")]
-        public int totalUnrealKills;
+        private int _totalUnrealKills;
+
+        public int TotalUnrealKills
+        {
+            get
+            {
+                return _totalUnrealKills;
+            }
+        }
     }
 }
