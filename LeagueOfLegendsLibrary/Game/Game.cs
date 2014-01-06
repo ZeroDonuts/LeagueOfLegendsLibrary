@@ -12,33 +12,34 @@ namespace LeagueOfLegendsLibrary
     [DataContract]
     public class Game
     {
-        /// <summary>
-        /// Champion ID associated with game.
-        /// </summary>
         [DataMember(Name = "championId")]
         private int _championId;
 
+        /// <summary>
+        /// Champion ID associated with game.
+        /// </summary>
         public int championId
         {
             get { return _championId; }
         }
 
-        /// <summary>
-        /// Date game was played specified as epoch milliseconds.
-        /// </summary>
         [DataMember(Name = "createDate")]
         private long _createDate;
 
+        /// <summary>
+        /// Date game was played specified as epoch milliseconds.
+        /// </summary>
         public long createDate
         {
             get { return _createDate; }
         }
-        /// <summary>
-        /// Human readable string representing date game was played.
-        /// </summary>
+
         [DataMember(Name = "createDateStr")]
         private string _createDateStr;
 
+        /// <summary>
+        /// Human readable string representing date game was played.
+        /// </summary>
         public string createDateStr
         {
             get { return _createDateStr; }
@@ -55,128 +56,128 @@ namespace LeagueOfLegendsLibrary
             }
         }
 
-        /// <summary>
-        /// Other players associated with the game.
-        /// </summary>
         [DataMember(Name = "fellowPlayers")]
         private List<Player> _fellowPlayers;
 
+        /// <summary>
+        /// Other players associated with the game.
+        /// </summary>
         public List<Player> fellowPlayers
         {
             get { return _fellowPlayers; }
         }
 
-        /// <summary>
-        /// Game ID.
-        /// </summary>
         [DataMember(Name = "gameId")]
         private long _gameId;
 
+        /// <summary>
+        /// Game ID.
+        /// </summary>
         public long gameId
         {
             get { return _gameId; }
         }
 
-        /// <summary>
-        /// Game mode.
-        /// </summary>
         [DataMember(Name = "gameMode")]
         private string _gameMode;
 
+        /// <summary>
+        /// Game mode.
+        /// </summary>
         public string gameMode
         {
             get { return _gameMode; }
         }
 
-        /// <summary>
-        /// Game type.
-        /// </summary>
         [DataMember(Name = "gameType")]
         private string _gameType;
 
+        /// <summary>
+        /// Game type.
+        /// </summary>
         public string gameType
         {
             get { return _gameType; }
         }
 
-        /// <summary>
-        /// Invalid flag.
-        /// </summary>
         [DataMember(Name = "invalid")]
         private bool _invalid;
 
+        /// <summary>
+        /// Invalid flag.
+        /// </summary>
         public bool invalid
         {
             get { return _invalid; }
         }
 
-        /// <summary>
-        /// Level.
-        /// </summary>
         [DataMember(Name = "level")]
         private int _level;
 
+        /// <summary>
+        /// Level.
+        /// </summary>
         public int level
         {
             get { return _level; }
         }
 
-        /// <summary>
-        /// Map ID.
-        /// </summary>
         [DataMember(Name = "mapId")]
         private int _mapId;
 
+        /// <summary>
+        /// Map ID.
+        /// </summary>
         public int mapId
         {
             get { return _mapId; }
         }
 
-        /// <summary>
-        /// ID of first summoner spell.
-        /// </summary>
         [DataMember(Name = "spell1")]
         private int _spell1;
 
+        /// <summary>
+        /// ID of first summoner spell.
+        /// </summary>
         public int spell1
         {
             get { return _spell1; }
         }
 
-        /// <summary>
-        /// ID of second summoner spell.
-        /// </summary>
         [DataMember(Name = "spell2")]
         private int _spell2;
 
+        /// <summary>
+        /// ID of second summoner spell.
+        /// </summary>
         public int spell2
         {
             get { return _spell2; }
         }
 
-        /// <summary>
-        /// Statistics associated with the game for this summoner.
-        /// </summary>
         [DataMember(Name = "statistics")]
         private List<RawStat> statistics;
 
         /// <summary>
-        /// Game sub-type.
+        /// Statistics associated with the game for this summoner.
         /// </summary>
         [DataMember(Name = "subType")]
         private string _subType;
 
-        public int subType
+        /// <summary>
+        /// Game sub-type.
+        /// </summary>
+        public string subType
         {
             get { return _subType; }
         }
 
-        /// <summary>
-        /// Team ID associated with game.
-        /// </summary>
         [DataMember(Name = "teamId")]
         private int _teamId;
 
+        /// <summary>
+        /// Team ID associated with game.
+        /// </summary>
         public int teamId
         {
             get { return _teamId; }

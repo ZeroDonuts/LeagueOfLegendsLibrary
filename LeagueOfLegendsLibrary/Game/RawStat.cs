@@ -9,34 +9,34 @@ namespace LeagueOfLegendsLibrary
     [DataContract]
 	public class RawStat
 	{
-        /// <summary>
-        /// Raw stat ID.
-        /// </summary>
         [DataMember(Name = "id")]
         private int _id;
 
+        /// <summary>
+        /// Raw stat ID.
+        /// </summary>
         public int id
         {
             get { return _id; }
         }
 
-        /// <summary>
-        /// Raw stat name.
-        /// </summary>
         [DataMember(Name = "name")]
         private string _name;
 
+        /// <summary>
+        /// Raw stat name.
+        /// </summary>
         public string name
         {
             get { return _name; }
         }
 
-        /// <summary>
-        /// Raw stat value.
-        /// </summary>
         [DataMember(Name = "value")]
         private int _value;
 
+        /// <summary>
+        /// Raw stat value.
+        /// </summary>
         public int value
         {
             get { return _value; }

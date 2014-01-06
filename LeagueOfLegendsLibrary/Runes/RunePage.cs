@@ -9,45 +9,45 @@ namespace LeagueOfLegendsLibrary
     [DataContract]
     public class RunePage
     {
-        /// <summary>
-        /// Indicated if the page is the current page.
-        /// </summary>
         [DataMember(Name = "current")]
         private bool _current;
 
+        /// <summary>
+        /// Indicated if the page is the current page.
+        /// </summary>
         public bool current
         {
             get { return _current; }
         }
 
-        /// <summary>
-        /// Rune page ID.
-        /// </summary>
         [DataMember(Name = "id")]
         private long _id;
 
+        /// <summary>
+        /// Rune page ID.
+        /// </summary>
         public long id
         {
             get { return _id; }
         }
 
-        /// <summary>
-        /// Rune page name.
-        /// </summary>
         [DataMember(Name = "name")]
         private string _name;
 
+        /// <summary>
+        /// Rune page name.
+        /// </summary>
         public string name
         {
             get { return _name; }
         }
 
-        /// <summary>
-        /// List of rune slots associated with the rune page.
-        /// </summary>
         [DataMember(Name = "slots")]
         private List<RuneSlot> _slots;
 
+        /// <summary>
+        /// List of rune slots associated with the rune page.
+        /// </summary>
         public List<RuneSlot> slots
         {
             get { return _slots; }

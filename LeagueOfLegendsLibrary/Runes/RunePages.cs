@@ -9,21 +9,21 @@ namespace LeagueOfLegendsLibrary
 {
     public class RunePages
     {
+        private RunePage[] _pages;
+
         /// <summary>
         /// Set of rune pages associated with the summoner.
         /// </summary>
-        private RunePage[] _pages;
-
         public RunePage[] pages
         {
             get { return _pages; }
         }
 
+        private long _summonerId;
+
         /// <summary>
         /// Summoner ID.
         /// </summary>
-        private long _summonerId;
-
         public long summonerId
         {
             get { return _summonerId; }

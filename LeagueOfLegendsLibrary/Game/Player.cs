@@ -9,34 +9,34 @@ namespace LeagueOfLegendsLibrary
     [DataContract]
     public class Player
     {
-        /// <summary>
-        /// Champion id associated with player.
-        /// </summary>
         [DataMember(Name = "championId")]
         private int _championId;
 
+        /// <summary>
+        /// Champion id associated with player.
+        /// </summary>
         public int championId
         {
             get { return _championId; }
         }
 
-        /// <summary>
-        /// Summoner id associated with player.
-        /// </summary>
         [DataMember(Name = "summonerId")]
         private long _summonerId;
 
+        /// <summary>
+        /// Summoner id associated with player.
+        /// </summary>
         public long summonerId
         {
             get { return _summonerId; }
         }
 
-        /// <summary>
-        /// Team id associated with player.
-        /// </summary>
         [DataMember(Name = "teamId")]
         private int _teamId;
 
+        /// <summary>
+        /// Team id associated with player.
+        /// </summary>
         public int teamId
         {
             get { return _teamId; }

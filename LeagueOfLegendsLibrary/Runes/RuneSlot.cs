@@ -9,23 +9,24 @@ namespace LeagueOfLegendsLibrary
     [DataContract]
     public class RuneSlot
     {
-        /// <summary>
-        /// Rune associated with the rune slot.
-        /// </summary>
         [DataMember(Name = "rune")]
         private Rune _rune;
 
+        /// <summary>
+        /// Rune associated with the rune slot.
+        /// </summary>
         public Rune rune
         {
             get { return _rune; }
         }
 
-        /// <summary>
-        /// Rune slot ID.
-        /// </summary>
        [DataMember(Name = "runeSlotId")]
         private int _runeSlotId;
 
+
+       /// <summary>
+       /// Rune slot ID.
+       /// </summary>
        public int runeSlotId
        {
            get { return _runeSlotId; }
