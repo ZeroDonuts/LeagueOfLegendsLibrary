@@ -34,7 +34,7 @@ namespace LeagueTestApp
             table.Columns.Add("Queue");
             table.Columns.Add("Champion");
             table.Columns.Add("WinLoss");
-            table.Columns.Add("K/D");
+            table.Columns.Add("K/D/A");
            
         }
 
@@ -73,17 +73,21 @@ namespace LeagueTestApp
               
                 row["WinLoss"] = winLoss;
 
-                row["Type"] = gamesPlayed[i].subType;
+                row["Type"] = gamesPlayed[i].gameType;
 
                 row["Date"] = gamesPlayed[i].CreateDateTime.Date;
                 string kda =""; 
-                try{
+                try
+                {
                     kda += gamesPlayed[i].GetStat(RawStatID.ChampionsKilled).value.ToString();
-                }catch(KeyNotFoundException)
+                }
+                catch(KeyNotFoundException)
                 {
                     kda += "0";
                 }
+
                 kda += "/";
+
                 try
                 {
                     kda += gamesPlayed[i].GetStat(RawStatID.NumOfDeaths).value.ToString();
@@ -92,8 +96,19 @@ namespace LeagueTestApp
                 {
                     kda += "0";
                 }
+
+                kda += "/";
+
+                try
+                {
+                    kda += gamesPlayed[i].GetStat(RawStatID.Assists).value.ToString();
+                }
+                catch (KeyNotFoundException)
+                {
+                    kda += "0";
+                }
                 
-                row["K/D"] = kda;
+                row["K/D/A"] = kda;
                 table.Rows.Add(row);
             }
             summonerInfoDataGrid.DataSource = table;
