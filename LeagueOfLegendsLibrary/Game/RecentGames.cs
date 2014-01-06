@@ -10,9 +10,19 @@ namespace LeagueOfLegendsLibrary
     public class RecentGames
     {
         [DataMember(Name = "games")]
-        public List<Game> games;
+        private List<Game> _games;
+
+        public List<Game> games
+        {
+            get { return _games; }
+        }
 
         [DataMember(Name = "summonerId")]
-        public long summonerId;
+        private long _summonerId;
+
+        public long summonerId
+        {
+            get { return _summonerId; }
+        }
     }
 }

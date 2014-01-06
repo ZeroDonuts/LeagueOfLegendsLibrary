@@ -13,18 +13,33 @@ namespace LeagueOfLegendsLibrary
         /// Raw stat ID.
         /// </summary>
         [DataMember(Name = "id")]
-        public int id;
+        private int _id;
+
+        public int id
+        {
+            get { return _id; }
+        }
 
         /// <summary>
         /// Raw stat name.
         /// </summary>
         [DataMember(Name = "name")]
-        public string name;
+        private string _name;
+
+        public string name
+        {
+            get { return _name; }
+        }
 
         /// <summary>
         /// Raw stat value.
         /// </summary>
         [DataMember(Name = "value")]
-        public int value;
+        private int _value;
+
+        public int value
+        {
+            get { return _value; }
+        }
 	}
 }
