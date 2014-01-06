@@ -13,12 +13,22 @@ namespace LeagueOfLegendsLibrary
         /// Rune associated with the rune slot.
         /// </summary>
         [DataMember(Name = "rune")]
-        public Rune rune;
+        private Rune _rune;
+
+        public Rune rune
+        {
+            get { return _rune; }
+        }
 
         /// <summary>
         /// Rune slot ID.
         /// </summary>
        [DataMember(Name = "runeSlotId")]
-        public int runeSlotId;
+        private int _runeSlotId;
+
+       public int runeSlotId
+       {
+           get { return _runeSlotId; }
+       }
     }
 }

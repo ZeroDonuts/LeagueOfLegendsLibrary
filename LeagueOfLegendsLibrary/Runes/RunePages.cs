@@ -12,12 +12,22 @@ namespace LeagueOfLegendsLibrary
         /// <summary>
         /// Set of rune pages associated with the summoner.
         /// </summary>
-        public RunePage[] pages;
+        private RunePage[] _pages;
+
+        public RunePage[] pages
+        {
+            get { return _pages; }
+        }
 
         /// <summary>
         /// Summoner ID.
         /// </summary>
-        public long summonerId;
+        private long _summonerId;
+
+        public long summonerId
+        {
+            get { return _summonerId; }
+        }
 
     }
 }
