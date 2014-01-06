@@ -102,6 +102,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Runes.resx">
+      <DependentUpon>Runes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SummonerForm.resx">
       <DependentUpon>SummonerForm.cs</DependentUpon>
     </EmbeddedResource>

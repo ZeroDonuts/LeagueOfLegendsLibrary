@@ -31,6 +31,7 @@ namespace LeagueTestApp
             table.Columns.Add("Game");
             table.Columns.Add("Date");
             table.Columns.Add("Type");
+            table.Columns.Add("Queue");
             table.Columns.Add("Champion");
             table.Columns.Add("WinLoss");
             table.Columns.Add("K/D");
@@ -56,7 +57,9 @@ namespace LeagueTestApp
                 row["Game"] = string.Format("Game {0}", i + 1);
 
                 row["Champion"] = champs[gamesPlayed[i].championId].Name;
-                
+
+                row["Queue"] = gamesPlayed[i].subType;
+
                 string winLoss = "";
                 try
                 {
@@ -98,7 +101,7 @@ namespace LeagueTestApp
 
         private void runeButton_Click(object sender, EventArgs e)
         {
-            Runes runeForm = new Runes();
+            Runes runeForm = new Runes(summoner, regionComboBox.SelectedItem.ToString());
             runeForm.ShowDialog();
         }
 

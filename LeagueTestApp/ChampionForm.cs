@@ -41,6 +41,13 @@ namespace LeagueTestApp
             }
 
             championDataGridView.DataSource = table;
+            championDataGridView.SortCompare += new DataGridViewSortCompareEventHandler(championDataGridView_SortCompare);
+            
+        }
+
+        void championDataGridView_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
+        {
+            
         }
 
     }
