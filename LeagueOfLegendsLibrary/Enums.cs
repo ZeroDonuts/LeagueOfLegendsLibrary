@@ -21,6 +21,7 @@ namespace LeagueOfLegendsLibrary
         MatchWon = 23,
         Team = 24,
         MatchLost = 25,
+        NeutralMinionsKilled = 28,
         LargestMultiKill = 30,
         PhysicalDamageDealtToPlayer = 31,
         MagicDamageDealtToPlayer = 32,
@@ -40,8 +41,13 @@ namespace LeagueOfLegendsLibrary
         SightWardsBought = 97,
         MagicDamageDealtToChamps = 99,
         PhysicalDamageDealtToChamps = 100,
+        TotalDamageDealtToChamps = 101,
+        TrueDamageDealtToPlayer = 102,
+        TrueDamageDealtToChamps = 103,
         TrueDamageTaken = 104,
         WardsPlaced = 106,
+        NeutralMinionsKilledInEnemyJungle = 107,
+        NeutralMinionsKilledInYourJungle = 108,
         TotalTimeCrowdControlDealt = 109,
         Item6 = 110
     }
