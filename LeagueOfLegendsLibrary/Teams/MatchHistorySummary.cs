@@ -25,7 +25,15 @@ namespace LeagueOfLegendsLibrary
         private int _kills;
 
         [DataMember(Name = "mapId")]
-        private int mapID;
+        private int _mapId;
+
+        public int mapId
+        {
+            get
+            {
+                return _mapId;
+            }
+        }
 
         [DataMember(Name = "opposingTeamKills")]
         private int opposingTeamKills;

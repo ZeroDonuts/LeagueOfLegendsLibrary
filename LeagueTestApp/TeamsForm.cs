@@ -50,7 +50,43 @@ namespace LeagueTestApp
             {
                 DataRow row = table.NewRow();
 
-                row["Team Name"] = teams[i];
+                row["Team Name"] = teams[i].name;
+                row["Number of Members"] = teams[i].roster.memberList.Count().ToString();
+
+                int team3v3Wins = 0;
+                int team3v3Losses = 0;
+
+                int team5v5Wins = 0;
+                int team5v5Losses = 0;
+
+                for (int j = 0; j < teams[i].matchHistory.Count(); j++)
+                {
+                    if (teams[i].matchHistory[j].win)
+                    {
+                        if (teams[i].matchHistory[j].mapId == 41)
+                        {
+                            team3v3Wins++;
+                        }
+                        else
+                        {
+                            team5v5Wins++;
+                        }
+                    }
+                    else
+                    {
+                        if (teams[i].matchHistory[j].mapId == 41)
+                        {
+                            team3v3Losses++;
+                        }
+                        else
+                        {
+                            team5v5Losses++;
+                        }
+                    }
+                }
+                row["Total Win/Loss"] = (team3v3Wins + team5v5Wins).ToString() + "/" + (team3v3Losses + team5v5Losses).ToString();
+                row["3v3 Win/Loss"] = team3v3Wins.ToString() + "/" + team3v3Losses.ToString();
+                row["5v5 Win/Loss"] = team5v5Wins.ToString() + "/" + team5v5Losses.ToString();
 
                 table.Rows.Add(row);
             }

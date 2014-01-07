@@ -37,14 +37,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.teamsInfoDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
-            // teamInfoDataGrid
+            // teamsInfoDataGrid
             // 
             this.teamsInfoDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.teamsInfoDataGrid.Location = new System.Drawing.Point(-1, 29);
-            this.teamsInfoDataGrid.Name = "summonerInfoDataGrid";
+            this.teamsInfoDataGrid.Name = "teamsInfoDataGrid";
             this.teamsInfoDataGrid.Size = new System.Drawing.Size(529, 269);
             this.teamsInfoDataGrid.TabIndex = 0;
-            this.teamsInfoDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(teamsInfoDataGrid_CellContentClick);
+            this.teamsInfoDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.teamsInfoDataGrid_CellContentClick);
             // 
             // nameTextBox
             // 
@@ -105,8 +105,8 @@
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.teamsInfoDataGrid);
-            this.Name = "SummonerForm";
-            this.Text = "SummonerForm";
+            this.Name = "TeamsForm";
+            this.Text = "TeamsForm";
             this.Load += new System.EventHandler(this.TeamsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.teamsInfoDataGrid)).EndInit();
             this.ResumeLayout(false);
