@@ -247,6 +247,7 @@ namespace LeagueOfLegendsLibrary
             get
             {
                 return _maxNodeNeutralize;
+                
             }
         }
 
@@ -379,17 +380,19 @@ namespace LeagueOfLegendsLibrary
             get
             {
                 return _totalAssists;
+                
             }
         }
 
-        [DataMember(Name = "_totalChampionKills")]
-        private int __totalChampionKills;
+        [DataMember(Name = "totalChampionKills")]
+        private int _totalChampionKills;
 
-        public int _totalChampionKills
+        public int TotalChampionKills
         {
             get
             {
-                return __totalChampionKills;
+                
+                return _totalChampionKills;
             }
         }
 
@@ -401,6 +404,7 @@ namespace LeagueOfLegendsLibrary
             get
             {
                 return _totalDamageDealt;
+                
             }
         }
 
