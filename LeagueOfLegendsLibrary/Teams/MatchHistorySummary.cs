@@ -22,7 +22,7 @@ namespace LeagueOfLegendsLibrary
         private bool invalid;
 
         [DataMember(Name = "kills")]
-        private int kills;
+        private int _kills;
 
         [DataMember(Name = "mapId")]
         private int mapID;
@@ -34,6 +34,14 @@ namespace LeagueOfLegendsLibrary
         private string opposingTeamName;
 
         [DataMember(Name = "win")]
-        private bool win;
+        private bool _win;
+
+        public bool win
+        {
+            get
+            {
+                return _win;
+            }
+        }
     }
 }

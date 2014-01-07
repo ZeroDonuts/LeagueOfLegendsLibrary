@@ -10,7 +10,15 @@ namespace LeagueOfLegendsLibrary
     public class Roster
     {
         [DataMember(Name = "memberList")]
-        private List<TeamMemberInfo> memberList;
+        private List<TeamMemberInfo> _memberList;
+
+        public List<TeamMemberInfo> memberList
+        {
+            get
+            {
+                return _memberList;
+            }
+        }
 
         [DataMember(Name = "ownerId")]
         private long ownerID;

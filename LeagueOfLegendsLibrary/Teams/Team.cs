@@ -10,101 +10,167 @@ namespace LeagueOfLegendsLibrary
     public class Team
     {
         [DataMember(Name = "createDate")]
-        private long createDate;
-        public DateTime CreateDate 
+        private long _createDate;
+
+        public DateTime createDate
         {
             get
             {
-                return LolInfo.EpochToDateTime(createDate);
+                return LolInfo.EpochToDateTime(_createDate);
             }
         }
 
         [DataMember(Name = "fullId")]
-        private string fullId;
+        private string _fullId;
 
-        [DataMember(Name = "lastGameDate")]
-        private long lastGameDate;
-        public DateTime LastGameDate
+        public string fullId
         {
             get
             {
-                return LolInfo.EpochToDateTime(lastGameDate);
+                return _fullId;
+            }
+        }
+
+        [DataMember(Name = "lastGameDate")]
+        private long _lastGameDate;
+
+        public DateTime lastGameDate
+        {
+            get
+            {
+                return LolInfo.EpochToDateTime(_lastGameDate);
             }
         }
 
         [DataMember(Name = "lastJoinDate")]
-        private long lastJoinDate;
+        private long _lastJoinDate;
 
-        public DateTime LastJoinDate
+        public DateTime lastJoinDate
         {
             get
             {
-                return LolInfo.EpochToDateTime(lastJoinDate);
+                return LolInfo.EpochToDateTime(_lastJoinDate);
             }
         }
 
         [DataMember(Name = "lastJoinedRankedTeamQueueDate")]
-        private long lastJoinedRankedTeamQueueDate;
+        private long _lastJoinedRankedTeamQueueDate;
 
-        public DateTime LastJoinedRankedTeamQueueDate
+        public DateTime lastJoinedRankedTeamQueueDate
         {
             get
             {
-                return LolInfo.EpochToDateTime(lastJoinedRankedTeamQueueDate);
+                return LolInfo.EpochToDateTime(_lastJoinedRankedTeamQueueDate);
             }
         }
 
         [DataMember(Name = "matchHistory")]
-        private List<MatchHistorySummary> matchHistory;
+        private List<MatchHistorySummary> _matchHistory;
 
-        [DataMember(Name = "messageOfDay")]
-        private MessageOfDay messageOfDay;
-
-        [DataMember(Name = "modifyDate")]
-        private long modifyDate;
-
-        public DateTime ModifyDate
+        public List<MatchHistorySummary> matchHistory
         {
             get
             {
-                return LolInfo.EpochToDateTime(modifyDate);
+                return _matchHistory;
+            }
+        }
+
+        [DataMember(Name = "messageOfDay")]
+        private MessageOfDay _messageOfDay;
+
+        public MessageOfDay messageOfDay
+        {
+            get
+            {
+                return _messageOfDay;
+            }
+        }
+
+        [DataMember(Name = "modifyDate")]
+        private long _modifyDate;
+
+        public DateTime modifyDate
+        {
+            get
+            {
+                return LolInfo.EpochToDateTime(_modifyDate);
             }
         }
 
         [DataMember(Name = "name")]
-        private string name;
+        private string _name;
 
-        [DataMember(Name = "roster")]
-        private Roster roster;
-
-        [DataMember(Name = "secondLastJoinDate")]
-        private long secondLastJoinDate;
-
-        public DateTime SecondLastJoinDate
+        public string name
         {
             get
             {
-                return LolInfo.EpochToDateTime(secondLastJoinDate);
+                return _name;
+            }
+        }
+
+        [DataMember(Name = "roster")]
+        private Roster _roster;
+
+        public Roster roster
+        {
+            get
+            {
+                return _roster;
+            }
+        }
+
+        [DataMember(Name = "secondLastJoinDate")]
+        private long _secondLastJoinDate;
+
+        public DateTime secondLastJoinDate
+        {
+            get
+            {
+                return LolInfo.EpochToDateTime(_secondLastJoinDate);
             }
         }
 
         [DataMember(Name = "status")]
-        private string status;
+        private string _status;
 
-        [DataMember(Name = "tag")]
-        private string tag;
-        
-        [DataMember(Name = "teamStatSummary")]
-        private TeamStatSummary teamStatSummary;
-
-        [DataMember(Name = "thirdLastJoinDate")]
-        private long thirdLastJoinDate;
-
-        public DateTime ThirdLastJoinDate
+        public string status
         {
             get
             {
-                return LolInfo.EpochToDateTime(thirdLastJoinDate);
+                return _status;
+            }
+        }
+
+        [DataMember(Name = "tag")]
+        private string _tag;
+
+        public string tag
+        {
+            get
+            {
+                return _tag;
+            }
+        }
+
+        [DataMember(Name = "teamStatSummary")]
+        private TeamStatSummary _teamStatSummary;
+
+        public TeamStatSummary teamStatSummary
+        {
+            get
+            {
+                return _teamStatSummary;
+            }
+        }
+
+        [DataMember(Name = "thirdLastJoinDate")]
+        private long _thirdLastJoinDate;
+
+        public DateTime thirdLastJoinDate
+        {
+            get
+            {
+                return LolInfo.EpochToDateTime(_thirdLastJoinDate);
             }
         }
     }
