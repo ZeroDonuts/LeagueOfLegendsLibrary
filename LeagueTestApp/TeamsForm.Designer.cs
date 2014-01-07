@@ -28,34 +28,104 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.teamsInfoDataGrid = new System.Windows.Forms.DataGridView();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.regionLabel = new System.Windows.Forms.Label();
+            this.regionComboBox = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.teamsInfoDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // teamInfoDataGrid
             // 
-            this.button1.Location = new System.Drawing.Point(1, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "TODO";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.teamsInfoDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.teamsInfoDataGrid.Location = new System.Drawing.Point(-1, 29);
+            this.teamsInfoDataGrid.Name = "summonerInfoDataGrid";
+            this.teamsInfoDataGrid.Size = new System.Drawing.Size(529, 269);
+            this.teamsInfoDataGrid.TabIndex = 0;
+            this.teamsInfoDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(teamsInfoDataGrid_CellContentClick);
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.Location = new System.Drawing.Point(44, 3);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(173, 20);
+            this.nameTextBox.TabIndex = 1;
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Location = new System.Drawing.Point(0, 6);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(38, 13);
+            this.nameLabel.TabIndex = 2;
+            this.nameLabel.Text = "Name:";
+            // 
+            // searchButton
+            // 
+            this.searchButton.Location = new System.Drawing.Point(453, 3);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(75, 23);
+            this.searchButton.TabIndex = 5;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // regionLabel
+            // 
+            this.regionLabel.AutoSize = true;
+            this.regionLabel.Location = new System.Drawing.Point(273, 6);
+            this.regionLabel.Name = "regionLabel";
+            this.regionLabel.Size = new System.Drawing.Size(44, 13);
+            this.regionLabel.TabIndex = 4;
+            this.regionLabel.Text = "Region:";
+            // 
+            // regionComboBox
+            // 
+            this.regionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.regionComboBox.FormattingEnabled = true;
+            this.regionComboBox.Items.AddRange(new object[] {
+            "na",
+            "euw",
+            "eune"});
+            this.regionComboBox.Location = new System.Drawing.Point(323, 3);
+            this.regionComboBox.Name = "regionComboBox";
+            this.regionComboBox.Size = new System.Drawing.Size(121, 21);
+            this.regionComboBox.TabIndex = 6;
             // 
             // TeamsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 262);
-            this.Controls.Add(this.button1);
-            this.Name = "TeamsForm";
-            this.Text = "Teams";
+            this.ClientSize = new System.Drawing.Size(530, 301);
+            this.Controls.Add(this.regionComboBox);
+            this.Controls.Add(this.regionLabel);
+            this.Controls.Add(this.searchButton);
+            this.Controls.Add(this.nameLabel);
+            this.Controls.Add(this.nameTextBox);
+            this.Controls.Add(this.teamsInfoDataGrid);
+            this.Name = "SummonerForm";
+            this.Text = "SummonerForm";
             this.Load += new System.EventHandler(this.TeamsForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.teamsInfoDataGrid)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        void teamsInfoDataGrid_CellContentClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
+        {
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView teamsInfoDataGrid;
+        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.Label regionLabel;
+        private System.Windows.Forms.ComboBox regionComboBox;
     }
 }

@@ -17,20 +17,45 @@ namespace LeagueTestApp
             InitializeComponent();
         }
 
+        Summoner summoner;
+        List<Team> teams;
+        DataTable table;
+
         private void TeamsForm_Load(object sender, EventArgs e)
         {
+            table = new DataTable();
 
+            table.Columns.Add("Team Name");
+            table.Columns.Add("Number of Members");
+            table.Columns.Add("Total Win/Loss");
+            table.Columns.Add("3v3 Win/Loss");
+            table.Columns.Add("5v5 Win/Loss");
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void searchButton_Click(object sender, EventArgs e)
         {
+            if (nameTextBox.Text.Trim() == "" || regionComboBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please enter a name or select a region.");
+                return;
+            }
+
             InfoGrabber g = new InfoGrabber();
-            List<Team> team = g.GetTeams(41119307);
-            DateTime c = team[2].CreateDate;
-            //TimeSpan ss = TimeSpan.FromMilliseconds(javaNum);
-            //DateTime Jan1st1970 = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Local);
-            //DateTime ddd = Jan1st1970.Add(ss);
-            //DateTime final = ddd.ToUniversalTime(); 
+
+            summoner = g.LookupSummonerByName(nameTextBox.Text, regionComboBox.SelectedItem.ToString());
+
+            teams = g.GetTeams(summoner.ID);
+
+            for (int i = 0; i < teams.Count(); i++)
+            {
+                DataRow row = table.NewRow();
+
+                row["Team Name"] = teams[i];
+
+                table.Rows.Add(row);
+            }
+            teamsInfoDataGrid.DataSource = table;
         }
+
     }
 }
