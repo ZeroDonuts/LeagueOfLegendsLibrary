@@ -50,7 +50,7 @@
     <Compile Include="Game\Game.cs" />
     <Compile Include="Game\Player.cs" />
     <Compile Include="Game\RawStat.cs" />
-    <Compile Include="Game\RecentGames.cs" />
+    <Compile Include="Game\RecentGamesCollection.cs" />
     <Compile Include="InfoGrabber.cs" />
     <Compile Include="League\League.cs" />
     <Compile Include="League\LeagueGroup.cs" />

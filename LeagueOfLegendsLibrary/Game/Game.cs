@@ -9,7 +9,7 @@ using ZeroLibrary;
 
 namespace LeagueOfLegendsLibrary
 {
-    [DataContract]
+    [DataContract(Name="GameDto")]
     public class Game
     {
         [DataMember(Name = "championId")]

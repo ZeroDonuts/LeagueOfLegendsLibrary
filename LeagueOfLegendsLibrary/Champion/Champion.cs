@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 
 namespace LeagueOfLegendsLibrary
 {
+    
     [DataContract(Name="ChampionDto")]
     public class Champion
     {

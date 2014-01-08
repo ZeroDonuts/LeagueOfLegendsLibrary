@@ -136,11 +136,11 @@ namespace LeagueOfLegendsLibrary
         /// <returns></returns>
         public List<Game> GetRecentGames(string region, long summonerID)
         {
-            jSerializer = new DataContractJsonSerializer(typeof(RecentGames));
+            jSerializer = new DataContractJsonSerializer(typeof(RecentGamesCollection));
             List<Game> games = new List<Game>();
             try
             {
-                games = ((RecentGames)jSerializer.ReadObject(webClient.OpenRead(string.Format("http://prod.api.pvp.net/api/lol/{0}/v1.1/game/by-summoner/{1}/recent?api_key={2}", region, summonerID, LolInfo.APIKEY)))).games;
+                games = ((RecentGamesCollection)jSerializer.ReadObject(webClient.OpenRead(string.Format("http://prod.api.pvp.net/api/lol/{0}/v1.1/game/by-summoner/{1}/recent?api_key={2}", region, summonerID, LolInfo.APIKEY)))).games;
             }
             catch (WebException e)
             {

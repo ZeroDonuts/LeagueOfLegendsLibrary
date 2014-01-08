@@ -19,6 +19,12 @@ namespace LeagueTestApp
 
         private void ChampionForm_Load(object sender, EventArgs e)
         {
+            this.Shown += new EventHandler(ChampionForm_Shown);
+
+        }
+
+        void ChampionForm_Shown(object sender, EventArgs e)
+        {
             DataTable table = new DataTable();
             table.Columns.Add("Name");
             table.Columns.Add("Attack");
@@ -41,14 +47,8 @@ namespace LeagueTestApp
             }
 
             championDataGridView.DataSource = table;
-            championDataGridView.SortCompare += new DataGridViewSortCompareEventHandler(championDataGridView_SortCompare);
+
             
         }
-
-        void championDataGridView_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
-        {
-            
-        }
-
     }
 }

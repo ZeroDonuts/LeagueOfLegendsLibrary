@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 
 namespace LeagueOfLegendsLibrary
 {
-    [DataContract]
+    [DataContract(Name="RawStatDto")]
 	public class RawStat
 	{
         [DataMember(Name = "id")]

@@ -11,7 +11,7 @@ namespace LeagueOfLegendsLibrary
     /// a collection of champions 
     /// </summary>
     [DataContract(Name="ChampionListDto")]
-    public class ChampionCollection : IEnumerable , IEnumerator
+    public class ChampionCollection : IEnumerable<Champion>, IEnumerator<Champion>
     {
         [DataMember(Name = "champions")]
         private List<Champion> _championsList;
@@ -38,7 +38,7 @@ namespace LeagueOfLegendsLibrary
             {
                 foreach (Champion champion in _championsList)
                 {
-                    if (name.ToLower() == champion.Name.ToLower())
+                    if (name.Equals(champion.Name, StringComparison.InvariantCultureIgnoreCase))
                     {
                         return champion;
                     }
@@ -77,12 +77,19 @@ namespace LeagueOfLegendsLibrary
 
         private int _position = -1;
 
-        public IEnumerator GetEnumerator()
+
+
+        public IEnumerator<Champion> GetEnumerator()
         {
             return this;
         }
 
-        public object Current
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this;
+        }
+
+        public Champion Current
         {
             get 
             {
@@ -90,9 +97,29 @@ namespace LeagueOfLegendsLibrary
                 {
                     return _championsList[_position];
                 }
-                catch (Exception e)
+                catch
                 {
-                    throw new InvalidOperationException("", e);
+                    throw new InvalidOperationException();
+                }
+            }
+        }
+
+        public void Dispose()
+        {
+            //TODO: 
+        }
+
+        object IEnumerator.Current
+        {
+            get 
+            {
+                try
+                {
+                    return _championsList[_position];
+                }
+                catch
+                {
+                    throw new InvalidOperationException();
                 }
             }
         }
@@ -100,7 +127,6 @@ namespace LeagueOfLegendsLibrary
         public bool MoveNext()
         {
             _position++;
-
             return _position < _championsList.Count;
         }
 
