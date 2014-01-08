@@ -10,20 +10,36 @@ namespace LeagueOfLegendsLibrary
     public class MessageOfDay
     {
         [DataMember(Name = "createDate")]
-        private long createDate;
+        private long _createDate;
 
         public DateTime CreateDate
         {
             get
             {
-                return LolInfo.EpochToDateTime(createDate);
+                return LolInfo.EpochToDateTime(_createDate);
             }
         }
 
         [DataMember(Name = "message")]
-        private string message;
+        private string _message;
+
+        public string Message
+        {
+            get
+            {
+                return _message;
+            }
+        }
 
         [DataMember(Name = "version")]
-        private int version;
+        private int _version;
+
+        public int Version
+        {
+            get
+            {
+                return _version;
+            }
+        }
     }
 }

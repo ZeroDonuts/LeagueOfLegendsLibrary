@@ -12,7 +12,7 @@ namespace LeagueOfLegendsLibrary
         [DataMember(Name = "createDate")]
         private long _createDate;
 
-        public DateTime createDate
+        public DateTime CreateDate
         {
             get
             {
@@ -23,7 +23,7 @@ namespace LeagueOfLegendsLibrary
         [DataMember(Name = "fullId")]
         private string _fullId;
 
-        public string fullId
+        public string FullId
         {
             get
             {
@@ -34,7 +34,7 @@ namespace LeagueOfLegendsLibrary
         [DataMember(Name = "lastGameDate")]
         private long _lastGameDate;
 
-        public DateTime lastGameDate
+        public DateTime LastGameDate
         {
             get
             {
@@ -45,7 +45,7 @@ namespace LeagueOfLegendsLibrary
         [DataMember(Name = "lastJoinDate")]
         private long _lastJoinDate;
 
-        public DateTime lastJoinDate
+        public DateTime LastJoinDate
         {
             get
             {
@@ -56,7 +56,7 @@ namespace LeagueOfLegendsLibrary
         [DataMember(Name = "lastJoinedRankedTeamQueueDate")]
         private long _lastJoinedRankedTeamQueueDate;
 
-        public DateTime lastJoinedRankedTeamQueueDate
+        public DateTime LastJoinedRankedTeamQueueDate
         {
             get
             {
@@ -67,7 +67,7 @@ namespace LeagueOfLegendsLibrary
         [DataMember(Name = "matchHistory")]
         private List<MatchHistorySummary> _matchHistory;
 
-        public List<MatchHistorySummary> matchHistory
+        public List<MatchHistorySummary> MatchHistory
         {
             get
             {
@@ -89,7 +89,7 @@ namespace LeagueOfLegendsLibrary
         [DataMember(Name = "modifyDate")]
         private long _modifyDate;
 
-        public DateTime modifyDate
+        public DateTime ModifyDate
         {
             get
             {
@@ -100,7 +100,7 @@ namespace LeagueOfLegendsLibrary
         [DataMember(Name = "name")]
         private string _name;
 
-        public string name
+        public string Name
         {
             get
             {
@@ -111,7 +111,7 @@ namespace LeagueOfLegendsLibrary
         [DataMember(Name = "roster")]
         private Roster _roster;
 
-        public Roster roster
+        public Roster Roster
         {
             get
             {
@@ -122,7 +122,7 @@ namespace LeagueOfLegendsLibrary
         [DataMember(Name = "secondLastJoinDate")]
         private long _secondLastJoinDate;
 
-        public DateTime secondLastJoinDate
+        public DateTime SecondLastJoinDate
         {
             get
             {
@@ -133,7 +133,7 @@ namespace LeagueOfLegendsLibrary
         [DataMember(Name = "status")]
         private string _status;
 
-        public string status
+        public string Status
         {
             get
             {
@@ -144,7 +144,7 @@ namespace LeagueOfLegendsLibrary
         [DataMember(Name = "tag")]
         private string _tag;
 
-        public string tag
+        public string Tag
         {
             get
             {
@@ -155,7 +155,7 @@ namespace LeagueOfLegendsLibrary
         [DataMember(Name = "teamStatSummary")]
         private TeamStatSummary _teamStatSummary;
 
-        public TeamStatSummary teamStatSummary
+        public TeamStatSummary TeamStatSummary
         {
             get
             {
@@ -166,7 +166,7 @@ namespace LeagueOfLegendsLibrary
         [DataMember(Name = "thirdLastJoinDate")]
         private long _thirdLastJoinDate;
 
-        public DateTime thirdLastJoinDate
+        public DateTime ThirdLastJoinDate
         {
             get
             {

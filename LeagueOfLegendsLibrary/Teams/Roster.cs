@@ -12,7 +12,7 @@ namespace LeagueOfLegendsLibrary
         [DataMember(Name = "memberList")]
         private List<TeamMemberInfo> _memberList;
 
-        public List<TeamMemberInfo> memberList
+        public List<TeamMemberInfo> MemberList
         {
             get
             {
@@ -21,6 +21,14 @@ namespace LeagueOfLegendsLibrary
         }
 
         [DataMember(Name = "ownerId")]
-        private long ownerID;
+        private long _ownerID;
+
+        public long OwnerID
+        {
+            get
+            {
+                return _ownerID;
+            }
+        }
     }
 }

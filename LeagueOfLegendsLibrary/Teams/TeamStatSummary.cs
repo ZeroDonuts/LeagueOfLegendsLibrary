@@ -10,10 +10,19 @@ namespace LeagueOfLegendsLibrary
     public class TeamStatSummary
     {
         [DataMember(Name = "fullId")]
-        private string fullID;
+        private string _fullID;
+
+        public string FullID
+        {
+            get
+            {
+                return _fullID;
+            }
+        }
 
         [DataMember(Name = "teamStatDetails")]
-        private HashSet<TeamStatDetail> teamStatDetails;
+        private HashSet<TeamStatDetail> _teamStatDetails;
+        public HashSet<TeamStatDetail> TeamStatDetails { get { return _teamStatDetails; }}
         
     }
 }
