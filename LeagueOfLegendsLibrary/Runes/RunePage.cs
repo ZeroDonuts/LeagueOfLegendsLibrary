@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 
 namespace LeagueOfLegendsLibrary
 {
-    [DataContract]
+    [DataContract(Name="RunePageDto")]
     public class RunePage
     {
         [DataMember(Name = "current")]

@@ -14,7 +14,7 @@ namespace LeagueTestApp
     {
         Summoner _summoner;
         InfoGrabber grabber = new InfoGrabber();
-        RunePages pages;
+        RunePageCollection pages;
 
         public Runes(Summoner summoner, String region)
         {

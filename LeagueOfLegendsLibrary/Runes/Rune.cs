@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 
 namespace LeagueOfLegendsLibrary
 {
-    [DataContract]
+    [DataContract(Name="RuneDto")]
     public class Rune
     {
         [DataMember(Name = "description")]
