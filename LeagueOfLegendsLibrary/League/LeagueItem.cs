@@ -84,8 +84,8 @@ namespace LeagueOfLegendsLibrary
                 return _leaguePoints;
             }
         }
-
-        [DataMember(Name = "miniSeries")]
+        //currently bugged when calling infograbber.getleague
+        //[DataMember(Name = "miniSeries")]
         private MiniSeries _miniSeries;
 
         public MiniSeries MiniSeries
