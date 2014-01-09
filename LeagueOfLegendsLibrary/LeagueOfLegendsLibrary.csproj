@@ -62,7 +62,7 @@
     <Compile Include="Masteries\Talent.cs" />
     <Compile Include="Runes\Rune.cs" />
     <Compile Include="Runes\RunePage.cs" />
-    <Compile Include="Runes\RunePages.cs" />
+    <Compile Include="Runes\RunePageCollection.cs" />
     <Compile Include="Runes\RuneSlot.cs" />
     <Compile Include="Stats\AggregatedStats.cs" />
     <Compile Include="Stats\PlayerStatsSummary.cs" />

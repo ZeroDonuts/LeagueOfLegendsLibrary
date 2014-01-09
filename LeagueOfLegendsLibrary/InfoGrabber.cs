@@ -176,13 +176,13 @@ namespace LeagueOfLegendsLibrary
         /// <param name="summonerID">The ID of the summoner</param>
         /// <param name="region">The server region to check</param>
         /// <returns></returns>
-        public RunePages GetSummonerRunes(long summonerID, string region)
+        public RunePageCollection GetSummonerRunes(long summonerID, string region)
         {
-            jSerializer = new DataContractJsonSerializer(typeof(RunePages));
-            RunePages pages = new RunePages();
+            jSerializer = new DataContractJsonSerializer(typeof(RunePageCollection));
+            RunePageCollection pages = new RunePageCollection();
             try
             {
-                pages = (RunePages)jSerializer.ReadObject(webClient.OpenRead(string.Format("https://prod.api.pvp.net/api/lol/{1}/v1.1/summoner/{0}/runes?api_key={2}", summonerID, region, LolInfo.APIKEY)));
+                pages = (RunePageCollection)jSerializer.ReadObject(webClient.OpenRead(string.Format("https://prod.api.pvp.net/api/lol/{1}/v1.1/summoner/{0}/runes?api_key={2}", summonerID, region, LolInfo.APIKEY)));
             }
             catch (WebException e)
             {
