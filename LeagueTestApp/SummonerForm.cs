@@ -15,7 +15,7 @@ namespace LeagueTestApp
         InfoGrabber info;
         Summoner summoner;
         DataTable table;
-        List<Game> gamesPlayed;
+        RecentGamesCollection gamesPlayed;
         ChampionCollection champs;
         public SummonerForm()
         {
@@ -26,7 +26,7 @@ namespace LeagueTestApp
         {
             info = new InfoGrabber();
             table = new DataTable();
-            gamesPlayed = new List<Game>();
+            gamesPlayed = new RecentGamesCollection();
             champs = new ChampionCollection();
             table.Columns.Add("Game");
             table.Columns.Add("Date");
@@ -50,36 +50,37 @@ namespace LeagueTestApp
             gamesPlayed = info.GetRecentGames(regionComboBox.SelectedItem.ToString(), summoner.ID);
             champs = info.GetChampions(regionComboBox.SelectedItem.ToString());
 
-            for (int i = 0; i < gamesPlayed.Count; i++)
+            int i = 0;
+            foreach(Game game in gamesPlayed)
             {
                 DataRow row = table.NewRow();
 
                 row["Game"] = string.Format("Game {0}", i + 1);
+                i++;
+                row["Champion"] = champs[game.championId].Name;
 
-                row["Champion"] = champs[gamesPlayed[i].championId].Name;
-
-                row["Queue"] = gamesPlayed[i].subType;
+                row["Queue"] = game.subType;
 
                 string winLoss = "";
                 try
                 {
-                    winLoss = gamesPlayed[i].GetStat(RawStatID.MatchWon).name;
+                    winLoss = game.GetStat(RawStatID.MatchWon).name;
                 }
                 catch (KeyNotFoundException)
                 {
-                    winLoss = gamesPlayed[i].GetStat(RawStatID.MatchLost).name;
+                    winLoss = game.GetStat(RawStatID.MatchLost).name;
                 }
                
               
                 row["WinLoss"] = winLoss;
 
-                row["Type"] = gamesPlayed[i].gameType;
+                row["Type"] = game.gameType;
 
-                row["Date"] = gamesPlayed[i].CreateDateTime.Date;
+                row["Date"] = game.CreateDateTime.Date;
                 string kda =""; 
                 try
                 {
-                    kda += gamesPlayed[i].GetStat(RawStatID.ChampionsKilled).value.ToString();
+                    kda += game.GetStat(RawStatID.ChampionsKilled).value.ToString();
                 }
                 catch(KeyNotFoundException)
                 {
@@ -90,7 +91,7 @@ namespace LeagueTestApp
 
                 try
                 {
-                    kda += gamesPlayed[i].GetStat(RawStatID.NumOfDeaths).value.ToString();
+                    kda += game.GetStat(RawStatID.NumOfDeaths).value.ToString();
                 }
                 catch (KeyNotFoundException)
                 {
@@ -101,7 +102,7 @@ namespace LeagueTestApp
 
                 try
                 {
-                    kda += gamesPlayed[i].GetStat(RawStatID.Assists).value.ToString();
+                    kda += game.GetStat(RawStatID.Assists).value.ToString();
                 }
                 catch (KeyNotFoundException)
                 {
