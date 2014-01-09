@@ -8,11 +8,12 @@ using System.Collections;
 namespace LeagueOfLegendsLibrary
 {
     [DataContract(Name="RecentGamesDto")]
-    public class RecentGamesCollection : IEnumerable<Game>, IEnumerator<Game>
+    public class RecentGamesCollection : ICollection<Game>, IEnumerator<Game>
     {
         [DataMember(Name = "games")]
         private List<Game> _games;
 
+        [Obsolete("Please use indexer instead")]
         public List<Game> games
         {
             get { return _games; }
@@ -100,6 +101,65 @@ namespace LeagueOfLegendsLibrary
         public void Reset()
         {
             _position = -1;
+        }
+
+        public void Add(Game item)
+        {
+            _games.Add(item);
+        }
+
+        public void Clear()
+        {
+            _games.Clear();
+        }
+
+        public bool Contains(Game item)
+        {
+            try
+            {
+                return _games.Contains(item);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public void CopyTo(Game[] array, int arrayIndex)
+        {
+            try
+            {
+                foreach (Game i in _games)
+                {
+                    array.SetValue(i, arrayIndex);
+                    arrayIndex++;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public int Count
+        {
+            get 
+            {
+                return _games.Count;
+            }
+        }
+
+        public bool IsReadOnly
+        {
+            get 
+            {
+                return false; 
+            }
+        }
+
+        public bool Remove(Game item)
+        {
+            return _games.Remove(item);
         }
     }
 }

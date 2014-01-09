@@ -40,9 +40,10 @@
             // teamsInfoDataGrid
             // 
             this.teamsInfoDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.teamsInfoDataGrid.Location = new System.Drawing.Point(-1, 29);
+            this.teamsInfoDataGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.teamsInfoDataGrid.Location = new System.Drawing.Point(0, 32);
             this.teamsInfoDataGrid.Name = "teamsInfoDataGrid";
-            this.teamsInfoDataGrid.Size = new System.Drawing.Size(529, 269);
+            this.teamsInfoDataGrid.Size = new System.Drawing.Size(530, 269);
             this.teamsInfoDataGrid.TabIndex = 0;
             this.teamsInfoDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.teamsInfoDataGrid_CellContentClick);
             // 
