@@ -73,7 +73,7 @@ namespace LeagueOfLegendsLibrary
 
         public void Dispose()
         {
-            //TODO:
+            Reset();
         }
 
         object IEnumerator.Current

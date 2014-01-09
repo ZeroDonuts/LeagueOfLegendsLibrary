@@ -47,8 +47,6 @@ namespace LeagueTestApp
             }
 
             championDataGridView.DataSource = table;
-
-            
         }
     }
 }
