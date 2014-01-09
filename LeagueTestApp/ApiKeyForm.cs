@@ -30,5 +30,10 @@ namespace LeagueTestApp
             }
             
         }
+
+        private void ApiKeyForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

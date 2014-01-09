@@ -59,21 +59,21 @@
             // summonerToolStripMenuItem
             // 
             this.summonerToolStripMenuItem.Name = "summonerToolStripMenuItem";
-            this.summonerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.summonerToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.summonerToolStripMenuItem.Text = "Summoner";
             this.summonerToolStripMenuItem.Click += new System.EventHandler(this.summonerToolStripMenuItem_Click);
             // 
             // championsToolStripMenuItem
             // 
             this.championsToolStripMenuItem.Name = "championsToolStripMenuItem";
-            this.championsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.championsToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.championsToolStripMenuItem.Text = "Champions";
             this.championsToolStripMenuItem.Click += new System.EventHandler(this.championsToolStripMenuItem_Click);
             // 
             // teamToolStripMenuItem
             // 
             this.teamToolStripMenuItem.Name = "teamToolStripMenuItem";
-            this.teamToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.teamToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.teamToolStripMenuItem.Text = "Team";
             this.teamToolStripMenuItem.Click += new System.EventHandler(this.teamToolStripMenuItem_Click);
             // 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Runtime.Serialization.Json;
 using System.Net;
+using System.IO;
 
 namespace LeagueOfLegendsLibrary
 {
@@ -84,19 +85,35 @@ namespace LeagueOfLegendsLibrary
         }
 
         /// <summary>
-        /// CURRENTLY DOES NOT WORK
+        /// Returns the entire league which a summoner is currently in. Miniseries is slightly bugged at the moment.
         /// </summary>
         /// <param name="summonerID">The ID of the summoner</param>
         /// <param name="region">The server region to check</param>
         /// <returns></returns>
-        public Dictionary<string, League> GetLeague(long summonerID, string region)
+        public League GetLeague(long summonerID, string region)
         {
-            jSerializer = new DataContractJsonSerializer(typeof(Dictionary<string, League>));
-            Dictionary<string, League> league = new Dictionary<string, League>();
-
+            jSerializer = new DataContractJsonSerializer(typeof(League));
+            League league = new League();
+            int closeCurlyBraceOffset = 2;
             try
             {
-                league = (Dictionary<string, League>)jSerializer.ReadObject(webClient.OpenRead(string.Format("http://prod.api.pvp.net/api/lol/{1}/v2.2/league/by-summoner/{0}?api_key={2}", summonerID, region, LolInfo.APIKEY)));
+                string thing = string.Format("{0}", webClient.DownloadString(string.Format("http://prod.api.pvp.net/api/lol/{1}/v2.2/league/by-summoner/{0}?api_key={2}", summonerID, region, LolInfo.APIKEY)));
+                for (int i = 0; i < thing.Length; i++)
+                {
+                    char currentChar = thing[i];
+                    if (currentChar == ':')
+                    {
+                        thing = thing.Substring(i + 1, thing.Length - closeCurlyBraceOffset - i);
+                        break;
+                    }
+                }
+                MemoryStream memStream = new MemoryStream();
+                StreamWriter writer = new StreamWriter(memStream);
+                writer.Write(thing);
+                writer.Flush();
+                memStream.Position = 0;
+               
+                league = (League)jSerializer.ReadObject(memStream);
             }
             catch (WebException e)
             {
@@ -104,7 +121,15 @@ namespace LeagueOfLegendsLibrary
             }
             return league;
         }
-
+        public Stream GenerateStreamFromString(string s)
+        {
+            MemoryStream stream = new MemoryStream();
+            StreamWriter writer = new StreamWriter(stream);
+            writer.Write(s);
+            writer.Flush();
+            stream.Position = 0;
+            return stream;
+        }
 
         /// <summary>
         /// Looks up all of the current League of Legends champions
