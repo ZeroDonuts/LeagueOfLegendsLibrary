@@ -28,8 +28,9 @@ namespace LeagueTestApp
             table = new DataTable();
             gamesPlayed = new RecentGamesCollection();
             champs = new ChampionCollection();
-            table.Columns.Add("Game");
+    
             table.Columns.Add("Date");
+            table.Columns.Add("Game");
             table.Columns.Add("Type");
             table.Columns.Add("Queue");
             table.Columns.Add("Champion");
@@ -57,22 +58,11 @@ namespace LeagueTestApp
 
                 row["Game"] = string.Format("Game {0}", i + 1);
                 i++;
-                row["Champion"] = champs[game.championId].Name;
+                row["Champion"] = champs.FindById(game.championId).Name;
 
                 row["Queue"] = game.subType;
-
-                string winLoss = "";
-                try
-                {
-                    winLoss = game.GetStat(RawStatID.MatchWon).name;
-                }
-                catch (KeyNotFoundException)
-                {
-                    winLoss = game.GetStat(RawStatID.MatchLost).name;
-                }
-               
               
-                row["WinLoss"] = winLoss;
+                row["WinLoss"] = game.GetMatchResult().name;
 
                 row["Type"] = game.gameType;
 

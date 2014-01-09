@@ -41,9 +41,10 @@
             // summonerInfoDataGrid
             // 
             this.summonerInfoDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.summonerInfoDataGrid.Location = new System.Drawing.Point(-1, 29);
+            this.summonerInfoDataGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.summonerInfoDataGrid.Location = new System.Drawing.Point(0, 32);
             this.summonerInfoDataGrid.Name = "summonerInfoDataGrid";
-            this.summonerInfoDataGrid.Size = new System.Drawing.Size(529, 269);
+            this.summonerInfoDataGrid.Size = new System.Drawing.Size(530, 269);
             this.summonerInfoDataGrid.TabIndex = 0;
             this.summonerInfoDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.summonerInfoDataGrid_CellContentClick);
             // 

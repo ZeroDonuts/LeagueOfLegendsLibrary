@@ -9,15 +9,16 @@ using System.Runtime.Serialization;
 namespace LeagueOfLegendsLibrary
 {
     [DataContract(Name="RunePagesDto")]
-    public class RunePageCollection : IEnumerable<RunePage>, IEnumerator<RunePage>
+    public class RunePageCollection : ICollection<RunePage>, IEnumerator<RunePage>
     {
         [DataMember(Name = "pages")]
-        private RunePage[] _pages;
+        private List<RunePage> _pages;
 
         /// <summary>
         /// Set of rune pages associated with the summoner.
         /// </summary>
-        public RunePage[] pages
+        [Obsolete("Please use indexer instead")]
+        public List<RunePage> pages
         {
             get { return _pages; }
         }
@@ -89,6 +90,65 @@ namespace LeagueOfLegendsLibrary
         public void Reset()
         {
             _position = -1;
+        }
+
+        public void Add(RunePage item)
+        {
+            _pages.Add(item);
+        }
+
+        public void Clear()
+        {
+            _pages.Clear();
+        }
+
+        public bool Contains(RunePage item)
+        {
+            try
+            {
+                return _pages.Contains(item);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public void CopyTo(RunePage[] array, int arrayIndex)
+        {
+            try
+            {
+                foreach (RunePage i in _pages)
+                {
+                    array.SetValue(i, arrayIndex);
+                    arrayIndex++;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public int Count
+        {
+            get 
+            {
+                return _pages.Count; 
+            }
+        }
+
+        public bool IsReadOnly
+        {
+            get 
+            { 
+                throw new NotImplementedException(); 
+            }
+        }
+
+        public bool Remove(RunePage item)
+        {
+            return _pages.Remove(item);
         }
     }
 }
