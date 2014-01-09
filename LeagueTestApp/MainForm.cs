@@ -52,12 +52,5 @@ namespace LeagueTestApp
             form.MdiParent = this;
             form.Show();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            InfoGrabber g = new InfoGrabber();
-            
-            League s = g.GetLeague(41119307, "na");
-        }
     }
 }
