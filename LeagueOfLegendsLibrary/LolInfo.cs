@@ -15,7 +15,7 @@ namespace LeagueOfLegendsLibrary
         public static DateTime EpochToDateTime(double epoch)
         {
             DateTime t = new DateTime(1970, 1, 1, 0, 0, 0);
-            return t.AddMilliseconds(epoch);
+            return t.AddMilliseconds(epoch).ToLocalTime();
         }
     }
 }
