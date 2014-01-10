@@ -58,7 +58,7 @@
     <Compile Include="League\MiniSeries.cs" />
     <Compile Include="LolInfo.cs" />
     <Compile Include="Masteries\MasteryPage.cs" />
-    <Compile Include="Masteries\MasteryPages.cs" />
+    <Compile Include="Masteries\MasteryPageCollection.cs" />
     <Compile Include="Masteries\Talent.cs" />
     <Compile Include="Runes\Rune.cs" />
     <Compile Include="Runes\RunePage.cs" />
