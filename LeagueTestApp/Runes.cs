@@ -33,19 +33,19 @@ namespace LeagueTestApp
             }
 
             pages = grabber.GetSummonerRunes(_summoner.ID, region);
-            for (int i = 0; i < pages.pages.Count<RunePage>(); i++)
+            for (int i = 0; i < pages.Count<RunePage>(); i++)
             {
                 DataRow row = table.NewRow();
 
-                row["Rune Page ID"] = pages.pages[i].id;
-                row["Rune Page Name"] = pages.pages[i].name;
-                row["Is Current"] = pages.pages[i].current.ToString();
+                row["Rune Page ID"] = pages[i].id;
+                row["Rune Page Name"] = pages[i].name;
+                row["Is Current"] = pages[i].current.ToString();
 
-                if (pages.pages[i].slots != null)
+                if (pages[i].slots != null)
                 {
-                    for (int j = 0; j < pages.pages[i].slots.Count<RuneSlot>(); j++)
+                    for (int j = 0; j < pages[i].slots.Count<RuneSlot>(); j++)
                     {
-                        row["Rune Slot " + (j + 1).ToString()] = pages.pages[i].slots[j].rune.description;
+                        row["Rune Slot " + (j + 1).ToString()] = pages[i].slots[j].rune.description;
                     }
                 }
 

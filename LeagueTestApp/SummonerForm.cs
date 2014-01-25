@@ -41,7 +41,7 @@ namespace LeagueTestApp
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-
+            
             if (nameTextBox.Text.Trim() == "" || regionComboBox.SelectedIndex == -1)
             {
                 MessageBox.Show("Please enter a name or select a region.");
@@ -50,7 +50,7 @@ namespace LeagueTestApp
             summoner = info.LookupSummonerByName(nameTextBox.Text, regionComboBox.SelectedItem.ToString());
             gamesPlayed = info.GetRecentGames(regionComboBox.SelectedItem.ToString(), summoner.ID);
             champs = info.GetChampions(regionComboBox.SelectedItem.ToString());
-
+            
             int i = 0;
             foreach(Game game in gamesPlayed)
             {
@@ -58,46 +58,20 @@ namespace LeagueTestApp
 
                 row["Game"] = string.Format("Game {0}", i + 1);
                 i++;
-                row["Champion"] = champs.FindById(game.championId).Name;
+                row["Champion"] = champs.FindById(game.ChampionId).Name;
 
                 row["Queue"] = game.subType;
               
-                row["WinLoss"] = game.GetMatchResult().name;
+                row["WinLoss"] = game.Statistics.Win.ToString();
 
-                row["Type"] = game.gameType;
+                row["Type"] = game.GameType;
 
                 row["Date"] = game.CreateDateTime.Date;
-                string kda =""; 
-                try
-                {
-                    kda += game.GetStat(RawStatID.ChampionsKilled).value.ToString();
-                }
-                catch(KeyNotFoundException)
-                {
-                    kda += "0";
-                }
+                string kda = "";
+                kda += game.Statistics.ChampionsKilled.ToString() + "/" + game.Statistics.Deaths.ToString() +"/" + game.Statistics.Assists.ToString();
+               
 
-                kda += "/";
-
-                try
-                {
-                    kda += game.GetStat(RawStatID.NumOfDeaths).value.ToString();
-                }
-                catch (KeyNotFoundException)
-                {
-                    kda += "0";
-                }
-
-                kda += "/";
-
-                try
-                {
-                    kda += game.GetStat(RawStatID.Assists).value.ToString();
-                }
-                catch (KeyNotFoundException)
-                {
-                    kda += "0";
-                }
+                
                 
                 row["K/D/A"] = kda;
                 table.Rows.Add(row);

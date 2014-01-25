@@ -12,7 +12,7 @@ namespace LeagueOfLegendsLibrary
     public class PlayerStatsSummaryList
     {
         /// <summary>
-        /// List of player stats summaries associated with the summoner.
+        /// List of player stats summaries associated with the summoner. Updated to Statsv1.2
         /// </summary>
         [DataMember(Name="playerStatSummaries")]
         private List<PlayerStatsSummary> _playerStatSummaries;

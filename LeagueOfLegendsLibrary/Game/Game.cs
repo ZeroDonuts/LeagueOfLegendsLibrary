@@ -9,6 +9,9 @@ using ZeroLibrary;
 
 namespace LeagueOfLegendsLibrary
 {
+    /// <summary>
+    /// Game class as represented by Gamev1.3
+    /// </summary>
     [DataContract(Name="GameDto")]
     public class Game
     {
@@ -18,7 +21,7 @@ namespace LeagueOfLegendsLibrary
         /// <summary>
         /// Champion ID associated with game.
         /// </summary>
-        public int championId
+        public int ChampionId
         {
             get { return _championId; }
         }
@@ -29,7 +32,7 @@ namespace LeagueOfLegendsLibrary
         /// <summary>
         /// Date game was played specified as epoch milliseconds.
         /// </summary>
-        public long createDate
+        public long CreateDate
         {
             get { return _createDate; }
         }
@@ -40,7 +43,7 @@ namespace LeagueOfLegendsLibrary
         /// <summary>
         /// Human readable string representing date game was played.
         /// </summary>
-        public string createDateStr
+        public string CreateDateStr
         {
             get { return _createDateStr; }
         }
@@ -62,7 +65,7 @@ namespace LeagueOfLegendsLibrary
         /// <summary>
         /// Other players associated with the game.
         /// </summary>
-        public List<Player> fellowPlayers
+        public List<Player> FellowPlayers
         {
             get { return _fellowPlayers; }
         }
@@ -73,7 +76,7 @@ namespace LeagueOfLegendsLibrary
         /// <summary>
         /// Game ID.
         /// </summary>
-        public long gameId
+        public long GameId
         {
             get { return _gameId; }
         }
@@ -84,7 +87,7 @@ namespace LeagueOfLegendsLibrary
         /// <summary>
         /// Game mode.
         /// </summary>
-        public string gameMode
+        public string GameMode
         {
             get { return _gameMode; }
         }
@@ -95,7 +98,7 @@ namespace LeagueOfLegendsLibrary
         /// <summary>
         /// Game type.
         /// </summary>
-        public string gameType
+        public string GameType
         {
             get { return _gameType; }
         }
@@ -106,7 +109,7 @@ namespace LeagueOfLegendsLibrary
         /// <summary>
         /// Invalid flag.
         /// </summary>
-        public bool invalid
+        public bool Invalid
         {
             get { return _invalid; }
         }
@@ -117,7 +120,7 @@ namespace LeagueOfLegendsLibrary
         /// <summary>
         /// Level.
         /// </summary>
-        public int level
+        public int Level
         {
             get { return _level; }
         }
@@ -128,7 +131,7 @@ namespace LeagueOfLegendsLibrary
         /// <summary>
         /// Map ID.
         /// </summary>
-        public int mapId
+        public int MapId
         {
             get { return _mapId; }
         }
@@ -139,7 +142,7 @@ namespace LeagueOfLegendsLibrary
         /// <summary>
         /// ID of first summoner spell.
         /// </summary>
-        public int spell1
+        public int Spell1
         {
             get { return _spell1; }
         }
@@ -150,13 +153,21 @@ namespace LeagueOfLegendsLibrary
         /// <summary>
         /// ID of second summoner spell.
         /// </summary>
-        public int spell2
+        public int Spell2
         {
             get { return _spell2; }
         }
 
-        [DataMember(Name = "statistics")]
-        private List<RawStat> statistics;
+        [DataMember(Name = "stats")]
+        private RawStats _stats;
+
+        public RawStats Statistics
+        {
+            get
+            {
+                return _stats;
+            }
+        }
 
         /// <summary>
         /// Statistics associated with the game for this summoner.
@@ -181,43 +192,6 @@ namespace LeagueOfLegendsLibrary
         public int teamId
         {
             get { return _teamId; }
-        }
-
-        /// <summary>
-        /// Gets the RawStat of the specified ID
-        /// </summary>
-        /// <param name="stat">RawStatID to be searched</param>
-        /// <returns>RawStat object of that ID</returns>
-        public RawStat GetStat(RawStatID stat)
-        {
-            for (int i = 0; i < statistics.Count; i++)
-            {
-                if (stat.ToInt() == statistics[i].id)
-                {
-                    return statistics[i];
-                }
-            }
-            throw new KeyNotFoundException("RawStatID not found");
-        }
-
-        /// <summary>
-        /// Gets the RawStat of the match result
-        /// </summary>
-        /// <returns>RawStat of the match result</returns>
-        public RawStat GetMatchResult()
-        {
-            RawStat matchResult;
-
-            try
-            {
-                matchResult = GetStat(RawStatID.MatchWon);
-            }
-            catch
-            {
-                matchResult = GetStat(RawStatID.MatchLost);
-            }
-
-            return matchResult;
         }
     }
 }

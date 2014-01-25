@@ -11,7 +11,7 @@ namespace LeagueOfLegendsLibrary
     {
         public static string APIKEY;
         public static ChampionCollection ChampionCollection = null;
-
+        
         public static DateTime EpochToDateTime(double epoch)
         {
             DateTime t = new DateTime(1970, 1, 1, 0, 0, 0);

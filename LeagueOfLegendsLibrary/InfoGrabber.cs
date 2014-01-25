@@ -97,7 +97,7 @@ namespace LeagueOfLegendsLibrary
             int closeCurlyBraceOffset = 2;
             try
             {
-                string thing = string.Format("{0}", webClient.DownloadString(string.Format("http://prod.api.pvp.net/api/lol/{1}/v2.2/league/by-summoner/{0}?api_key={2}", summonerID, region, LolInfo.APIKEY)));
+                string thing = string.Format("{0}", webClient.DownloadString(string.Format("http://prod.api.pvp.net/api/lol/{1}/v2.3/league/by-summoner/{0}?api_key={2}", summonerID, region, LolInfo.APIKEY)));
                 for (int i = 0; i < thing.Length; i++)
                 {
                     char currentChar = thing[i];
@@ -121,6 +121,7 @@ namespace LeagueOfLegendsLibrary
             }
             return league;
         }
+
         public Stream GenerateStreamFromString(string s)
         {
             MemoryStream stream = new MemoryStream();
@@ -155,7 +156,7 @@ namespace LeagueOfLegendsLibrary
         }
 
         /// <summary>
-        /// Gets the last 10 played games of the summoner
+        ///// Gets the last 10 played games of the summoner. Updated as of Gamev1.3
         /// </summary>
         /// <param name="region">The server region to check</param>
         /// <param name="summonerID">The ID of the summoner</param>
@@ -166,7 +167,7 @@ namespace LeagueOfLegendsLibrary
             RecentGamesCollection games = new RecentGamesCollection();
             try
             {
-                games = ((RecentGamesCollection)jSerializer.ReadObject(webClient.OpenRead(string.Format("http://prod.api.pvp.net/api/lol/{0}/v1.1/game/by-summoner/{1}/recent?api_key={2}", region, summonerID, LolInfo.APIKEY))));
+                games = ((RecentGamesCollection)jSerializer.ReadObject(webClient.OpenRead(string.Format("http://prod.api.pvp.net/api/lol/{0}/v1.3/game/by-summoner/{1}/recent?api_key={2}", region, summonerID, LolInfo.APIKEY))));
             }
             catch (WebException e)
             {

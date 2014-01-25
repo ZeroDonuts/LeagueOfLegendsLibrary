@@ -41,7 +41,7 @@ namespace LeagueTestApp
             }
 
             InfoGrabber g = new InfoGrabber();
-
+                
             summoner = g.LookupSummonerByName(nameTextBox.Text, regionComboBox.SelectedItem.ToString());
 
             try

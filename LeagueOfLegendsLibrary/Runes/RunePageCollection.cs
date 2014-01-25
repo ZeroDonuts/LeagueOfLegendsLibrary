@@ -41,6 +41,19 @@ namespace LeagueOfLegendsLibrary
             return this;
         }
 
+        /// <summary>
+        /// Gets the rune page of the specified index
+        /// </summary>
+        /// <param name="index">index of the page</param>
+        /// <returns>page of the index</returns>
+        public RunePage this[int index]
+        {
+            get
+            {
+                return _pages[index];
+            }
+        }
+
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
             return this;

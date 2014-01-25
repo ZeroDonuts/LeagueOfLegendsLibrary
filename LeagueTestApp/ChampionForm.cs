@@ -48,5 +48,10 @@ namespace LeagueTestApp
 
             championDataGridView.DataSource = table;
         }
+
+        private void championDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
