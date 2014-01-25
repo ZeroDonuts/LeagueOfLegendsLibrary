@@ -32,7 +32,7 @@ namespace LeagueTestApp
                 table.Columns.Add("Rune Slot " + i.ToString());
             }
 
-            pages = grabber.GetSummonerRunes(_summoner.ID, region);
+            pages = summoner.GetRunes();
             for (int i = 0; i < pages.Count<RunePage>(); i++)
             {
                 DataRow row = table.NewRow();

@@ -48,9 +48,9 @@ namespace LeagueTestApp
                 return;
             }
             summoner = info.LookupSummonerByName(nameTextBox.Text, regionComboBox.SelectedItem.ToString());
-            gamesPlayed = info.GetRecentGames(regionComboBox.SelectedItem.ToString(), summoner.ID);
+            gamesPlayed = summoner.GetRecentGames();
             champs = info.GetChampions(regionComboBox.SelectedItem.ToString());
-            
+            PlayerStatsSummaryList sum = summoner.GetStatSummary(Season.SEASON3);
             int i = 0;
             foreach(Game game in gamesPlayed)
             {
@@ -81,8 +81,11 @@ namespace LeagueTestApp
 
         private void runeButton_Click(object sender, EventArgs e)
         {
-            Runes runeForm = new Runes(summoner, regionComboBox.SelectedItem.ToString());
-            runeForm.ShowDialog();
+            if (nameTextBox.Text.Trim() != "")
+            {
+                Runes runeForm = new Runes(summoner, regionComboBox.SelectedItem.ToString());
+                runeForm.ShowDialog();
+            }
         }
 
         private void summonerInfoDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -5,6 +5,11 @@ using System.Text;
 
 namespace LeagueOfLegendsLibrary
 {
+    public enum Season
+    {
+        SEASON3 = 3,
+        SEASON4 = 4
+    }
     public enum ItemID
     {
         BootsofSpeed = 1001,

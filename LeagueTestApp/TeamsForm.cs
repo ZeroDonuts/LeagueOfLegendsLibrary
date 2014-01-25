@@ -46,7 +46,7 @@ namespace LeagueTestApp
 
             try
             {
-                teams = g.GetTeams(summoner.ID);
+                teams = summoner.GetTeams();
             }
             catch
             {
