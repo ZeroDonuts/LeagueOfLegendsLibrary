@@ -49,6 +49,7 @@
     <Compile Include="Champion\Image.cs" />
     <Compile Include="Champion\Info.cs" />
     <Compile Include="Champion\Passive.cs" />
+    <Compile Include="Champion\Recommend.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Game\Game.cs" />
     <Compile Include="Game\Player.cs" />
