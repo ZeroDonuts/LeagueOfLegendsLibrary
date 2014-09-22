@@ -5,18 +5,13 @@ using System.Text;
 using System.Runtime.Serialization.Json;
 using System.Net;
 using System.IO;
+using System.Threading.Tasks;
+
 
 namespace LeagueOfLegendsLibrary
 {
     public class InfoGrabber
     {
-        private DataContractJsonSerializer jSerializer;
-        private WebClient webClient;
-
-        public InfoGrabber()
-        {
-            webClient = new WebClient();
-        }
 
         /// <summary>
         /// Looks up the specified summoner in the specified region and returns that summoner
@@ -26,7 +21,8 @@ namespace LeagueOfLegendsLibrary
         /// <returns></returns>
         public Summoner LookupSummonerByName(string summonerName, string region)
         {
-            jSerializer = new DataContractJsonSerializer(typeof(Summoner));
+            DataContractJsonSerializer jSerializer = new DataContractJsonSerializer(typeof(Summoner));
+            WebClient webClient = new WebClient();
             Summoner tempSummoner = new Summoner();
             try
             {
@@ -48,7 +44,8 @@ namespace LeagueOfLegendsLibrary
         /// <returns></returns>
         public Summoner LookupSummonerByID(long summonerID, string region)
         {
-            jSerializer = new DataContractJsonSerializer(typeof(Summoner));
+            DataContractJsonSerializer jSerializer = new DataContractJsonSerializer(typeof(Summoner));
+            WebClient webClient = new WebClient();
             Summoner tempSummoner = new Summoner();
             try
             {
@@ -70,7 +67,8 @@ namespace LeagueOfLegendsLibrary
         /// <returns></returns>
         public List<Summoner> LookupSummonersByID(string region, params long[] summonerIDs)
         {
-            jSerializer = new DataContractJsonSerializer(typeof(Summoner));
+            DataContractJsonSerializer jSerializer = new DataContractJsonSerializer(typeof(Summoner));
+            WebClient webClient = new WebClient();
             List<Summoner> summoners = new List<Summoner>();
             for (int i = 0; i < summonerIDs.Length; i++)
             {
@@ -100,26 +98,57 @@ namespace LeagueOfLegendsLibrary
         }
 
         /// <summary>
-        /// Looks up all of the current League of Legends champions. Updated to 1.1
+        /// Looks up all of the current League of Legends champions. Updated to 1.2
         /// </summary>
         /// <param name="region">The region to check</param>
-        /// <param name="onlyFreeToPlayChamps">Determines whether to only get a list of free to play champions</param>
         /// <returns></returns>
-        public ChampionCollection GetChampions(string region, bool onlyFreeToPlayChamps = false)
+        public ChampionCollection GetChampions(string region)
         {
-            jSerializer = new DataContractJsonSerializer(typeof(ChampionCollection));
-
-            string freeChamp = onlyFreeToPlayChamps ? "freeToPlay=true&" : "";
+            DataContractJsonSerializer jSerializer = new DataContractJsonSerializer(typeof(ChampionCollection));
+            WebClient webClient = new WebClient();
             ChampionCollection champs = new ChampionCollection();
             try
             {
-                champs = ((ChampionCollection)jSerializer.ReadObject(webClient.OpenRead(string.Format("https://prod.api.pvp.net/api/lol/{0}/v1.1/champion?{1}api_key={2}", region, freeChamp, LolInfo.APIKEY))));
+                champs = ((ChampionCollection)jSerializer.ReadObject(webClient.OpenRead(string.Format("https://{0}.api.pvp.net/api/lol/{0}/v1.2/champion?api_key={1}", region, LolInfo.APIKEY))));
+                for(int i = 0; i < champs.Count; i++)
+                {
+
+                    Champion champSimpleInfo = champs.ChampionsList[i];
+
+                    Champion champInfo = getChampion(region, champSimpleInfo.Id);
+
+                    champInfo.Active = champSimpleInfo.Active;
+                    champInfo.BotEnabled = champSimpleInfo.BotEnabled;
+                    champInfo.BotMmEnabled = champSimpleInfo.BotMmEnabled;
+                    champInfo.FreeToPlay = champSimpleInfo.FreeToPlay;
+                    champInfo.RankedPlayEnabled = champSimpleInfo.RankedPlayEnabled;
+
+                    champs.ChampionsList[i] = champInfo;
+           
+                };                     
             }
             catch (WebException e)
             {
                 throw new Exception(e.Message);
             }
             return champs;
+        }
+
+        public Champion getChampion(string region, int id)
+        {
+            Champion champion = new Champion();
+
+            DataContractJsonSerializer jSerializer = new DataContractJsonSerializer(typeof(Champion));
+            WebClient webClient = new WebClient();
+            try
+            {
+                champion = (Champion)jSerializer.ReadObject(webClient.OpenRead(string.Format("https://{0}.api.pvp.net/api/lol/static-data/{0}/v1.2/champion/{1}?champData=all&api_key={2}", region, id, LolInfo.APIKEY)));
+            }
+            catch (WebException e)
+            {
+                throw;
+            }
+            return champion;
         }
     }
 }

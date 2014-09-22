@@ -13,23 +13,16 @@ namespace LeagueOfLegendsLibrary
     {
         [DataMember(Name = "active")]
         private bool _active;
-        
+
         public bool Active
         {
             get
             {
                 return _active;
             }
-        }
-
-        [DataMember(Name = "attackRank")]
-        private int _attackRank;
-        
-        public int AttackRank
-        {
-            get
+            internal set
             {
-                return _attackRank;
+                _active = value;
             }
         }
 
@@ -43,6 +36,10 @@ namespace LeagueOfLegendsLibrary
             {
                 return _botEnabled;
             }
+            internal set
+            {
+                _botEnabled = value;
+            }
         }
 
 
@@ -55,30 +52,12 @@ namespace LeagueOfLegendsLibrary
             { 
                 return _botMmEnabled; 
             }
-        }
-
-        [DataMember(Name = "defenseRank")]
-        private int _defenseRank;
-        
-        public int DefenseRank
-        {
-            get 
-            { 
-                return _defenseRank; 
+            internal set
+            {
+                _botMmEnabled = value;
             }
         }
 
-        [DataMember(Name = "difficultyRank")]
-        private int _difficultyRank;
-
-        
-        public int DifficultyRank
-        {
-            get 
-            { 
-                return _difficultyRank;
-            }
-        }
 
         [DataMember(Name = "freeToPlay")]
         private bool _freeToPlay;
@@ -88,6 +67,10 @@ namespace LeagueOfLegendsLibrary
             get 
             { 
                 return _freeToPlay; 
+            }
+            internal set
+            {
+                _freeToPlay = value;
             }
         }
 
@@ -99,18 +82,6 @@ namespace LeagueOfLegendsLibrary
             get
             { 
                 return _id; 
-            }
-        }
-
-        [DataMember(Name = "magicRank")]
-        private int _magicRank;
-
-        
-        public int MagicRank
-        {
-            get 
-            {
-                return _magicRank;
             }
         }
 
@@ -134,7 +105,109 @@ namespace LeagueOfLegendsLibrary
             { 
                 return _rankedPlayEnabled;
             }
+            internal set
+            {
+                _rankedPlayEnabled = value;
+            }
+        }
+
+        [DataMember(Name = "allytips")]
+        private List<string> _allyTips;
+
+        public List<string> AllyTips
+        {
+            get
+            {
+                return _allyTips;
+            }
         }
         
+        [DataMember(Name = "blurb")]
+        private string _blurb;
+
+        public string Blurb
+        {
+            get
+            {
+                return _blurb;
+            }
+        }
+
+        [DataMember(Name = "enemytips")]
+        private List<string> _enemyTips;
+
+        public List<string> EnemyTips
+        {
+            get
+            {
+                return _enemyTips;
+            }
+        }
+
+        [DataMember(Name="image")]
+        private Image _image;
+
+        public Image Image
+        {
+            get
+            {
+                return _image;
+            }
+        }
+
+        [DataMember(Name="info")]
+        private Info _info;
+
+        public Info Info
+        {
+            get
+            {
+                return _info;
+            }
+        }
+
+        [DataMember(Name = "key")]
+        private string _key;
+
+        public string Key
+        {
+            get
+            {
+                return _key;
+            }
+        }
+
+        [DataMember(Name = "lore")]
+        private string _lore;
+
+        public string Lore
+        {
+            get
+            {
+                return _lore;
+            }
+        }
+
+        [DataMember(Name = "partype")]
+        private string _partype;
+
+        public string Partype
+        {
+            get
+            {
+                return _partype;
+            }
+        }
+
+        [DataMember(Name = "passive")]
+        private Passive _passive;
+
+        public Passive Passive
+        {
+            get
+            {
+                return _passive;
+            }
+        }
     }
 }

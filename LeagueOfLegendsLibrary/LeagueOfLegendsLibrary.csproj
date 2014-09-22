@@ -46,6 +46,9 @@
   <ItemGroup>
     <Compile Include="Champion\Champion.cs" />
     <Compile Include="Champion\ChampionCollection.cs" />
+    <Compile Include="Champion\Image.cs" />
+    <Compile Include="Champion\Info.cs" />
+    <Compile Include="Champion\Passive.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Game\Game.cs" />
     <Compile Include="Game\Player.cs" />

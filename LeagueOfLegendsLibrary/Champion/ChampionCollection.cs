@@ -11,7 +11,7 @@ namespace LeagueOfLegendsLibrary
     /// a collection of champions 
     /// </summary>
     [DataContract(Name="ChampionListDto")]
-    public class ChampionCollection : IEnumerator<Champion>, ICollection<Champion>
+    public class ChampionCollection : ICollection<Champion>
     {
         [DataMember(Name = "champions")]
         private List<Champion> _championsList;
@@ -49,44 +49,6 @@ namespace LeagueOfLegendsLibrary
             }
         }
 
-        /// <summary>
-        /// gets the champion by index
-        /// </summary>
-        /// <param name="index">index</param>
-        /// <returns>champion with the specified index</returns>
-        public Champion this[int index]
-        {
-            get
-            {
-                try
-                {
-                    return _championsList[index];
-                }
-                catch (Exception e)
-                {
-                    throw e;
-                }
-            }
-        }
-
-        /// <summary>
-        /// finds champion by Id
-        /// </summary>
-        /// <param name="id">id of the champion</param>
-        /// <returns>champion of the specified id</returns>
-        public Champion FindById(int id)
-        {
-            foreach (Champion champion in _championsList)
-            {
-                if (champion.Id == id)
-                {
-                    return champion;
-                }
-            }
-
-            throw new IndexOutOfRangeException(String.Format("Could not find Id: {0}", id));
-        }
-
         public ChampionCollection()
         {
             _championsList = new List<Champion>();
@@ -94,53 +56,14 @@ namespace LeagueOfLegendsLibrary
 
 
         private int _position = -1;
-
-
-
-        public IEnumerator<Champion> GetEnumerator()
-        {
-            return this;
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return this;
-        }
-
-        public Champion Current
-        {
-            get 
-            {
-                try
-                {
-                    return _championsList[_position];
-                }
-                catch
-                {
-                    throw new InvalidOperationException();
-                }
-            }
-        }
+        
 
         public void Dispose()
         {
             Reset();
         }
 
-        object IEnumerator.Current
-        {
-            get 
-            {
-                try
-                {
-                    return _championsList[_position];
-                }
-                catch
-                {
-                    throw new InvalidOperationException();
-                }
-            }
-        }
+
 
         public bool MoveNext()
         {
@@ -153,10 +76,6 @@ namespace LeagueOfLegendsLibrary
             _position = -1;
         }
 
-        public void Add(Champion item)
-        {
-            _championsList.Add(item);
-        }
 
         public void Clear()
         {
@@ -180,6 +99,11 @@ namespace LeagueOfLegendsLibrary
             }
         }
 
+        public void Add(Champion item)
+        {
+            _championsList.Add(item);
+        }
+
         public bool Contains(Champion item)
         {
             return _championsList.Contains(item);
@@ -187,23 +111,22 @@ namespace LeagueOfLegendsLibrary
 
         public void CopyTo(Champion[] array, int arrayIndex)
         {
-            try
-            {
-                foreach (Champion i in _championsList)
-                {
-                    array.SetValue(i, arrayIndex);
-                    arrayIndex++;
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            _championsList.CopyTo(array, arrayIndex);
         }
 
         public bool Remove(Champion item)
         {
             return _championsList.Remove(item);
+        }
+
+        public IEnumerator<Champion> GetEnumerator()
+        {
+            return _championsList.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return _championsList.AsEnumerable().GetEnumerator();
         }
     }
 }

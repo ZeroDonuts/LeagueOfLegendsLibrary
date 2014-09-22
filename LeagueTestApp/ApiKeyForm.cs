@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using LeagueOfLegendsLibrary;
+using System.Net;
 namespace LeagueTestApp
 {
     public partial class ApiKeyForm : Form
@@ -21,19 +22,15 @@ namespace LeagueTestApp
             LolInfo.APIKEY = apiKeyTextBox.Text;
             try
             {
-                LolInfo.ChampionCollection = new InfoGrabber().GetChampions("na");
+                LolInfo.ChampionCollection = new InfoGrabber().GetChampions("na"); //... this takes a crazy amount of time
+
                 this.Close();
             }
-            catch
+            catch (WebException ex)
             {
+                
                 MessageBox.Show("Invalid apikey");
             }
-            
-        }
-
-        private void ApiKeyForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

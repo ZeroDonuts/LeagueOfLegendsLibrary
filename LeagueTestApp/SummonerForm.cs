@@ -58,7 +58,7 @@ namespace LeagueTestApp
 
                 row["Game"] = string.Format("Game {0}", i + 1);
                 i++;
-                row["Champion"] = champs.FindById(game.ChampionId).Name;
+                //row["Champion"] = champs.FindById(game.ChampionId).Name;
 
                 row["Queue"] = game.subType;
               
