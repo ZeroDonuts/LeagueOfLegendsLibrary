@@ -111,52 +111,60 @@ namespace LeagueOfLegendsLibrary
 
             DataContractJsonSerializer jSerializer = new DataContractJsonSerializer(typeof(ChampionCollection), settings);
             WebClient webClient = new WebClient();
-            ChampionCollection champs = new ChampionCollection();
+            ChampionCollection staticChampCollectionCall = new ChampionCollection();
+            ChampionCollection champCollectionCall = new ChampionCollection();
             try
             {
 
-                champs = (ChampionCollection)jSerializer.ReadObject(webClient.OpenRead(String.Format("https://{0}.api.pvp.net/api/lol/static-data/{0}/v1.2/champion?champData=all&api_key={1}", region, LolInfo.APIKEY)));
+                champCollectionCall = (ChampionCollection)jSerializer.ReadObject(webClient.OpenRead(String.Format("https://{0}.api.pvp.net/api/lol/{0}/v1.2/champion?api_key={1}", region, LolInfo.APIKEY)));
+                staticChampCollectionCall = (ChampionCollection)jSerializer.ReadObject(webClient.OpenRead(String.Format("https://{0}.api.pvp.net/api/lol/static-data/{0}/v1.2/champion?champData=all&api_key={1}", region, LolInfo.APIKEY)));
 
-                //champs = ((ChampionCollection)jSerializer.ReadObject(webClient.OpenRead(string.Format("https://{0}.api.pvp.net/api/lol/{0}/v1.2/champion?api_key={1}", region, LolInfo.APIKEY))));
-                //for(int i = 0; i < champs.Count; i++)
-                //{
 
-                //    Champion champSimpleInfo = champs.ChampionsList[i];
+                foreach(Champion champion in staticChampCollectionCall)
+                {
+                    Champion info = champCollectionCall.Find(champion.Id);
 
-                //    Champion champInfo = getChampion(region, champSimpleInfo.Id);
-
-                //    champInfo.Active = champSimpleInfo.Active;
-                //    champInfo.BotEnabled = champSimpleInfo.BotEnabled;
-                //    champInfo.BotMmEnabled = champSimpleInfo.BotMmEnabled;
-                //    champInfo.FreeToPlay = champSimpleInfo.FreeToPlay;
-                //    champInfo.RankedPlayEnabled = champSimpleInfo.RankedPlayEnabled;
-
-                //    champs.ChampionsList[i] = champInfo;
-           
-                //};                     
+                    champion.Active = info.Active;
+                    champion.BotEnabled = info.BotEnabled;
+                    champion.BotMmEnabled = info.BotMmEnabled;
+                    champion.FreeToPlay = info.FreeToPlay;
+                    champion.RankedPlayEnabled = info.RankedPlayEnabled;
+                }                    
             }
             catch (WebException e)
             {
                 throw new Exception(e.Message);
             }
-            return champs;
+
+            return staticChampCollectionCall;
         }
 
         public Champion getChampion(string region, int id)
         {
-            Champion champion = new Champion();
+
+            Champion championCall = new Champion();
+            Champion staticChampionCall = new Champion();
 
             DataContractJsonSerializer jSerializer = new DataContractJsonSerializer(typeof(Champion));
             WebClient webClient = new WebClient();
             try
             {
-                champion = (Champion)jSerializer.ReadObject(webClient.OpenRead(string.Format("https://{0}.api.pvp.net/api/lol/static-data/{0}/v1.2/champion/{1}?champData=all&api_key={2}", region, id, LolInfo.APIKEY)));
+                championCall = (Champion)jSerializer.ReadObject(webClient.OpenRead(String.Format("https://{0}.api.pvp.net/api/lol/{0}/v1.2/champion/{1}?api_key={2}", region, id, LolInfo.APIKEY)));
+                staticChampionCall = (Champion)jSerializer.ReadObject(webClient.OpenRead(string.Format("https://{0}.api.pvp.net/api/lol/static-data/{0}/v1.2/champion/{1}?champData=all&api_key={2}", region, id, LolInfo.APIKEY)));
+
+                staticChampionCall.Active = championCall.Active;
+                staticChampionCall.BotEnabled = championCall.BotEnabled;
+                staticChampionCall.BotMmEnabled = championCall.BotMmEnabled;
+                staticChampionCall.FreeToPlay = championCall.FreeToPlay;
+                staticChampionCall.RankedPlayEnabled = championCall.RankedPlayEnabled;
+            
+            
             }
             catch (WebException e)
             {
                 throw;
             }
-            return champion;
+            return staticChampionCall;
         }
     }
 }
