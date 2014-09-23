@@ -5,7 +5,7 @@ using System.Text;
 using System.Runtime.Serialization;
 
 
-namespace LeagueOfLegendsLibrary
+namespace LeagueOfLegendsLibrary.ChampionInfo
 {
     
     [DataContract(Name="ChampionDto")]
@@ -207,6 +207,72 @@ namespace LeagueOfLegendsLibrary
             get
             {
                 return _passive;
+            }
+        }
+
+        [DataMember(Name = "recommended")]
+        private List<Recommend> _recommends;
+
+        public List<Recommend> Recommends
+        {
+            get
+            {
+                return _recommends;
+            }
+        }
+
+        [DataMember(Name = "skins")]
+        private List<Skin> _skins;
+
+        public List<Skin> Skins
+        {
+            get
+            {
+                return _skins;
+            }
+        }
+
+        [DataMember(Name = "spells")]
+        private List<ChampionSpell> _spells;
+
+        public List<ChampionSpell> Spells
+        {
+            get
+            {
+                return _spells;
+            }
+        }
+
+        [DataMember(Name = "stats")]
+        private Stats _stats;
+
+        public Stats Stats
+        {
+            get
+            {
+                return _stats;
+            }
+        }
+
+        [DataMember(Name = "tags")]
+        private List<string> _tags;
+
+        public List<string> Tags
+        {
+            get
+            {
+                return _tags;
+            }
+        }
+
+        [DataMember(Name = "title")]
+        private string _title;
+
+        public string Title
+        {
+            get
+            {
+                return _title;
             }
         }
     }

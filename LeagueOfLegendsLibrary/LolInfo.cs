@@ -5,6 +5,8 @@ using System.Text;
 using System.Net;
 using System.Runtime.Serialization.Json;
 
+using LeagueOfLegendsLibrary.ChampionInfo;
+
 namespace LeagueOfLegendsLibrary
 {
     public static class LolInfo

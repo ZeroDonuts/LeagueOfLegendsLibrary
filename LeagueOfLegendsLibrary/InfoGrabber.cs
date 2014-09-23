@@ -7,6 +7,7 @@ using System.Net;
 using System.IO;
 using System.Threading.Tasks;
 
+using LeagueOfLegendsLibrary.ChampionInfo;
 
 namespace LeagueOfLegendsLibrary
 {
@@ -24,6 +25,7 @@ namespace LeagueOfLegendsLibrary
             DataContractJsonSerializer jSerializer = new DataContractJsonSerializer(typeof(Summoner));
             WebClient webClient = new WebClient();
             Summoner tempSummoner = new Summoner();
+            
             try
             {
                 tempSummoner = (Summoner)jSerializer.ReadObject(webClient.OpenRead(string.Format("https://prod.api.pvp.net/api/lol/{1}/v1.1/summoner/by-name/{0}?api_key={2}", summonerName, region, LolInfo.APIKEY)));
@@ -104,28 +106,34 @@ namespace LeagueOfLegendsLibrary
         /// <returns></returns>
         public ChampionCollection GetChampions(string region)
         {
-            DataContractJsonSerializer jSerializer = new DataContractJsonSerializer(typeof(ChampionCollection));
+            DataContractJsonSerializerSettings settings = new DataContractJsonSerializerSettings();
+            settings.UseSimpleDictionaryFormat = true;
+
+            DataContractJsonSerializer jSerializer = new DataContractJsonSerializer(typeof(ChampionCollection), settings);
             WebClient webClient = new WebClient();
             ChampionCollection champs = new ChampionCollection();
             try
             {
-                champs = ((ChampionCollection)jSerializer.ReadObject(webClient.OpenRead(string.Format("https://{0}.api.pvp.net/api/lol/{0}/v1.2/champion?api_key={1}", region, LolInfo.APIKEY))));
-                for(int i = 0; i < champs.Count; i++)
-                {
 
-                    Champion champSimpleInfo = champs.ChampionsList[i];
+                champs = (ChampionCollection)jSerializer.ReadObject(webClient.OpenRead(String.Format("https://{0}.api.pvp.net/api/lol/static-data/{0}/v1.2/champion?champData=all&api_key={1}", region, LolInfo.APIKEY)));
 
-                    Champion champInfo = getChampion(region, champSimpleInfo.Id);
+                //champs = ((ChampionCollection)jSerializer.ReadObject(webClient.OpenRead(string.Format("https://{0}.api.pvp.net/api/lol/{0}/v1.2/champion?api_key={1}", region, LolInfo.APIKEY))));
+                //for(int i = 0; i < champs.Count; i++)
+                //{
 
-                    champInfo.Active = champSimpleInfo.Active;
-                    champInfo.BotEnabled = champSimpleInfo.BotEnabled;
-                    champInfo.BotMmEnabled = champSimpleInfo.BotMmEnabled;
-                    champInfo.FreeToPlay = champSimpleInfo.FreeToPlay;
-                    champInfo.RankedPlayEnabled = champSimpleInfo.RankedPlayEnabled;
+                //    Champion champSimpleInfo = champs.ChampionsList[i];
 
-                    champs.ChampionsList[i] = champInfo;
+                //    Champion champInfo = getChampion(region, champSimpleInfo.Id);
+
+                //    champInfo.Active = champSimpleInfo.Active;
+                //    champInfo.BotEnabled = champSimpleInfo.BotEnabled;
+                //    champInfo.BotMmEnabled = champSimpleInfo.BotMmEnabled;
+                //    champInfo.FreeToPlay = champSimpleInfo.FreeToPlay;
+                //    champInfo.RankedPlayEnabled = champSimpleInfo.RankedPlayEnabled;
+
+                //    champs.ChampionsList[i] = champInfo;
            
-                };                     
+                //};                     
             }
             catch (WebException e)
             {

@@ -1,16 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{795D0863-3700-4FF5-8AB6-083367B93482}</ProjectGuid>
+    <ProjectGuid>{EDB50D9F-8252-440A-8F22-8FD81EF32CB5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LeagueOfLegendsLibrary</RootNamespace>
     <AssemblyName>LeagueOfLegendsLibrary</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -39,17 +38,19 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="ZeroLibrary">
-      <HintPath>..\ZeroLibrary\ZeroLibrary.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Champion\Champion.cs" />
-    <Compile Include="Champion\ChampionCollection.cs" />
-    <Compile Include="Champion\Image.cs" />
-    <Compile Include="Champion\Info.cs" />
-    <Compile Include="Champion\Passive.cs" />
-    <Compile Include="Champion\Recommend.cs" />
+    <Compile Include="ChampionInfo\Block.cs" />
+    <Compile Include="ChampionInfo\BlockItem.cs" />
+    <Compile Include="ChampionInfo\Champion.cs" />
+    <Compile Include="ChampionInfo\ChampionCollection.cs" />
+    <Compile Include="ChampionInfo\ChampionSpell.cs" />
+    <Compile Include="ChampionInfo\Image.cs" />
+    <Compile Include="ChampionInfo\Info.cs" />
+    <Compile Include="ChampionInfo\Passive.cs" />
+    <Compile Include="ChampionInfo\Recommend.cs" />
+    <Compile Include="ChampionInfo\Skin.cs" />
+    <Compile Include="ChampionInfo\Stats.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Game\Game.cs" />
     <Compile Include="Game\Player.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Masteries\MasteryPage.cs" />
     <Compile Include="Masteries\MasteryPageCollection.cs" />
     <Compile Include="Masteries\Talent.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Runes\Rune.cs" />
     <Compile Include="Runes\RunePage.cs" />
     <Compile Include="Runes\RunePageCollection.cs" />
@@ -73,7 +75,6 @@
     <Compile Include="Stats\PlayerStatsSummary.cs" />
     <Compile Include="Stats\PlayerStatsSummaryList.cs" />
     <Compile Include="Summoner.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Teams\MatchHistorySummary.cs" />
     <Compile Include="Teams\MessageOfDay.cs" />
     <Compile Include="Teams\Roster.cs" />

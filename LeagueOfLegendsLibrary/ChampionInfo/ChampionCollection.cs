@@ -5,7 +5,7 @@ using System.Text;
 using System.Runtime.Serialization;
 using System.Collections;
 
-namespace LeagueOfLegendsLibrary
+namespace LeagueOfLegendsLibrary.ChampionInfo
 {
     /// <summary>
     /// a collection of champions 
@@ -13,6 +13,19 @@ namespace LeagueOfLegendsLibrary
     [DataContract(Name="ChampionListDto")]
     public class ChampionCollection : ICollection<Champion>
     {
+        
+        [DataMember(Name = "data")]
+        private Dictionary<string, Champion> _keys;
+
+        public Dictionary<string, Champion> Keys
+        {
+            get
+            {
+                return _keys;
+            }
+        }
+
+
         [DataMember(Name = "champions")]
         private List<Champion> _championsList;
         

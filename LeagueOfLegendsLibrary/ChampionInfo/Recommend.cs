@@ -4,12 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Runtime.Serialization;
 
-namespace LeagueOfLegendsLibrary
+namespace LeagueOfLegendsLibrary.ChampionInfo
 {
     [DataContract(Name="RecommendedDto")]
     public class Recommend
     {
-        //missing BlockDto
+        [DataMember(Name = "blocks")]
+        private List<Block> _blocks;
+
+        public List<Block> Blocks
+        {
+            get
+            {
+                return _blocks;
+            }
+        }
 
         [DataMember(Name = "champion")]
         private string _champion;
