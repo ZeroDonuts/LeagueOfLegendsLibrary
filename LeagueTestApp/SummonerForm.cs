@@ -51,6 +51,8 @@ namespace LeagueTestApp
                 return;
             }
             summoner = info.LookupSummonerByName(nameTextBox.Text, regionComboBox.SelectedItem.ToString());
+            MessageBox.Show(summoner.Name);//21014383
+            summoner = info.LookupSummonerByID(regionComboBox.SelectedItem.ToString(), summoner.ID);
             gamesPlayed = summoner.GetRecentGames();
             champs = info.GetChampions(regionComboBox.SelectedItem.ToString());
             PlayerStatsSummaryList sum = summoner.GetStatSummary(Season.SEASON3);
