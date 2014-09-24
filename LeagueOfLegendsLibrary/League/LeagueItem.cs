@@ -6,9 +6,21 @@ using System.Runtime.Serialization;
 
 namespace LeagueOfLegendsLibrary
 {
-    [DataContract]
+    [DataContract(Name="LeagueEntryDto")]
     public class LeagueItem
     {
+
+        [DataMember(Name = "division")]
+        private string _division;
+
+        public string Division
+        {
+            get
+            {
+                return _division;
+            }
+        }
+
         [DataMember(Name="isFreshBlood")]
         private bool _isFreshBlood;
         public bool IsFreshBlood
@@ -52,28 +64,6 @@ namespace LeagueOfLegendsLibrary
             }
         }
 
-        [DataMember(Name = "lastPlayed")]
-        private long _lastPlayed;
-
-        public long LastPlayed
-        {
-            get
-            {
-                return _lastPlayed;
-            }
-        }
-
-        [DataMember(Name = "leagueName")]
-        private string _leagueName;
-
-        public string LeagueName
-        {
-            get
-            {
-                return _leagueName;
-            }
-        }
-
         [DataMember(Name = "leaguePoints")]
         private int _leaguePoints;
 
@@ -84,8 +74,9 @@ namespace LeagueOfLegendsLibrary
                 return _leaguePoints;
             }
         }
+
         //currently bugged when calling infograbber.getleague
-        //[DataMember(Name = "miniSeries")]
+        [DataMember(Name = "miniSeries")]
         private MiniSeries _miniSeries;
 
         public MiniSeries MiniSeries
@@ -115,39 +106,6 @@ namespace LeagueOfLegendsLibrary
             get
             {
                 return _playerOrTeamName;
-            }
-        }
-
-        [DataMember(Name = "queueType")]
-        private string _queueType;
-
-        public string QueueType
-        {
-            get
-            {
-                return _queueType;
-            }
-        }
-
-        [DataMember(Name = "rank")]
-        private string _rank;
-
-        public string Rank
-        {
-            get
-            {
-                return _rank;
-            }
-        }
-
-        [DataMember(Name = "tier")]
-        private string _tier;
-
-        public string Tier
-        {
-            get
-            {
-                return _tier;
             }
         }
 

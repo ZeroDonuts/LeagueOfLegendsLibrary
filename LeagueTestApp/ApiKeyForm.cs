@@ -24,7 +24,8 @@ namespace LeagueTestApp
             //Dictionary<string, Summoner> summoners = new InfoGrabber().LookupSummonersByID("na", );
             try
             {
-                LolInfo.ChampionCollection = new InfoGrabber().GetChampions("na"); //... this takes a crazy amount of time
+                RecentGamesCollection games = new InfoGrabber().GetRecentGames("na", 2);
+                //LolInfo.ChampionCollection = new InfoGrabber().GetChampions("na"); //... this takes a crazy amount of time
 
                 this.Close();
             }

@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 
 namespace LeagueOfLegendsLibrary
 {
-    [DataContract]
+    [DataContract(Name="MiniSeriesDto")]
     public class MiniSeries
     {
         [DataMember(Name = "losses")]
@@ -21,9 +21,9 @@ namespace LeagueOfLegendsLibrary
         }
 
         [DataMember(Name = "progress")]
-        private char[] _progress;
+        private string _progress;
 
-        public char[] Progress
+        public string Progress
         {
             get
             {
@@ -39,17 +39,6 @@ namespace LeagueOfLegendsLibrary
             get
             {
                 return _target;
-            }
-        }
-
-        [DataMember(Name = "timeLeftToPlayMillis")]
-        private long _timeLeftToPlayMillis;
-
-        public long TimeLeftToPlayMillis
-        {
-            get
-            {
-                return _timeLeftToPlayMillis;
             }
         }
 

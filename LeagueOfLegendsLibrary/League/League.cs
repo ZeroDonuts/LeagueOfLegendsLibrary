@@ -12,7 +12,7 @@ namespace LeagueOfLegendsLibrary
     /// <summary>
     /// League class as represented by Leaguev2.3
     /// </summary>
-    [DataContract]
+    [DataContract(Name="LeagueDto")]
     public class League
     {
         [DataMember(Name = "entries")]
@@ -37,6 +37,14 @@ namespace LeagueOfLegendsLibrary
             }
         }
 
+        [DataMember(Name = "participantId")]
+        private string _participantID;
+
+        public string ParticipantID
+        {
+            get { return _participantID; }
+        }
+
         [DataMember(Name = "queue")]
         private string _queue;
 
@@ -58,14 +66,5 @@ namespace LeagueOfLegendsLibrary
                 return _tier;
             }
         }
-
-        [DataMember(Name="participantId")]
-        private string _participantID;
-
-        public string ParticipantID
-        {
-            get { return _participantID; }
-        }
-
     }
 }
