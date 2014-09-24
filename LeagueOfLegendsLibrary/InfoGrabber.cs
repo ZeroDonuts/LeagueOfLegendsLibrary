@@ -20,22 +20,92 @@ namespace LeagueOfLegendsLibrary
         /// <param name="summonerName">The summoner to search for</param>
         /// <param name="region">The server region to check</param>
         /// <returns></returns>
-        public Summoner LookupSummonerByName(string summonerName, string region)
+        public Dictionary<string, Summoner> LookupSummonersByName(string region, params string[] names)
         {
-            DataContractJsonSerializer jSerializer = new DataContractJsonSerializer(typeof(Summoner));
+            DataContractJsonSerializerSettings settings = new DataContractJsonSerializerSettings();
+            settings.UseSimpleDictionaryFormat = true;
+
+            DataContractJsonSerializer jSerializer = new DataContractJsonSerializer(typeof(Dictionary<string, Summoner>), settings);
             WebClient webClient = new WebClient();
             Summoner tempSummoner = new Summoner();
+
+            string urlToCheck = string.Format("https://na.api.pvp.net/api/lol/{0}/v1.4/summoner/by-name/",region);
+
+            for (int i = 0; i < names.Length; i++)
+            {
+                urlToCheck += names[i];
+
+                if(i != names.Length -1)
+                {
+                    urlToCheck += ",";
+                }
+            }
+
+            Dictionary<string, Summoner> tempList;
             
             try
             {
-                tempSummoner = (Summoner)jSerializer.ReadObject(webClient.OpenRead(string.Format("https://prod.api.pvp.net/api/lol/{1}/v1.1/summoner/by-name/{0}?api_key={2}", summonerName, region, LolInfo.APIKEY)));
+                tempList = (Dictionary<string, Summoner>)jSerializer.ReadObject(webClient.OpenRead(string.Format(urlToCheck + "?api_key={0}", LolInfo.APIKEY)));
             }
             catch (WebException e)
             {
                 throw new Exception(e.Message);
             }
-            tempSummoner.Region = region;
-            return tempSummoner;
+            foreach(Summoner s in tempList.Values)
+            {
+                s.Region = region;
+            }
+            
+            return tempList;
+        }
+
+        public Summoner LookupSummonerByName(string summonerName, string region)
+        {
+            return LookupSummonersByName(region, summonerName).First().Value;
+        }
+
+
+        /// <summary>
+        /// Looks up a group of summoners using their ID's
+        /// </summary>
+        /// <param name="region">The server region the summoners are in</param>
+        /// <param name="summonerIDs">The ID's of the summoners</param>
+        /// <returns></returns>
+        public Dictionary<string, Summoner> LookupSummonersByID(string region, params long[] summonerIDs )
+        {
+            DataContractJsonSerializerSettings settings = new DataContractJsonSerializerSettings();
+            settings.UseSimpleDictionaryFormat = true;
+
+            DataContractJsonSerializer jSerializer = new DataContractJsonSerializer(typeof(Dictionary<string, Summoner>),settings);
+            WebClient webClient = new WebClient();
+            Summoner tempSummoner = new Summoner();
+            string urlToCheck = string.Format("https://na.api.pvp.net/api/lol/{0}/v1.4/summoner/", region);
+
+            for (int i = 0; i < summonerIDs.Length; i++ )
+            {
+                urlToCheck += summonerIDs[i].ToString();
+                if (i != summonerIDs.Length - 1)
+                {
+                    urlToCheck += ",";
+                }
+                
+            }
+
+            Dictionary<string, Summoner> tempList;
+            try
+            {
+                 tempList= (Dictionary<string, Summoner>)jSerializer.ReadObject(webClient.OpenRead(string.Format(urlToCheck + "?api_key={0}", LolInfo.APIKEY)));
+            }
+            catch (WebException e)
+            {
+                throw new Exception(e.Message);
+            }
+            foreach(Summoner s in tempList.Values)
+            {
+                s.Region = region;
+            }
+
+            return tempList;
         }
 
         /// <summary>
@@ -44,47 +114,9 @@ namespace LeagueOfLegendsLibrary
         /// <param name="summonerID">The ID of the summoner</param>
         /// <param name="region">The server region to check</param>
         /// <returns></returns>
-        public Summoner LookupSummonerByID(long summonerID, string region)
+        public Summoner LookupSummonerByID(string region, long summonerID)
         {
-            DataContractJsonSerializer jSerializer = new DataContractJsonSerializer(typeof(Summoner));
-            WebClient webClient = new WebClient();
-            Summoner tempSummoner = new Summoner();
-            try
-            {
-                tempSummoner = (Summoner)jSerializer.ReadObject(webClient.OpenRead(string.Format("https://prod.api.pvp.net/api/lol/{1}/v1.1/summoner/{0}?api_key={2}", summonerID, region, LolInfo.APIKEY)));
-            }
-            catch (WebException e)
-            {
-                throw new Exception(e.Message);
-            }
-            tempSummoner.Region = region;
-            return tempSummoner;
-        }
-
-        /// <summary>
-        /// Looks up a group of summoners using their ID's
-        /// </summary>
-        /// <param name="region">The server region the summoners are in</param>
-        /// <param name="summonerIDs">The ID's of the summoners</param>
-        /// <returns></returns>
-        public List<Summoner> LookupSummonersByID(string region, params long[] summonerIDs)
-        {
-            DataContractJsonSerializer jSerializer = new DataContractJsonSerializer(typeof(Summoner));
-            WebClient webClient = new WebClient();
-            List<Summoner> summoners = new List<Summoner>();
-            for (int i = 0; i < summonerIDs.Length; i++)
-            {
-                try
-                {
-                    summoners.Add((Summoner)jSerializer.ReadObject(webClient.OpenRead(string.Format("https://prod.api.pvp.net/api/lol/{1}/v1.1/summoner/{0}?api_key={2}", summonerIDs[i], region, LolInfo.APIKEY))));
-                }
-                catch (WebException e)
-                {
-                    throw new Exception(e.Message);
-                }
-                summoners[summoners.Count - 1].Region = region;
-            }
-            return summoners;
+            return LookupSummonersByID(region, summonerID).First().Value;
         }
 
         

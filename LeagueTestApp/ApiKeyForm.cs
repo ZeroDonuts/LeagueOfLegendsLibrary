@@ -20,6 +20,8 @@ namespace LeagueTestApp
         private void enterButton_Click(object sender, EventArgs e)
         {
             LolInfo.APIKEY = apiKeyTextBox.Text;
+
+            //Dictionary<string, Summoner> summoners = new InfoGrabber().LookupSummonersByID("na", );
             try
             {
                 LolInfo.ChampionCollection = new InfoGrabber().GetChampions("na"); //... this takes a crazy amount of time
