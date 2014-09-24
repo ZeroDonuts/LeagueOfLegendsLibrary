@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Runtime.Serialization;
 
-namespace LeagueOfLegendsLibrary
+namespace LeagueOfLegendsLibrary.GameInfo
 {
     [DataContract(Name = "RawStatsDto")]
     public class RawStats

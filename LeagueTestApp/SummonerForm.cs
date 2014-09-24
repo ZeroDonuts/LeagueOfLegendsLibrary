@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 using LeagueOfLegendsLibrary;
 using LeagueOfLegendsLibrary.ChampionInfo;
+using LeagueOfLegendsLibrary.GameInfo;
 
 
 namespace LeagueTestApp

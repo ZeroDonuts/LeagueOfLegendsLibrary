@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Runtime.Serialization;
 
-namespace LeagueOfLegendsLibrary
+namespace LeagueOfLegendsLibrary.LeagueInfo
 {
     [DataContract(Name="LeagueEntryDto")]
     public class LeagueItem
@@ -75,7 +75,6 @@ namespace LeagueOfLegendsLibrary
             }
         }
 
-        //currently bugged when calling infograbber.getleague
         [DataMember(Name = "miniSeries")]
         private MiniSeries _miniSeries;
 

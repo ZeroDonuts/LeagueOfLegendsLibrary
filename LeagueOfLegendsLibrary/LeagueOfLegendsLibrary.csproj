@@ -60,7 +60,7 @@
     <Compile Include="Game\RecentGamesCollection.cs" />
     <Compile Include="InfoGrabber.cs" />
     <Compile Include="League\League.cs" />
-    <Compile Include="League\LeagueGroup.cs" />
+    <Compile Include="League\LeagueGroups.cs" />
     <Compile Include="League\LeagueItem.cs" />
     <Compile Include="League\MiniSeries.cs" />
     <Compile Include="LolInfo.cs" />

@@ -8,6 +8,8 @@ using System.IO;
 using System.Threading.Tasks;
 
 using LeagueOfLegendsLibrary.ChampionInfo;
+using LeagueOfLegendsLibrary.GameInfo;
+using LeagueOfLegendsLibrary.LeagueInfo;
 
 namespace LeagueOfLegendsLibrary
 {
@@ -29,20 +31,20 @@ namespace LeagueOfLegendsLibrary
             WebClient webClient = new WebClient();
             Summoner tempSummoner = new Summoner();
 
-            string urlToCheck = string.Format("https://na.api.pvp.net/api/lol/{0}/v1.4/summoner/by-name/",region);
+            string urlToCheck = string.Format("https://na.api.pvp.net/api/lol/{0}/v1.4/summoner/by-name/", region);
 
             for (int i = 0; i < names.Length; i++)
             {
                 urlToCheck += names[i];
 
-                if(i != names.Length -1)
+                if (i != names.Length - 1)
                 {
                     urlToCheck += ",";
                 }
             }
 
             Dictionary<string, Summoner> tempList;
-            
+
             try
             {
                 tempList = (Dictionary<string, Summoner>)jSerializer.ReadObject(webClient.OpenRead(string.Format(urlToCheck + "?api_key={0}", LolInfo.APIKEY)));
@@ -51,11 +53,11 @@ namespace LeagueOfLegendsLibrary
             {
                 throw new Exception(e.Message);
             }
-            foreach(Summoner s in tempList.Values)
+            foreach (Summoner s in tempList.Values)
             {
                 s.Region = region;
             }
-            
+
             return tempList;
         }
 
@@ -71,36 +73,36 @@ namespace LeagueOfLegendsLibrary
         /// <param name="region">The server region the summoners are in</param>
         /// <param name="summonerIDs">The ID's of the summoners</param>
         /// <returns></returns>
-        public Dictionary<string, Summoner> LookupSummonersByID(string region, params long[] summonerIDs )
+        public Dictionary<string, Summoner> LookupSummonersByID(string region, params long[] summonerIDs)
         {
             DataContractJsonSerializerSettings settings = new DataContractJsonSerializerSettings();
             settings.UseSimpleDictionaryFormat = true;
 
-            DataContractJsonSerializer jSerializer = new DataContractJsonSerializer(typeof(Dictionary<string, Summoner>),settings);
+            DataContractJsonSerializer jSerializer = new DataContractJsonSerializer(typeof(Dictionary<string, Summoner>), settings);
             WebClient webClient = new WebClient();
             Summoner tempSummoner = new Summoner();
             string urlToCheck = string.Format("https://na.api.pvp.net/api/lol/{0}/v1.4/summoner/", region);
 
-            for (int i = 0; i < summonerIDs.Length; i++ )
+            for (int i = 0; i < summonerIDs.Length; i++)
             {
                 urlToCheck += summonerIDs[i].ToString();
                 if (i != summonerIDs.Length - 1)
                 {
                     urlToCheck += ",";
                 }
-                
+
             }
 
             Dictionary<string, Summoner> tempList;
             try
             {
-                 tempList= (Dictionary<string, Summoner>)jSerializer.ReadObject(webClient.OpenRead(string.Format(urlToCheck + "?api_key={0}", LolInfo.APIKEY)));
+                tempList = (Dictionary<string, Summoner>)jSerializer.ReadObject(webClient.OpenRead(string.Format(urlToCheck + "?api_key={0}", LolInfo.APIKEY)));
             }
             catch (WebException e)
             {
                 throw new Exception(e.Message);
             }
-            foreach(Summoner s in tempList.Values)
+            foreach (Summoner s in tempList.Values)
             {
                 s.Region = region;
             }
@@ -119,7 +121,7 @@ namespace LeagueOfLegendsLibrary
             return LookupSummonersByID(region, summonerID).First().Value;
         }
 
-        
+
 
         public Stream GenerateStreamFromString(string s)
         {
@@ -152,7 +154,7 @@ namespace LeagueOfLegendsLibrary
                 staticChampCollectionCall = (ChampionCollection)jSerializer.ReadObject(webClient.OpenRead(String.Format("https://{0}.api.pvp.net/api/lol/static-data/{0}/v1.2/champion?champData=all&api_key={1}", region, LolInfo.APIKEY)));
 
 
-                foreach(Champion champion in staticChampCollectionCall)
+                foreach (Champion champion in staticChampCollectionCall)
                 {
                     Champion info = champCollectionCall.Find(champion.Id);
 
@@ -161,7 +163,7 @@ namespace LeagueOfLegendsLibrary
                     champion.BotMmEnabled = info.BotMmEnabled;
                     champion.FreeToPlay = info.FreeToPlay;
                     champion.RankedPlayEnabled = info.RankedPlayEnabled;
-                }                    
+                }
             }
             catch (WebException e)
             {
@@ -197,8 +199,8 @@ namespace LeagueOfLegendsLibrary
                 staticChampionCall.BotMmEnabled = championCall.BotMmEnabled;
                 staticChampionCall.FreeToPlay = championCall.FreeToPlay;
                 staticChampionCall.RankedPlayEnabled = championCall.RankedPlayEnabled;
-            
-            
+
+
             }
             catch (WebException e)
             {
@@ -232,6 +234,47 @@ namespace LeagueOfLegendsLibrary
 
 
             return games;
+        }
+
+
+        /// <summary>
+        /// Gets the leagues of the specified summoners
+        /// </summary>
+        /// <param name="region">region to look at</param>
+        /// <param name="summonerIds">summoners to find</param>
+        /// <remarks>Version 2.5</remarks>
+        /// <returns></returns>
+        public LeagueGroups GetLeague(string region, params long[] summonerIds)
+        {
+            LeagueGroups leagueGroups = new LeagueGroups();
+
+            string ids = "";
+            for (int i = 0; i < summonerIds.Length; i++)
+            {
+                ids += summonerIds[i].ToString();
+
+                if(i != summonerIds.Length - 1)
+                {
+                    ids += ",";
+                }
+            }
+
+            DataContractJsonSerializerSettings settings = new DataContractJsonSerializerSettings();
+            settings.UseSimpleDictionaryFormat = true;
+
+            DataContractJsonSerializer jSerializer = new DataContractJsonSerializer(typeof(LeagueGroups), settings);
+            WebClient webClient = new WebClient();
+
+            try
+            {
+                leagueGroups = (LeagueGroups)jSerializer.ReadObject(webClient.OpenRead(String.Format("https://{0}.api.pvp.net/api/lol/{0}/v2.5/league/by-summoner/{1}/entry?api_key={2}", region, ids, LolInfo.APIKEY)));
+            }
+            catch
+            {
+                throw;
+            }
+
+            return leagueGroups;
         }
     }
 }

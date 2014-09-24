@@ -7,11 +7,8 @@ using System.Net;
 using System.Runtime.Serialization;
 using System.IO;
 
-namespace LeagueOfLegendsLibrary
+namespace LeagueOfLegendsLibrary.LeagueInfo
 {
-    /// <summary>
-    /// League class as represented by Leaguev2.3
-    /// </summary>
     [DataContract(Name="LeagueDto")]
     public class League
     {

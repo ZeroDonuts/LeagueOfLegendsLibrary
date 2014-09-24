@@ -6,7 +6,7 @@ using System.Runtime.Serialization.Json;
 using System.Net;
 using System.Runtime.Serialization;
 
-namespace LeagueOfLegendsLibrary
+namespace LeagueOfLegendsLibrary.GameInfo
 {
     /// <summary>
     /// Game class as represented by Gamev1.3
@@ -29,11 +29,14 @@ namespace LeagueOfLegendsLibrary
         private long _createDate;
 
         /// <summary>
-        /// Date game was played specified as epoch milliseconds.
+        /// Datetime object of the date game was played
         /// </summary>
-        public long CreateDate
+        public DateTime CreateDateTime
         {
-            get { return _createDate; }
+            get
+            {
+                return LolInfo.EpochToDateTime(_createDate);
+            }
         }
 
         [DataMember(Name = "fellowPlayers")]
@@ -68,7 +71,10 @@ namespace LeagueOfLegendsLibrary
         /// </summary>
         public string GameMode
         {
-            get { return _gameMode; }
+            get 
+            { 
+                return _gameMode; 
+            }
         }
 
         [DataMember(Name = "gameType")]
@@ -79,7 +85,10 @@ namespace LeagueOfLegendsLibrary
         /// </summary>
         public string GameType
         {
-            get { return _gameType; }
+            get 
+            { 
+                return _gameType; 
+            }
         }
 
 
@@ -92,19 +101,13 @@ namespace LeagueOfLegendsLibrary
         /// </summary>
         public bool Invalid
         {
-            get { return _invalid; }
-        }
-
-        /// <summary>
-        /// Datetime object of the date game was played
-        /// </summary>
-        public DateTime CreateDateTime
-        {
-            get
-            {
-                return LolInfo.EpochToDateTime(_createDate);
+            get 
+            { 
+                return _invalid; 
             }
         }
+
+        
 
         [DataMember(Name = "ipEarned")]
         private int _ipEarned;

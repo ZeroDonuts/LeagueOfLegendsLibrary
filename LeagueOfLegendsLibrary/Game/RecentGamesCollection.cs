@@ -5,7 +5,7 @@ using System.Text;
 using System.Runtime.Serialization;
 using System.Collections;
 
-namespace LeagueOfLegendsLibrary
+namespace LeagueOfLegendsLibrary.GameInfo
 {
     [DataContract(Name="RecentGamesDto")]
     public class RecentGamesCollection : IEnumerable<Game>

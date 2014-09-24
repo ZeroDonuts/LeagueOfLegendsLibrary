@@ -6,6 +6,8 @@ using System.Net;
 using System.Runtime.Serialization.Json;
 using System.Runtime.Serialization;
 using System.IO;
+using LeagueOfLegendsLibrary.GameInfo;
+using LeagueOfLegendsLibrary.LeagueInfo;
 
 namespace LeagueOfLegendsLibrary
 {
