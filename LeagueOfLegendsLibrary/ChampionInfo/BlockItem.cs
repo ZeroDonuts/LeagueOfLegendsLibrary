@@ -31,6 +31,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
             }
         }
 
+        internal BlockItem()
+        {
 
+        }
     }
 }

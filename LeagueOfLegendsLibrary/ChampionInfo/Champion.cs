@@ -114,12 +114,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "allytips")]
         private List<string> _allyTips;
 
-        public List<string> AllyTips
+        public string[] GetAllyTips()
         {
-            get
-            {
-                return _allyTips;
-            }
+            return _allyTips.ToArray<string>();
         }
         
         [DataMember(Name = "blurb")]
@@ -136,13 +133,11 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "enemytips")]
         private List<string> _enemyTips;
 
-        public List<string> EnemyTips
+        public string[] GetEnemyTips()
         {
-            get
-            {
-                return _enemyTips;
-            }
+            return _enemyTips.ToArray<string>();
         }
+
 
         [DataMember(Name="image")]
         private Image _image;
@@ -213,34 +208,25 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "recommended")]
         private List<Recommend> _recommends;
 
-        public List<Recommend> Recommends
+        public Recommend[] GetRecommendedList()
         {
-            get
-            {
-                return _recommends;
-            }
+            return _recommends.ToArray<Recommend>();
         }
 
         [DataMember(Name = "skins")]
         private List<Skin> _skins;
 
-        public List<Skin> Skins
+        public Skin[] GetSkins()
         {
-            get
-            {
-                return _skins;
-            }
+            return _skins.ToArray<Skin>();
         }
 
         [DataMember(Name = "spells")]
         private List<ChampionSpell> _spells;
 
-        public List<ChampionSpell> Spells
+        public ChampionSpell[] GetSpells()
         {
-            get
-            {
-                return _spells;
-            }
+            return _spells.ToArray<ChampionSpell>();
         }
 
         [DataMember(Name = "stats")]
@@ -257,12 +243,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "tags")]
         private List<string> _tags;
 
-        public List<string> Tags
+        public string[] GetTags()
         {
-            get
-            {
-                return _tags;
-            }
+            return _tags.ToArray<string>();
         }
 
         [DataMember(Name = "title")]
@@ -274,6 +257,11 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
             {
                 return _title;
             }
+        }
+
+        internal Champion()
+        {
+
         }
     }
 }

@@ -18,7 +18,7 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         private Dictionary<string, Champion> _data;
 
         [DataMember(Name = "champions")]
-        internal List<Champion> _championsList;
+        private List<Champion> _championsList;
         
 
         /// <summary>
@@ -67,7 +67,17 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
 
         public ChampionCollection()
         {
+            _data = new Dictionary<string, Champion>();
             _championsList = new List<Champion>();
+        }
+
+        public void Add(Champion champion)
+        {
+            if(_data.ContainsKey(champion.Name))
+            {
+                throw new ArgumentException("Champion already in the collection");
+            }
+            _data.Add(champion.Name, champion);
         }
 
         public IEnumerator<Champion> GetEnumerator()

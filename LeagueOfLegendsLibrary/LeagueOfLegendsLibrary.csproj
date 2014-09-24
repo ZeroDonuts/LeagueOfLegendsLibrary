@@ -51,6 +51,7 @@
     <Compile Include="ChampionInfo\Passive.cs" />
     <Compile Include="ChampionInfo\Recommend.cs" />
     <Compile Include="ChampionInfo\Skin.cs" />
+    <Compile Include="ChampionInfo\SpellVars.cs" />
     <Compile Include="ChampionInfo\Stats.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Game\Game.cs" />

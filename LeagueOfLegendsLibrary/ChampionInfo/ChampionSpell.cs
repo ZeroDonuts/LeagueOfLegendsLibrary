@@ -196,7 +196,16 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
             }
         }
 
-        //list of spellvarsDto
+        [DataMember(Name = "vars")]
+        private List<SpellVars> _vars;
+
+        public List<SpellVars> Vars
+        {
+            get
+            {
+                return _vars;
+            }
+        }
     }
 
 }

@@ -100,9 +100,9 @@ namespace LeagueOfLegendsLibrary
         }
 
         /// <summary>
-        /// Looks up all of the current League of Legends champions. Updated to 1.2
-        /// </summary>
+        /// Looks up all of the current League of Legends champions.        /// </summary>
         /// <param name="region">The region to check</param>
+        /// <remarks>Version 1.2</remarks>
         /// <returns></returns>
         public ChampionCollection GetChampions(string region)
         {
@@ -139,6 +139,14 @@ namespace LeagueOfLegendsLibrary
             return staticChampCollectionCall;
         }
 
+
+        /// <summary>
+        /// Looks up a champion with the specified id.
+        /// </summary>
+        /// <param name="region">The region to check</param>
+        /// <param name="id">id of the champion to look up</param>
+        /// <remarks>Version 1.2</remarks>
+        /// <returns></returns>
         public Champion getChampion(string region, int id)
         {
 
