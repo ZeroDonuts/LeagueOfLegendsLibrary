@@ -8,7 +8,7 @@ using System.Collections;
 namespace LeagueOfLegendsLibrary
 {
     [DataContract(Name="RecentGamesDto")]
-    public class RecentGamesCollection : ICollection<Game>, IEnumerator<Game>
+    public class RecentGamesCollection : IEnumerable<Game>
     {
         [DataMember(Name = "games")]
         private List<Game> _games;
@@ -19,22 +19,18 @@ namespace LeagueOfLegendsLibrary
             get { return _games; }
         }
 
-
         public Game this[int index]
         {
             get 
             {
-                try
+                if(index < 0 || index >= _games.Count)
                 {
-                    return _games[index];
+                    throw new ArgumentOutOfRangeException("Index is out of range");
                 }
-                catch (Exception e)
-                {
-                    throw e;
-                }
+
+                return _games[index];
             }
         }
-
 
         [DataMember(Name = "summonerId")]
         private long _summonerId;
@@ -44,122 +40,14 @@ namespace LeagueOfLegendsLibrary
             get { return _summonerId; }
         }
 
-
-        int _position = -1;
-
         public IEnumerator<Game> GetEnumerator()
         {
-            return this;
+            return _games.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return this;
-        }
-
-        public Game Current
-        {
-            get 
-            {
-                try
-                {
-                    return _games[_position];
-                }
-                catch
-                {
-                    throw new InvalidOperationException();
-                }
-            }
-        }
-
-        public void Dispose()
-        {
-            Reset();
-        }
-
-        object IEnumerator.Current
-        {
-            get 
-            {
-                try
-                {
-                    return _games[_position];
-                }
-                catch
-                {
-                    throw new InvalidOperationException();
-                }
-            }
-        }
-
-        public bool MoveNext()
-        {
-            _position++;
-            return _position < _games.Count;
-        }
-
-        public void Reset()
-        {
-            _position = -1;
-        }
-
-        public void Add(Game item)
-        {
-            _games.Add(item);
-        }
-
-        public void Clear()
-        {
-            _games.Clear();
-        }
-
-        public bool Contains(Game item)
-        {
-            try
-            {
-                return _games.Contains(item);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        public void CopyTo(Game[] array, int arrayIndex)
-        {
-            try
-            {
-                foreach (Game i in _games)
-                {
-                    array.SetValue(i, arrayIndex);
-                    arrayIndex++;
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        public int Count
-        {
-            get 
-            {
-                return _games.Count;
-            }
-        }
-
-        public bool IsReadOnly
-        {
-            get 
-            {
-                return false; 
-            }
-        }
-
-        public bool Remove(Game item)
-        {
-            return _games.Remove(item);
+            return _games.AsEnumerable().GetEnumerator();
         }
     }
 }

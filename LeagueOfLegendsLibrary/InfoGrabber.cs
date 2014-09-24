@@ -179,7 +179,7 @@ namespace LeagueOfLegendsLibrary
         /// <param name="id">id of the champion to look up</param>
         /// <remarks>Version 1.2</remarks>
         /// <returns></returns>
-        public Champion getChampion(string region, int id)
+        public Champion GetChampion(string region, int id)
         {
 
             Champion championCall = new Champion();
@@ -205,6 +205,33 @@ namespace LeagueOfLegendsLibrary
                 throw;
             }
             return staticChampionCall;
+        }
+
+        /// <summary>
+        /// Looks up the most recent match history of a summoner
+        /// </summary>
+        /// <param name="region">The region to check</param>
+        /// <param name="summonerID">Id of the summoner</param>
+        /// <remarks>Version 1.3</remarks>
+        /// <returns></returns>
+        public RecentGamesCollection GetRecentGames(string region, long summonerID)
+        {
+            RecentGamesCollection games = new RecentGamesCollection();
+
+            DataContractJsonSerializer jSerializer = new DataContractJsonSerializer(typeof(RecentGamesCollection));
+            WebClient webClient = new WebClient();
+
+            try
+            {
+                games = (RecentGamesCollection)jSerializer.ReadObject(webClient.OpenRead(String.Format("https://{0}.api.pvp.net/api/lol/{0}/v1.3/game/by-summoner/{1}/recent?api_key={2}", region, summonerID, LolInfo.APIKEY)));
+            }
+            catch
+            {
+                throw;
+            }
+
+
+            return games;
         }
     }
 }

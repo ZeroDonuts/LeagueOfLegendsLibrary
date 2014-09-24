@@ -36,28 +36,6 @@ namespace LeagueOfLegendsLibrary
             get { return _createDate; }
         }
 
-        [DataMember(Name = "createDateStr")]
-        private string _createDateStr;
-
-        /// <summary>
-        /// Human readable string representing date game was played.
-        /// </summary>
-        public string CreateDateStr
-        {
-            get { return _createDateStr; }
-        }
-
-        /// <summary>
-        /// Datetime object of the date game was played
-        /// </summary>
-        public DateTime CreateDateTime
-        {
-            get
-            {
-                return LolInfo.EpochToDateTime(_createDate);
-            }
-        }
-
         [DataMember(Name = "fellowPlayers")]
         private List<Player> _fellowPlayers;
 
@@ -79,6 +57,8 @@ namespace LeagueOfLegendsLibrary
         {
             get { return _gameId; }
         }
+
+
 
         [DataMember(Name = "gameMode")]
         private string _gameMode;
@@ -102,6 +82,8 @@ namespace LeagueOfLegendsLibrary
             get { return _gameType; }
         }
 
+
+
         [DataMember(Name = "invalid")]
         private bool _invalid;
 
@@ -112,6 +94,30 @@ namespace LeagueOfLegendsLibrary
         {
             get { return _invalid; }
         }
+
+        /// <summary>
+        /// Datetime object of the date game was played
+        /// </summary>
+        public DateTime CreateDateTime
+        {
+            get
+            {
+                return LolInfo.EpochToDateTime(_createDate);
+            }
+        }
+
+        [DataMember(Name = "ipEarned")]
+        private int _ipEarned;
+
+        public int IpEarned
+        {
+            get
+            {
+                return _ipEarned;
+            }
+        }
+        
+
 
         [DataMember(Name = "level")]
         private int _level;
