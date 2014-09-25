@@ -13,7 +13,7 @@ namespace LeagueTestApp
     public partial class Runes : Form
     {
         Summoner _summoner;
-        InfoGrabber grabber = new InfoGrabber();
+        InfoGrabber grabber = new InfoGrabber("na", LolInfo.APIKEY);
         RunePageCollection pages;
 
         public Runes(Summoner summoner, String region)

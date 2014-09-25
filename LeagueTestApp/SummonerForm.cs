@@ -28,7 +28,7 @@ namespace LeagueTestApp
 
         private void SummonerForm_Load(object sender, EventArgs e)
         {
-            info = new InfoGrabber();
+            info = new InfoGrabber("na", LolInfo.APIKEY);
             table = new DataTable();
             gamesPlayed = new RecentGamesCollection();
             champs = new ChampionCollection();
@@ -55,7 +55,7 @@ namespace LeagueTestApp
             MessageBox.Show(summoner.Name);//21014383
             summoner = info.LookupSummonerByID(regionComboBox.SelectedItem.ToString(), summoner.ID);
             gamesPlayed = summoner.GetRecentGames();
-            champs = info.GetChampions(regionComboBox.SelectedItem.ToString());
+            champs = info.GetChampions();
             PlayerStatsSummaryList sum = summoner.GetStatSummary(Season.SEASON3);
             int i = 0;
             foreach(Game game in gamesPlayed)

@@ -40,7 +40,7 @@ namespace LeagueTestApp
                 return;
             }
 
-            InfoGrabber g = new InfoGrabber();
+            InfoGrabber g = new InfoGrabber("na", LolInfo.APIKEY);
                 
             summoner = g.LookupSummonerByName(nameTextBox.Text, regionComboBox.SelectedItem.ToString());
 

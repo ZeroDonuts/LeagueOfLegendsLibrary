@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using LeagueOfLegendsLibrary;
 using System.Net;
 using LeagueOfLegendsLibrary.GameInfo;
+using LeagueOfLegendsLibrary.LeagueInfo;
 namespace LeagueTestApp
 {
     public partial class ApiKeyForm : Form
@@ -25,7 +26,7 @@ namespace LeagueTestApp
             //Dictionary<string, Summoner> summoners = new InfoGrabber().LookupSummonersByID("na", );
             try
             {
-                IDictionary<string, List<League>> leagueGroups = new InfoGrabber().GetLeague("na", 2);
+                //IDictionary<string, List<League>> leagueGroups = new InfoGrabber().GetLeague("na", 2);
                 //RecentGamesCollection games = new InfoGrabber().GetRecentGames("na", 2);
                 //LolInfo.ChampionCollection = new InfoGrabber().GetChampions("na"); //... this takes a crazy amount of time
 
