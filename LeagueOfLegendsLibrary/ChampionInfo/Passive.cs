@@ -12,6 +12,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "description")]
         private string _description;
 
+        /// <summary>
+        /// Gets the description of the passive
+        /// </summary>
         public string Description
         {
             get
@@ -23,6 +26,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "image")]
         private Image _image;
 
+        /// <summary>
+        /// Gets the image information of the passive
+        /// </summary>
         public Image Image
         {
             get
@@ -34,6 +40,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "name")]
         private string _name;
 
+        /// <summary>
+        /// Gets the name of the passive
+        /// </summary>
         public string Name
         {
             get

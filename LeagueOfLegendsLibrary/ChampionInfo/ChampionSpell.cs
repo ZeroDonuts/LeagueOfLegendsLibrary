@@ -6,12 +6,18 @@ using System.Runtime.Serialization;
 
 namespace LeagueOfLegendsLibrary.ChampionInfo
 {
+    /// <summary>
+    /// A class that represents the skills champions can have
+    /// </summary>
     [DataContract(Name="ChampionSpellDto")]
     public class ChampionSpell
     {
         [DataMember(Name = "altimages")]
         private List<Image> _altimages;
 
+        /// <summary>
+        /// Gets all the alternate images of the skill
+        /// </summary>
         public List<Image> Altimages
         {
             get
@@ -23,6 +29,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "cooldown")]
         private List<double> _coolDowns;
 
+        /// <summary>
+        /// Gets all the cooldowns of the skill
+        /// </summary>
         public List<double> CoolDowns
         {
             get
@@ -45,6 +54,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "cost")]
         private List<int> _costs;
 
+        /// <summary>
+        /// Gets the cost of the spell
+        /// </summary>
         public List<int> Costs
         {
             get
@@ -67,6 +79,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "costType")]
         private string _costType;
 
+        /// <summary>
+        /// Gets the cost type of the skill
+        /// </summary>
         public string CostType
         {
             get
@@ -78,6 +93,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "description")]
         private string _description;
 
+        /// <summary>
+        /// Gets the Description of the skill
+        /// </summary>
         public string Description
         {
             get
@@ -87,8 +105,12 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         }
 
         [DataMember(Name = "effect")]
-        private List<object> _effects; //the api description returns a List<object> but the summary say's it is a list of list of double
+        private List<object> _effects; 
 
+
+        /// <summary>
+        /// the api description returns a List<object> but the summary say's it is a list of list of double
+        /// </summary>
         public List<object> Effects
         {
             get
@@ -111,6 +133,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "image")]
         private Image _image;
 
+        /// <summary>
+        /// Gets the image information of the skill
+        /// </summary>
         public Image Image
         {
             get
@@ -122,6 +147,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "key")]
         private string _key;
 
+        /// <summary>
+        /// Gets the key of the skill
+        /// </summary>
         public string Key
         {
             get
@@ -133,6 +161,11 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "range")]
         private object _range;
 
+        /// <summary>
+        /// Gets the range of the skill
+        /// it will either be a list of double of all the ranges
+        /// or a string saying "Self"
+        /// </summary>
         public object Range
         {
             get
@@ -155,6 +188,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "resource")]
         private string _resource;
 
+        /// <summary>
+        /// Gets the resource of the skill
+        /// </summary>
         public string Resource
         {
             get
@@ -177,6 +213,7 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "sanitizedTooltip")]
         private string _sanitizedToolTip;
 
+        
         public string SanitizedToolTip
         {
             get
@@ -188,6 +225,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "tooltip")]
         private string _toolTip;
 
+        /// <summary>
+        /// Gets the tool tip of the skill
+        /// </summary>
         public string ToolTip
         {
             get

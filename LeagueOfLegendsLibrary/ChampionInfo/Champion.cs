@@ -8,12 +8,18 @@ using System.Runtime.Serialization;
 namespace LeagueOfLegendsLibrary.ChampionInfo
 {
     
+    /// <summary>
+    /// A class that represents a champion object.
+    /// </summary>
     [DataContract(Name="ChampionDto")]
     public class Champion
     {
         [DataMember(Name = "active")]
         private bool _active;
 
+        /// <summary>
+        /// Gets whether the champion is currently active in the game
+        /// </summary>
         public bool Active
         {
             get
@@ -26,10 +32,13 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
             }
         }
 
-
+        
         [DataMember(Name = "botEnabled")]
         private bool _botEnabled;
-        
+
+        /// <summary>
+        /// Gets whether the champion is available in bot games
+        /// </summary>
         public bool BotEnabled
         {
             get
@@ -43,9 +52,13 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         }
 
 
+        
         [DataMember(Name = "botMmEnabled")]
         private bool _botMmEnabled;
-       
+
+        /// <summary>
+        /// Gets whether the champion is available in bot match making games
+        /// </summary>
         public bool BotMmEnabled
         {
             get 
@@ -62,6 +75,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "freeToPlay")]
         private bool _freeToPlay;
         
+        /// <summary>
+        /// Gets whether the champion is currently free to play
+        /// </summary>
         public bool FreeToPlay
         {
             get 
@@ -77,6 +93,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "id")]
         private int _id;
         
+        /// <summary>
+        /// Gets the internal id of the champion
+        /// </summary>
         public int Id
         {
             get
@@ -88,6 +107,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "name")]
         private string _name;
         
+        /// <summary>
+        /// Gets the name of the champion
+        /// </summary>
         public string Name
         {
             get 
@@ -99,6 +121,10 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "rankedPlayEnabled")]
         private bool _rankedPlayEnabled;
         
+
+        /// <summary>
+        /// Gets whether the champion is available for rank play
+        /// </summary>
         public bool RankedPlayEnabled
         {
             get 
@@ -114,6 +140,10 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "allytips")]
         private List<string> _allyTips;
 
+        /// <summary>
+        /// Gets all tips for playing with the champion as an ally
+        /// </summary>
+        /// <returns></returns>
         public string[] GetAllyTips()
         {
             return _allyTips.ToArray<string>();
@@ -122,6 +152,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "blurb")]
         private string _blurb;
 
+        /// <summary>
+        /// Gets the blurb of the champion
+        /// </summary>
         public string Blurb
         {
             get
@@ -133,6 +166,10 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "enemytips")]
         private List<string> _enemyTips;
 
+        /// <summary>
+        /// Gets all tips for the champion as the enemy
+        /// </summary>
+        /// <returns></returns>
         public string[] GetEnemyTips()
         {
             return _enemyTips.ToArray<string>();
@@ -142,6 +179,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name="image")]
         private Image _image;
 
+        /// <summary>
+        /// Gets image information of the champion
+        /// </summary>
         public Image Image
         {
             get
@@ -153,6 +193,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name="info")]
         private Info _info;
 
+        /// <summary>
+        /// Gets basic status information of the champion
+        /// </summary>
         public Info Info
         {
             get
@@ -175,6 +218,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "lore")]
         private string _lore;
 
+        /// <summary>
+        /// Gets the lore of the champion
+        /// </summary>
         public string Lore
         {
             get
@@ -197,6 +243,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "passive")]
         private Passive _passive;
 
+        /// <summary>
+        /// Gets the passive information of the champion
+        /// </summary>
         public Passive Passive
         {
             get
@@ -216,6 +265,10 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "skins")]
         private List<Skin> _skins;
 
+        /// <summary>
+        /// Gets all the skins for the champion
+        /// </summary>
+        /// <returns></returns>
         public Skin[] GetSkins()
         {
             return _skins.ToArray<Skin>();
@@ -224,6 +277,10 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "spells")]
         private List<ChampionSpell> _spells;
 
+        /// <summary>
+        /// Gets all the skills for the champion
+        /// </summary>
+        /// <returns></returns>
         public ChampionSpell[] GetSpells()
         {
             return _spells.ToArray<ChampionSpell>();
@@ -232,6 +289,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "stats")]
         private Stats _stats;
 
+        /// <summary>
+        /// Gets all the detailed stats of the champion
+        /// </summary>
         public Stats Stats
         {
             get
@@ -251,6 +311,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "title")]
         private string _title;
 
+        /// <summary>
+        /// Gets the title of the champion
+        /// </summary>
         public string Title
         {
             get
