@@ -12,6 +12,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "count")]
         private int _count;
 
+        /// <summary>
+        /// Count of the block
+        /// </summary>
         public int Count
         {
             get
@@ -23,6 +26,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "id")]
         private int _id;
 
+        /// <summary>
+        /// Id of the block
+        /// </summary>
         public int Id
         {
             get

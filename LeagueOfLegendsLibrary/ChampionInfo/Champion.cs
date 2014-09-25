@@ -255,11 +255,15 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         }
 
         [DataMember(Name = "recommended")]
-        private List<Recommend> _recommends;
+        private List<RecommendedItems> _recommendedItems;
 
-        public Recommend[] GetRecommendedList()
+        /// <summary>
+        /// Gets the recommended items for the champion
+        /// </summary>
+        /// <returns></returns>
+        public RecommendedItems[] GetRecommendedItemList()
         {
-            return _recommends.ToArray<Recommend>();
+            return _recommendedItems.ToArray<RecommendedItems>();
         }
 
         [DataMember(Name = "skins")]

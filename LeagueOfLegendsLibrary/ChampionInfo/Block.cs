@@ -12,6 +12,11 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "items")]
         private List<BlockItem> _blockItems;
 
+        /// <summary>
+        /// Gets a blockitem from the specified index
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public BlockItem this[int index]
         {
             get 
@@ -20,6 +25,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
             }
         }
 
+        /// <summary>
+        /// Gets how many BlockItems in the collection
+        /// </summary>
         public int Count
         {
             get
@@ -43,6 +51,9 @@ namespace LeagueOfLegendsLibrary.ChampionInfo
         [DataMember(Name = "type")]
         private string _type;
 
+        /// <summary>
+        /// Gets the type of the block
+        /// </summary>
         public string Type
         {
             get
