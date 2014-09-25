@@ -23,12 +23,15 @@ namespace LeagueTestApp
         {
             LolInfo.APIKEY = apiKeyTextBox.Text;
 
+            InfoGrabber grabber = new InfoGrabber("na", LolInfo.APIKEY);
+
+
             //Dictionary<string, Summoner> summoners = new InfoGrabber().LookupSummonersByID("na", );
             try
             {
                 //IDictionary<string, List<League>> leagueGroups = new InfoGrabber().GetLeague("na", 2);
                 //RecentGamesCollection games = new InfoGrabber().GetRecentGames("na", 2);
-                //LolInfo.ChampionCollection = new InfoGrabber().GetChampions("na"); //... this takes a crazy amount of time
+                LolInfo.ChampionCollection = grabber.GetChampions();
 
                 this.Close();
             }

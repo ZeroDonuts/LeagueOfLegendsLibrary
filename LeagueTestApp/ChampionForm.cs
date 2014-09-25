@@ -30,30 +30,39 @@ namespace LeagueTestApp
             DataTable table = new DataTable();
             table.Columns.Add("ID");
             table.Columns.Add("Name");
-            table.Columns.Add("Bot");
-            //table.Columns.Add("Attack");
-            //table.Columns.Add("Magic");
-            //table.Columns.Add("Defense");
-            //table.Columns.Add("Difficulty");
-
+            table.Columns.Add("Lore");
+            table.Columns.Add("Blurb");
+            
             ChampionCollection champions = LolInfo.ChampionCollection;
-            int i = 0;
+            
             foreach (Champion champion in champions)
             {
                 DataRow row = table.NewRow();
-
+           
                 row["ID"] = champion.Id;
                 row["Name"] = champion.Name;
-                row["Bot"] = champion.BotEnabled;
-                //row["Attack"] = champion.AttackRank;
-                //row["Magic"] = champion.MagicRank;
-                //row["Defense"] = champion.DefenseRank;
-                //row["Difficulty"] = champion.DifficultyRank;
+                row["Lore"] = champion.Lore.Replace("<br>", "\n");
+                row["Blurb"] = champion.Blurb;
+               
+                
                 table.Rows.Add(row);
             }
 
             championDataGridView.DataSource = table;
+            championDataGridView.Columns["Lore"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            championDataGridView.Columns["Lore"].Width = 600;
+            championDataGridView.AutoResizeRows();
+
+            championDataGridView.Columns["Blurb"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            championDataGridView.Columns["Blurb"].Width = 600;
+            championDataGridView.AutoResizeRows();
+
+
+            championDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
         }
+
+
 
         private void championDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
