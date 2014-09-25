@@ -59,6 +59,11 @@
     <Compile Include="Game\RawStats.cs" />
     <Compile Include="Game\RecentGamesCollection.cs" />
     <Compile Include="InfoGrabber.cs" />
+    <Compile Include="Items\BasicData.cs" />
+    <Compile Include="Items\Group.cs" />
+    <Compile Include="Items\Item.cs" />
+    <Compile Include="Items\ItemList.cs" />
+    <Compile Include="Items\ItemTree.cs" />
     <Compile Include="League\League.cs" />
     <Compile Include="League\LeagueGroups.cs" />
     <Compile Include="League\LeagueItem.cs" />

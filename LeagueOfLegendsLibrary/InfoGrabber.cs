@@ -15,6 +15,15 @@ namespace LeagueOfLegendsLibrary
 {
     public class InfoGrabber
     {
+        private string _region;
+        private string _apiKey;
+
+        public InfoGrabber(string region, string apiKey)
+        {
+            _region = region;
+            _apiKey = apiKey;
+        }
+
 
         /// <summary>
         /// Looks up the specified summoner in the specified region and returns that summoner
@@ -138,7 +147,7 @@ namespace LeagueOfLegendsLibrary
         /// <param name="region">The region to check</param>
         /// <remarks>Version 1.2</remarks>
         /// <returns></returns>
-        public ChampionCollection GetChampions(string region)
+        public ChampionCollection GetChampions()
         {
             DataContractJsonSerializerSettings settings = new DataContractJsonSerializerSettings();
             settings.UseSimpleDictionaryFormat = true;
@@ -150,7 +159,7 @@ namespace LeagueOfLegendsLibrary
             try
             {
 
-                champCollectionCall = (ChampionCollection)jSerializer.ReadObject(webClient.OpenRead(String.Format("https://{0}.api.pvp.net/api/lol/{0}/v1.2/champion?api_key={1}", region, LolInfo.APIKEY)));
+                champCollectionCall = (ChampionCollection)jSerializer.ReadObject(webClient.OpenRead(String.Format("https://{0}.api.pvp.net/api/lol/{0}/v1.2/champion?api_key={1}", _region, _apiKey)));
                 staticChampCollectionCall = (ChampionCollection)jSerializer.ReadObject(webClient.OpenRead(String.Format("https://{0}.api.pvp.net/api/lol/static-data/{0}/v1.2/champion?champData=all&api_key={1}", region, LolInfo.APIKEY)));
 
 
@@ -178,10 +187,10 @@ namespace LeagueOfLegendsLibrary
         /// Looks up a champion with the specified id.
         /// </summary>
         /// <param name="region">The region to check</param>
-        /// <param name="id">id of the champion to look up</param>
+        /// <param name="championId">id of the champion to look up</param>
         /// <remarks>Version 1.2</remarks>
         /// <returns></returns>
-        public Champion GetChampion(string region, int id)
+        public Champion GetChampion(int championId)
         {
 
             Champion championCall = new Champion();
@@ -191,8 +200,8 @@ namespace LeagueOfLegendsLibrary
             WebClient webClient = new WebClient();
             try
             {
-                championCall = (Champion)jSerializer.ReadObject(webClient.OpenRead(String.Format("https://{0}.api.pvp.net/api/lol/{0}/v1.2/champion/{1}?api_key={2}", region, id, LolInfo.APIKEY)));
-                staticChampionCall = (Champion)jSerializer.ReadObject(webClient.OpenRead(string.Format("https://{0}.api.pvp.net/api/lol/static-data/{0}/v1.2/champion/{1}?champData=all&api_key={2}", region, id, LolInfo.APIKEY)));
+                championCall = (Champion)jSerializer.ReadObject(webClient.OpenRead(String.Format("https://{0}.api.pvp.net/api/lol/{0}/v1.2/champion/{1}?api_key={2}", _region, championId, _apiKey)));
+                staticChampionCall = (Champion)jSerializer.ReadObject(webClient.OpenRead(string.Format("https://{0}.api.pvp.net/api/lol/static-data/{0}/v1.2/champion/{1}?champData=all&api_key={2}", _region, championId, _apiKey)));
 
                 staticChampionCall.Active = championCall.Active;
                 staticChampionCall.BotEnabled = championCall.BotEnabled;
@@ -216,7 +225,7 @@ namespace LeagueOfLegendsLibrary
         /// <param name="summonerID">Id of the summoner</param>
         /// <remarks>Version 1.3</remarks>
         /// <returns></returns>
-        public RecentGamesCollection GetRecentGames(string region, long summonerID)
+        public RecentGamesCollection GetRecentGames(long summonerID)
         {
             RecentGamesCollection games = new RecentGamesCollection();
 
@@ -225,7 +234,7 @@ namespace LeagueOfLegendsLibrary
 
             try
             {
-                games = (RecentGamesCollection)jSerializer.ReadObject(webClient.OpenRead(String.Format("https://{0}.api.pvp.net/api/lol/{0}/v1.3/game/by-summoner/{1}/recent?api_key={2}", region, summonerID, LolInfo.APIKEY)));
+                games = (RecentGamesCollection)jSerializer.ReadObject(webClient.OpenRead(String.Format("https://{0}.api.pvp.net/api/lol/{0}/v1.3/game/by-summoner/{1}/recent?api_key={2}", _region, summonerID, _apiKey)));
             }
             catch
             {
@@ -244,7 +253,7 @@ namespace LeagueOfLegendsLibrary
         /// <param name="summonerIds">summoners to find</param>
         /// <remarks>Version 2.5</remarks>
         /// <returns></returns>
-        public LeagueGroups GetLeague(string region, params long[] summonerIds)
+        public LeagueGroups GetLeague(params long[] summonerIds)
         {
             LeagueGroups leagueGroups = new LeagueGroups();
 
@@ -267,7 +276,7 @@ namespace LeagueOfLegendsLibrary
 
             try
             {
-                leagueGroups = (LeagueGroups)jSerializer.ReadObject(webClient.OpenRead(String.Format("https://{0}.api.pvp.net/api/lol/{0}/v2.5/league/by-summoner/{1}/entry?api_key={2}", region, ids, LolInfo.APIKEY)));
+                leagueGroups = (LeagueGroups)jSerializer.ReadObject(webClient.OpenRead(String.Format("https://{0}.api.pvp.net/api/lol/{0}/v2.5/league/by-summoner/{1}/entry?api_key={2}", _region, ids, _apiKey)));
             }
             catch
             {
