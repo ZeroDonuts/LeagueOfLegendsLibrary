@@ -382,6 +382,346 @@ namespace LeagueOfLegendsLibrary.Items
             }
         }
         //still need to do everything with an "r" in front of it. 
+        [DataMember(Name = "rFlatArmorModPerLevel")]
+        private double _rFlatArmorModPerLevel;
+
+        public double FlatArmorModPerLevel
+        {
+            get
+            {
+                return _rFlatArmorModPerLevel;
+            }
+        }
+
+        [DataMember(Name = "rFlatArmorPenetrationMod")]
+        private double _rFlatArmorPenetrationMod;
+
+        public double FlatArmorPenetrationMod
+        {
+            get
+            {
+                return _rFlatArmorPenetrationMod;
+            }
+        }
+
+        [DataMember(Name = "rFlatArmorPenetrationModPerLevel")]
+        private double _rFlatArmorPenetrationModPerLevel;
+
+        public double FlatArmorPenetrationModPerLevel
+        {
+            get
+            {
+                return _rFlatArmorPenetrationModPerLevel;
+            }
+        }
+
+        [DataMember(Name = "rFlatCritChanceModPerLevel")]
+        private double _rFlatCritChanceModPerLevel;
+
+        public double FlatCritChanceModPerLevel
+        {
+            get
+            {
+                return _rFlatCritChanceModPerLevel;
+            }
+        }
+
+        [DataMember(Name = "rFlatCritDamageModPerLevel")]
+        private double _rFlatCritDamageModPerLevel;
+
+        public double FlatCritDamageModPerLevel
+        {
+            get
+            {
+                return _rFlatCritDamageModPerLevel;
+            }
+        }
+
+        [DataMember(Name = "rFlatDodgeMod")]
+        private double _rFlatDodgeMod;
+
+        public double FlatDodgeMod
+        {
+            get
+            {
+                return _rFlatDodgeMod;
+            }
+        }
+
+        [DataMember(Name = "rFlatDodgeModPerLevel")]
+        private double _rFlatDodgeModPerLevel;
+
+        public double FlatDodgeModPerLevel
+        {
+            get
+            {
+                return _rFlatDodgeModPerLevel;
+            }
+        }
+
+        [DataMember(Name = "rFlatEnergyModPerLevel")]
+        private double _rFlatEnergyModPerLevel;
+
+        public double FlatEnergyModPerLevel
+        {
+            get
+            {
+                return _rFlatEnergyModPerLevel;
+            }
+        }
+
+        [DataMember(Name = "rFlatEnergyRegenModPerLevel")]
+        private double _rFlatEnergyRegenModPerLevel;
+
+        public double FlatEnergyRegenModPerLevel
+        {
+            get
+            {
+                return _rFlatEnergyRegenModPerLevel;
+            }
+        }
+
+        [DataMember(Name = "rFlatGoldPer10Mod")]
+        private double _rFlatGoldPer10Mod;
+
+        public double FlatGoldPer10Mod
+        {
+            get
+            {
+                return _rFlatGoldPer10Mod;
+            }
+        }
+
+        [DataMember(Name = "rFlatHPModPerLevel")]
+        private double _rFlatHPModPerLevel;
+
+        public double FlatHPModPerLevel
+        {
+            get
+            {
+                return _rFlatHPModPerLevel;
+            }
+        }
+
+        [DataMember(Name = "rFlatHPRegenModPerLevel")]
+        private double _rFlatHPRegenModPerLevel;
+
+        public double FlatHPRegenModPerLevel
+        {
+            get
+            {
+                return _rFlatHPRegenModPerLevel;
+            }
+        }
+
+        [DataMember(Name = "rFlatMPModPerLevel")]
+        private double _rFlatMPModPerLevel;
+
+        public double FlatMPModPerLevel
+        {
+            get
+            {
+                return _rFlatMPModPerLevel;
+            }
+        }
+        [DataMember(Name = "rFlatMPRegenModPerLevel")]
+        private double _rFlatMPRegenModPerLevel;
+
+        public double FlatMPRegenModPerLevel
+        {
+            get
+            {
+                return _rFlatMPRegenModPerLevel;
+            }
+        }
+
+        [DataMember(Name = "rFlatMagicPenetrationMod")]
+        private double _rFlatMagicPenetrationMod;
+
+        public double FlatMagicPenetrationMod
+        {
+            get
+            {
+                return _rFlatMagicPenetrationMod;
+            }
+        }
+
+        [DataMember(Name = "rFlatMagicPenetrationModPerLevel")]
+        private double _rFlatMagicPenetrationModPerLevel;
+
+        public double FlatMagicPenetrationModPerLevel
+        {
+            get
+            {
+                return _rFlatMagicPenetrationModPerLevel;
+            }
+        }
+
+        [DataMember(Name = "rFlatMovementSpeedModPerLevel")]
+        private double _rFlatMovementSpeedModPerLevel;
+
+        public double FlatMovementSpeedModPerLevel
+        {
+            get
+            {
+                return _rFlatMovementSpeedModPerLevel;
+            }
+        }
+
+        [DataMember(Name = "rFlatPhysicalDamageModPerLevel")]
+        private double _rFlatPhysicalDamageModPerLevel;
+
+        public double FlatPhysicalDamageModPerLevel
+        {
+            get
+            {
+                return _rFlatPhysicalDamageModPerLevel;
+            }
+        }
+
+        [DataMember(Name = "rFlatSpellBlockModPerLevel")]
+        private double _rFlatSpellBlockModPerLevel;
+
+        public double FlatSpellBlockModPerLevel
+        {
+            get
+            {
+                return _rFlatSpellBlockModPerLevel;
+            }
+        }
+
+        [DataMember(Name = "rFlatTimeDeadMod")]
+        private double _rFlatTimeDeadMod;
+
+        public double FlatTimeDeadMod
+        {
+            get
+            {
+                return _rFlatTimeDeadMod;
+            }
+        }
+
+        [DataMember(Name = "rFlatTimeDeadModPerLevel")]
+        private double _rFlatTimeDeadModPerLevel;
+
+        public double FlatTimeDeadModPerLevel
+        {
+            get
+            {
+                return _rFlatTimeDeadModPerLevel;
+            }
+        }
+
+        [DataMember(Name = "rPercentArmorPenetrationMod")]
+        private double _rPercentArmorPenetrationMod;
+
+        public double PercentArmorPenetrationMod
+        {
+            get
+            {
+                return _rPercentArmorPenetrationMod;
+            }
+        }
+
+        [DataMember(Name = "rPercentArmorPenetrationModPerLevel")]
+        private double _rPercentArmorPenetrationModPerLevel;
+
+        public double PercentArmorPenetrationModPerLevel
+        {
+            get
+            {
+                return _rPercentArmorPenetrationModPerLevel;
+            }
+        }
+
+        [DataMember(Name = "rPercentAttackSpeedModPerLevel")]
+        private double _rPercentAttackSpeedModPerLevel;
+
+        public double PercentAttackSpeedModPerLevel
+        {
+            get
+            {
+                return _rPercentAttackSpeedModPerLevel;
+            }
+        }
+
+        [DataMember(Name = "rPercentCooldownMod")]
+        private double _rPercentCooldownMod;
+
+        public double PercentCooldownMod
+        {
+            get
+            {
+                return _rPercentCooldownMod;
+            }
+        }
+
+        [DataMember(Name = "rPercentCooldownModPerLevel")]
+        private double _rPercentCooldownModPerLevel;
+
+        public double PercentCooldownModPerLevel
+        {
+            get
+            {
+                return _rPercentCooldownModPerLevel;
+            }
+        }
+
+        [DataMember(Name = "rPercentMagicPenetrationMod")]
+        private double _rPercentMagicPenetrationMod;
+
+        public double PercentMagicPenetrationMod
+        {
+            get
+            {
+                return _rPercentMagicPenetrationMod;
+            }
+        }
+
+        [DataMember(Name = "rPercentMagicPenetrationModPerLevel")]
+        private double _rPercentMagicPenetrationModPerLevel;
+
+        public double PercentMagicPenetrationModPerLevel
+        {
+            get
+            {
+                return _rPercentMagicPenetrationModPerLevel;
+            }
+        }
+
+        [DataMember(Name = "rPercentMovementSpeedModPerLevel")]
+        private double _rPercentMovementSpeedModPerLevel;
+
+        public double PercentMovementSpeedModPerLevel
+        {
+            get
+            {
+                return _rPercentMovementSpeedModPerLevel;
+            }
+        }
+
+        [DataMember(Name = "rPercentTimeDeadMod")]
+        private double _rPercentTimeDeadMod;
+
+        public double PercentTimeDeadMod
+        {
+            get
+            {
+                return _rPercentTimeDeadMod;
+            }
+        }
+
+        [DataMember(Name = "rPercentTimeDeadModPerLevel")]
+        private double _rPercentTimeDeadModPerLevel;
+
+        public double PercentTimeDeadModPerLevel
+        {
+            get
+            {
+                return _rPercentTimeDeadModPerLevel;
+            }
+        }
+
 
     }
 }

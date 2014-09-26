@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LeagueOfLegendsLibrary.ItemsInfo
+namespace LeagueOfLegendsLibrary
 {
     [DataContract(Name="BasicDataDto")]
     public class BasicData

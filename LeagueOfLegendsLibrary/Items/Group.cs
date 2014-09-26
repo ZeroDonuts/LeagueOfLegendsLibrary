@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LeagueOfLegendsLibrary.ItemsInfo
+namespace LeagueOfLegendsLibrary
 {
     [DataContract(Name="GroupDto")]
     public class Group

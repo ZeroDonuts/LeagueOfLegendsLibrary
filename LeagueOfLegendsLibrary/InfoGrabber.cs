@@ -142,6 +142,14 @@ namespace LeagueOfLegendsLibrary
             return stream;
         }
 
+        public ItemList GetItems()
+        {
+            DataContractJsonSerializer jSerializer = new DataContractJsonSerializer(typeof(ItemList));
+            WebClient webClient = new WebClient();
+            ItemList items = (ItemList)jSerializer.ReadObject(webClient.OpenRead(String.Format("https://na.api.pvp.net/api/lol/static-data/na/v1.2/item?locale={2}&itemListData=all&&api_key={1}", _region, _apiKey, "en_US")));
+            return items;
+        }
+
         /// <summary>
         /// Looks up all of the current League of Legends champions.        /// </summary>
         /// <param name="region">The region to check</param>

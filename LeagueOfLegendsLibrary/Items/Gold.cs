@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace LeagueOfLegendsLibrary
 {
     [DataContract(Name = "GoldDto")]
-    class Gold
+    public class Gold
     {
         [DataMember(Name = "base")]
         private int _base;

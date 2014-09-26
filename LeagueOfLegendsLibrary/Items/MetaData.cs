@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace LeagueOfLegendsLibrary
 {
     [DataContract(Name = "MetaDataDto")]
-    class MetaData
+    public class MetaData
     {
         [DataMember(Name = "colloq")]
         private bool _isRune;

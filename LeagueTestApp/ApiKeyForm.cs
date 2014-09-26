@@ -32,7 +32,7 @@ namespace LeagueTestApp
                 //IDictionary<string, List<League>> leagueGroups = new InfoGrabber().GetLeague("na", 2);
                 //RecentGamesCollection games = new InfoGrabber().GetRecentGames("na", 2);
                 LolInfo.ChampionCollection = grabber.GetChampions();
-
+                ItemList list = grabber.GetItems();
                 this.Close();
             }
             catch (WebException ex)
