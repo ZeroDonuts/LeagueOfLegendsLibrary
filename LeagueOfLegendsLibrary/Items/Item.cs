@@ -77,7 +77,16 @@ namespace LeagueOfLegendsLibrary.ItemsInfo
             }
         }
 
-        //gold
+        [DataMember(Name="gold")]
+        private Gold _gold;
+
+        public Gold Gold
+        {
+            get
+            {
+                return _gold;
+            }
+        }
 
         [DataMember(Name = "group")]
         private string _group;
@@ -178,6 +187,8 @@ namespace LeagueOfLegendsLibrary.ItemsInfo
             }
         }
 
+
+
         [DataMember(Name = "requiredChampion")]
         private string _requiredChampion;
 
@@ -189,7 +200,16 @@ namespace LeagueOfLegendsLibrary.ItemsInfo
             }
         }
 
-        //rune
+        [DataMember(Name = "rune")]
+        private MetaData _rune;
+
+        public MetaData Rune
+        {
+            get
+            {
+                return _rune;
+            }
+        }
 
         [DataMember(Name = "sanitizedDescription")]
         private string _sanitizedDescription;

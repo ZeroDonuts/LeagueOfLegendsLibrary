@@ -189,6 +189,8 @@ namespace LeagueOfLegendsLibrary.ItemsInfo
             }
         }
 
+        
+
         //rune
 
         [DataMember(Name = "sanitizedDescription")]
