@@ -9,48 +9,73 @@ namespace LeagueOfLegendsLibrary
     [DataContract(Name="RuneDto")]
     public class Rune
     {
-        [DataMember(Name = "description")]
+        [DataMember(Name="colloq")]
+        private string _colloq;
+
+        [DataMember(Name="consumeOnFull")]
+        private bool _consumeOnFull;
+
+        [DataMember(Name="consumed")]
+        private bool _consumed;
+
+        [DataMember(Name="depth")]
+        private int _depth;
+
+        [DataMember(Name="description")]
         private string _description;
 
-        /// <summary>
-        /// Rune description.
-        /// </summary>
-        public string description
-        {
-            get { return _description; }
-        }
+        [DataMember(Name="from")]
+        private List<string> _from;
 
-        [DataMember(Name = "id")]
+        [DataMember(Name="group")]
+        private string _group;
+
+        [DataMember(Name="hideFromAll")]
+        private bool _hideFromAll;
+
+        [DataMember(Name="id")]
         private int _id;
 
-        /// <summary>
-        /// Rune ID.
-        /// </summary>
-        public int id
-        {
-            get { return _id; }
-        }
+        [DataMember(Name="image")]
+        private Image _image;
 
-        [DataMember(Name = "name")]
+        [DataMember(Name="inStore")]
+        private bool _inStore;
+
+        [DataMember(Name="into")]
+        private List<string> _into;
+
+        [DataMember(Name="maps")]
+        private Dictionary<string, bool> _maps;
+
+        [DataMember(Name="name")]
         private string _name;
 
-        /// <summary>
-        /// Rune name.
-        /// </summary>
-        public string name
-        {
-            get { return _name; }
-        }
+        [DataMember(Name="plaintext")]
+        private string _plainText;
 
-        [DataMember(Name = "tier")]
-        private int _tier;
+        [DataMember(Name="requiredChampion")]
+        private string _requiredChampion;
 
-        /// <summary>
-        /// Rune tier.
-        /// </summary>
-        public int tier
-        {
-            get { return _tier; }
-        }
+
+        //rune - metadatadto
+
+        [DataMember(Name="sanitizedDescription")]
+        private string _sanitizedDescription;
+
+
+        [DataMember(Name="specialRecipe")]
+        private int _specialRecipe;
+
+
+        [DataMember(Name="stacks")]
+        private int _stacks;
+
+        //stats - basicdatastasdto
+
+        [DataMember(Name="tags")]
+        private List<string> _tags;
+
+
     }
 }

@@ -76,10 +76,10 @@
     <Compile Include="Masteries\MasteryPageCollection.cs" />
     <Compile Include="Masteries\Talent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Runes\MetaData.cs" />
     <Compile Include="Runes\Rune.cs" />
     <Compile Include="Runes\RunePage.cs" />
     <Compile Include="Runes\RunePageCollection.cs" />
-    <Compile Include="Runes\RuneSlot.cs" />
     <Compile Include="Stats\AggregatedStats.cs" />
     <Compile Include="Stats\PlayerStatsSummary.cs" />
     <Compile Include="Stats\PlayerStatsSummaryList.cs" />

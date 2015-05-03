@@ -9,159 +9,104 @@ using System.Runtime.Serialization;
 namespace LeagueOfLegendsLibrary
 {
     [DataContract(Name="RunePagesDto")]
-    public class RunePageCollection : ICollection<RunePage>, IEnumerator<RunePage>
+    public class RunePageCollection : ICollection<Rune>
     {
-        [DataMember(Name = "pages")]
-        private List<RunePage> _pages;
+        [DataMember(Name="basic")]
+        private BasicData _basic;
 
-        /// <summary>
-        /// Set of rune pages associated with the summoner.
-        /// </summary>
-        [Obsolete("Please use indexer instead")]
-        public List<RunePage> pages
+        [DataMember(Name="data")]
+        private Dictionary<string, Rune> _data;
+
+        [DataMember(Name="type")]
+        private string _type;
+
+        [DataMember(Name="version")]
+        private string _version;
+
+        public Rune this[string index]
         {
-            get { return _pages; }
+            get 
+            {
+                return _data[index];
+            }
         }
 
-        [DataMember(Name = "summonerId")]
-        private long _summonerId;
-
-        /// <summary>
-        /// Summoner ID.
-        /// </summary>
-        public long summonerId
-        {
-            get { return _summonerId; }
-        }
-
-        private int _position = -1;
-
-        public IEnumerator<RunePage> GetEnumerator()
-        {
-            return this;
-        }
-
-        /// <summary>
-        /// Gets the rune page of the specified index
-        /// </summary>
-        /// <param name="index">index of the page</param>
-        /// <returns>page of the index</returns>
-        public RunePage this[int index]
+        public BasicData Basic
         {
             get
             {
-                return _pages[index];
+                return _basic;
             }
         }
 
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        public string Type
         {
-            return this;
-        }
-
-        public RunePage Current
-        {
-            get 
+            get
             {
-                try
-                {
-                    return _pages[_position];
-                }
-                catch
-                {
-                    throw new InvalidOperationException();
-                }
+                return _type;
             }
         }
 
-        public void Dispose()
+        public string Version
         {
-            Reset();
-        }
-
-        object System.Collections.IEnumerator.Current
-        {
-            get 
+            get
             {
-                try
-                {
-                    return _pages[_position];
-                }
-                catch
-                {
-                    throw new InvalidOperationException();
-                }
+                return _version;
             }
         }
 
-        public bool MoveNext()
+
+
+
+        void ICollection<Rune>.Add(Rune item)
         {
-            _position++;
-            return _position < _pages.Count();
+            _data.Add(item.name, item);
         }
 
-        public void Reset()
+        void ICollection<Rune>.Clear()
         {
-            _position = -1;
+            _data.Clear();
         }
 
-        public void Add(RunePage item)
+        public bool Contains(Rune item)
         {
-            _pages.Add(item);
+            return _data.ContainsValue(item) || _data.ContainsKey(item.name);
         }
 
-        public void Clear()
+        void ICollection<Rune>.CopyTo(Rune[] array, int arrayIndex)
         {
-            _pages.Clear();
-        }
-
-        public bool Contains(RunePage item)
-        {
-            try
-            {
-                return _pages.Contains(item);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        public void CopyTo(RunePage[] array, int arrayIndex)
-        {
-            try
-            {
-                foreach (RunePage i in _pages)
-                {
-                    array.SetValue(i, arrayIndex);
-                    arrayIndex++;
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            _data.Values.CopyTo(array, arrayIndex);
         }
 
         public int Count
         {
             get 
             {
-                return _pages.Count; 
+                return _data.Count;
             }
         }
 
-        public bool IsReadOnly
+        bool ICollection<Rune>.IsReadOnly
         {
             get 
-            { 
-                throw new NotImplementedException(); 
+            {
+                return true;
             }
         }
 
-        public bool Remove(RunePage item)
+        bool ICollection<Rune>.Remove(Rune item)
         {
-            return _pages.Remove(item);
+            return _data.Remove(item.name);
+        }
+
+        public IEnumerator<Rune> GetEnumerator()
+        {
+            return _data.Values.GetEnumerator();
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return _data.Values.AsEnumerable().GetEnumerator();
         }
     }
 }
